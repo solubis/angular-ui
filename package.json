@@ -1,7 +1,7 @@
 {
   "name": "solubis-ui",
   "version": "0.0.1",
-  "registry": "npm",
+  "registry": "github",
   "description": "Solubis UI",
   "repository": {
     "url": "https://github.com/solubis/ui"
