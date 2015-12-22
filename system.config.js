@@ -15,6 +15,7 @@ System.config({
     "angular-ui-router": "github:angular-ui/ui-router@0.2.15",
     "animate.css": "npm:animate.css@3.4.0",
     "bootstrap": "github:twbs/bootstrap@3.3.6",
+    "bootstrap-growl": "npm:bootstrap-growl@3.1.3",
     "bootstrap-sweetalert": "npm:bootstrap-sweetalert@0.4.2",
     "easy-pie-chart": "github:rendro/easy-pie-chart@2.1.6",
     "jquery": "github:components/jquery@2.1.4",

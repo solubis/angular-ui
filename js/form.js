@@ -1,4 +1,4 @@
-materialAdmin 
+angular.module('angular-ui') 
 
     // =========================================================================
     // INPUT FEILDS MODIFICATION
