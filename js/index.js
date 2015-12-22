@@ -11,16 +11,19 @@ import 'angular-ui-router';
 import 'angular-ui-bootstrap';
 import 'angular-loading-bar';
 
-import malihu from 'malihu-custom-scrollbar-plugin';
-
 import 'bootstrap-sweetalert/lib/sweet-alert.js';
 import 'bootstrap-growl';
-import 'node-waves';
 
 import './module';
-import './template';
+import './templates';
 import './ui';
 import './form';
 import './components';
 import './calendar';
+
+import malihu from 'malihu-custom-scrollbar-plugin';
+import Waves from 'node-waves';
+
+malihu($)
+window.Waves = Waves;
 
