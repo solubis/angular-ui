@@ -1,10 +1,10 @@
 {
-    "name": "solubis-ui",
+    "name": "angular-ui",
     "version": "0.0.1",
     "registry": "github",
     "description": "Solubis UI",
     "repository": {
-        "url": "https://github.com/solubis/ui"
+        "url": "https://github.com/solubis/angular-ui"
     },
     "license": "Unlicense",
     "main": "js/index.js",
