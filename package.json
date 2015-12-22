@@ -1,0 +1,49 @@
+{
+  "name": "solubis-ui",
+  "version": "0.0.1",
+  "registry": "npm",
+  "description": "Solubis UI",
+  "repository": {
+    "url": "https://github.com/solubis/ui"
+  },
+  "license": "Unlicense",
+  "main": "js/index.js",
+  "scripts": {
+    "style": "../bin/style-deps.sh"
+  },
+  "devDependencies": {
+    "jspm": "^0.16.19"
+  },
+  "jspm": {
+    "directories": {
+      "packages": "lib"
+    },
+    "configFile": "system.config.js",
+    "dependencies": {
+      "angular": "github:angular/bower-angular@^1.4.8",
+      "angular-animate": "github:angular/bower-angular-animate@^1.4.8",
+      "angular-loading-bar": "github:chieffancypants/angular-loading-bar@^0.8.0",
+      "angular-ui-bootstrap": "npm:angular-ui-bootstrap@^0.14.3",
+      "angular-ui-router": "github:angular-ui/ui-router@^0.2.15",
+      "animate.css": "npm:animate.css@^3.4.0",
+      "bootstrap": "github:twbs/bootstrap@^3.3.6",
+      "bootstrap-sweetalert": "npm:bootstrap-sweetalert@^0.4.2",
+      "easy-pie-chart": "github:rendro/easy-pie-chart@^2.1.6",
+      "jquery": "github:components/jquery@^2.1.4",
+      "malihu-custom-scrollbar-plugin": "npm:malihu-custom-scrollbar-plugin@^3.1.3",
+      "material-design-iconic-font": "npm:material-design-iconic-font@^2.2.0",
+      "material-shadows": "github:mrmlnc/material-shadows@^2.0.2",
+      "node-waves": "npm:node-waves@^0.7.4"
+    },
+    "devDependencies": {
+      "typescript": "npm:typescript@^1.6.2"
+    }
+  },
+  "styleDependencies": {
+    "output": "less/vendors.less",
+    "dependencies": [
+      "material-shadows/material-shadows",
+      "node-waves/src/less/waves"
+    ]
+  }
+}
