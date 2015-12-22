@@ -1,1 +1,1 @@
-Typescript project template
+# angular-ui
