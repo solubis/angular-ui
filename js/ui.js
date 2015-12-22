@@ -1,4 +1,6 @@
-materialAdmin
+/* global Waves */
+
+angular.module('angular-ui') 
 
     // =========================================================================
     // MALIHU SCROLL

@@ -11,16 +11,16 @@ import 'angular-ui-router';
 import 'angular-ui-bootstrap';
 import 'angular-loading-bar';
 
-import 'malihu-custom-scrollbar-plugin';
-import 'bootstrap-sweetalert';
+import malihu from 'malihu-custom-scrollbar-plugin';
+
+import 'bootstrap-sweetalert/lib/sweet-alert.js';
 import 'bootstrap-growl';
 import 'node-waves';
 
+import './module';
 import './template';
 import './ui';
 import './form';
 import './components';
 import './calendar';
-
-angular.module('angular-ui', ['ui.router', 'ui.bootstrap']);
 

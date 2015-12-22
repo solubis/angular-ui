@@ -1,32 +1,32 @@
-materialAdmin
+angular.module('angular-ui') 
 
-    // =========================================================================
-    // MEDIA ELEMENT
-    // =========================================================================
+// =========================================================================
+// MEDIA ELEMENT
+// =========================================================================
     
-    .directive('mediaElement', function(){
+    .directive('mediaElement', function () {
         return {
             restrict: 'A',
-            link: function(scope, element) {
+            link: function (scope, element) {
                 element.mediaelementplayer();
             }
         }
-        
+
     })
 
 
-    // =========================================================================
-    // LIGHTBOX
-    // =========================================================================
+// =========================================================================
+// LIGHTBOX
+// =========================================================================
     
-    .directive('lightbox', function(){
+    .directive('lightbox', function () {
         return {
             restrict: 'C',
-            link: function(scope, element) {
+            link: function (scope, element) {
                 element.lightGallery({
                     enableTouch: true
-                }); 
+                });
             }
         }
-        
+
     })

@@ -18,10 +18,11 @@ System.config({
     "bootstrap-growl": "npm:bootstrap-growl@3.1.3",
     "bootstrap-sweetalert": "npm:bootstrap-sweetalert@0.4.2",
     "easy-pie-chart": "github:rendro/easy-pie-chart@2.1.6",
-    "jquery": "github:components/jquery@2.1.4",
+    "jquery": "npm:jquery@2.1.4",
     "malihu-custom-scrollbar-plugin": "npm:malihu-custom-scrollbar-plugin@3.1.3",
     "material-design-iconic-font": "npm:material-design-iconic-font@2.2.0",
     "material-shadows": "github:mrmlnc/material-shadows@2.0.2",
+    "ng-scrollbars": "npm:ng-scrollbars@0.0.5",
     "node-waves": "npm:node-waves@0.7.4",
     "typescript": "npm:typescript@1.7.5",
     "github:angular-ui/ui-router@0.2.15": {
@@ -58,8 +59,15 @@ System.config({
     "npm:inherits@2.0.1": {
       "util": "github:jspm/nodelibs-util@0.1.0"
     },
+    "npm:jquery@2.1.4": {
+      "process": "github:jspm/nodelibs-process@0.1.2"
+    },
     "npm:malihu-custom-scrollbar-plugin@3.1.3": {
       "jquery-mousewheel": "npm:jquery-mousewheel@3.1.13"
+    },
+    "npm:ng-scrollbars@0.0.5": {
+      "angular": "npm:angular@1.4.8",
+      "malihu-custom-scrollbar-plugin": "npm:malihu-custom-scrollbar-plugin@3.1.3"
     },
     "npm:node-waves@0.7.4": {
       "child_process": "github:jspm/nodelibs-child_process@0.1.0",

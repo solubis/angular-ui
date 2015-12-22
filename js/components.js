@@ -1,63 +1,63 @@
 angular.module('angular-ui')
 
-    // =========================================================================
-    // WEATHER WIDGET
-    // =========================================================================
+// =========================================================================
+// WEATHER WIDGET
+// =========================================================================
 
-    .directive('weatherWidget', function(){
+    .directive('weatherWidget', function () {
         return {
             restrict: 'A',
-            link: function(scope, element) {
+            link: function (scope, element) {
                 $.simpleWeather({
                     location: 'Austin, TX',
                     woeid: '',
                     unit: 'f',
-                    success: function(weather) {
-                        html = '<div class="weather-status">'+weather.temp+'&deg;'+weather.units.temp+'</div>';
-                        html += '<ul class="weather-info"><li>'+weather.city+', '+weather.region+'</li>';
-                        html += '<li class="currently">'+weather.currently+'</li></ul>';
-                        html += '<div class="weather-icon wi-'+weather.code+'"></div>';
+                    success: function (weather) {
+                        html = '<div class="weather-status">' + weather.temp + '&deg;' + weather.units.temp + '</div>';
+                        html += '<ul class="weather-info"><li>' + weather.city + ', ' + weather.region + '</li>';
+                        html += '<li class="currently">' + weather.currently + '</li></ul>';
+                        html += '<div class="weather-icon wi-' + weather.code + '"></div>';
                         html += '<div class="dash-widget-footer"><div class="weather-list tomorrow">';
-                        html += '<span class="weather-list-icon wi-'+weather.forecast[2].code+'"></span><span>'+weather.forecast[1].high+'/'+weather.forecast[1].low+'</span><span>'+weather.forecast[1].text+'</span>';
+                        html += '<span class="weather-list-icon wi-' + weather.forecast[2].code + '"></span><span>' + weather.forecast[1].high + '/' + weather.forecast[1].low + '</span><span>' + weather.forecast[1].text + '</span>';
                         html += '</div>';
                         html += '<div class="weather-list after-tomorrow">';
-                        html += '<span class="weather-list-icon wi-'+weather.forecast[2].code+'"></span><span>'+weather.forecast[2].high+'/'+weather.forecast[2].low+'</span><span>'+weather.forecast[2].text+'</span>';
+                        html += '<span class="weather-list-icon wi-' + weather.forecast[2].code + '"></span><span>' + weather.forecast[2].high + '/' + weather.forecast[2].low + '</span><span>' + weather.forecast[2].text + '</span>';
                         html += '</div></div>';
                         $("#weather-widget").html(html);
                     },
-                    error: function(error) {
-                        $("#weather-widget").html('<p>'+error+'</p>');
+                    error: function (error) {
+                        $("#weather-widget").html('<p>' + error + '</p>');
                     }
                 });
             }
         }
-        
+
     })
 
 
 
-    // =========================================================================
-    // SWEATALERT
-    // =========================================================================
+// =========================================================================
+// SWEATALERT
+// =========================================================================
 
-    //Basic
-    .directive('swalBasic', function(){
+//Basic
+    .directive('swalBasic', function () {
         return {
             restrict: 'A',
-            link: function(scope, element, attrs) {
-                element.click(function(){
+            link: function (scope, element, attrs) {
+                element.click(function () {
                     swal("Here's a message!");
                 });
             }
         }
     })
     
-    //A title with a text under
-    .directive('swalText', function(){
+//A title with a text under
+    .directive('swalText', function () {
         return {
             restrict: 'A',
-            link: function(scope, element, attrs) {
-                element.click(function(){
+            link: function (scope, element, attrs) {
+                element.click(function () {
                     swal("Here's a message!", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed lorem erat, tincidunt vitae ipsum et, pellentesque maximus enim. Mauris eleifend ex semper, lobortis purus sed, pharetra felis")
 
                 });
@@ -65,12 +65,12 @@ angular.module('angular-ui')
         }
     })
 
-    //Success Message
-    .directive('swalSuccess', function(){
+//Success Message
+    .directive('swalSuccess', function () {
         return {
             restrict: 'A',
-            link: function(scope, element, attrs) {
-                element.click(function(){
+            link: function (scope, element, attrs) {
+                element.click(function () {
                     swal("Good job!", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed lorem erat, tincidunt vitae ipsum et, pellentesque maximus enim. Mauris eleifend ex semper, lobortis purus sed, pharetra felis", "success")
 
                 });
@@ -78,83 +78,83 @@ angular.module('angular-ui')
         }
     })
 
-    //Warning Message
-    .directive('swalWarning', function(){
+//Warning Message
+    .directive('swalWarning', function () {
         return {
             restrict: 'A',
-            link: function(scope, element, attrs) {
-                element.click(function(){
-                    swal({   
-                        title: "Are you sure?",   
-                        text: "You will not be able to recover this imaginary file!",   
-                        type: "warning",   
-                        showCancelButton: true,   
-                        confirmButtonColor: "#DD6B55",   
-                        confirmButtonText: "Yes, delete it!",   
-                        closeOnConfirm: false 
-                    }, function(){   
-                        swal("Deleted!", "Your imaginary file has been deleted.", "success"); 
+            link: function (scope, element, attrs) {
+                element.click(function () {
+                    swal({
+                        title: "Are you sure?",
+                        text: "You will not be able to recover this imaginary file!",
+                        type: "warning",
+                        showCancelButton: true,
+                        confirmButtonColor: "#DD6B55",
+                        confirmButtonText: "Yes, delete it!",
+                        closeOnConfirm: false
+                    }, function () {
+                        swal("Deleted!", "Your imaginary file has been deleted.", "success");
                     });
                 });
             }
         }
     })
 
-    //Parameter
-    .directive('swalParams', function(){
+//Parameter
+    .directive('swalParams', function () {
         return {
             restrict: 'A',
-            link: function(scope, element, attrs) {
-                element.click(function(){
-                    swal({   
-                        title: "Are you sure?",   
-                        text: "You will not be able to recover this imaginary file!",   
-                        type: "warning",   
-                        showCancelButton: true,   
-                        confirmButtonColor: "#DD6B55",   
-                        confirmButtonText: "Yes, delete it!",   
-                        cancelButtonText: "No, cancel plx!",   
-                        closeOnConfirm: false,   
-                        closeOnCancel: false 
-                    }, function(isConfirm){   
-                        if (isConfirm) {     
-                            swal("Deleted!", "Your imaginary file has been deleted.", "success");   
-                        } else {     
-                            swal("Cancelled", "Your imaginary file is safe :)", "error");   
-                        } 
+            link: function (scope, element, attrs) {
+                element.click(function () {
+                    swal({
+                        title: "Are you sure?",
+                        text: "You will not be able to recover this imaginary file!",
+                        type: "warning",
+                        showCancelButton: true,
+                        confirmButtonColor: "#DD6B55",
+                        confirmButtonText: "Yes, delete it!",
+                        cancelButtonText: "No, cancel plx!",
+                        closeOnConfirm: false,
+                        closeOnCancel: false
+                    }, function (isConfirm) {
+                        if (isConfirm) {
+                            swal("Deleted!", "Your imaginary file has been deleted.", "success");
+                        } else {
+                            swal("Cancelled", "Your imaginary file is safe :)", "error");
+                        }
                     });
                 });
             }
         }
     })
 
-    //Custom Image
-    .directive('swalImg', function(){
+//Custom Image
+    .directive('swalImg', function () {
         return {
             restrict: 'A',
-            link: function(scope, element, attrs) {
-                element.click(function(){
-                    swal({   
-                        title: "Sweet!",   
-                        text: "Here's a custom image.",   
-                        imageUrl: "img/thumbs-up.png" 
+            link: function (scope, element, attrs) {
+                element.click(function () {
+                    swal({
+                        title: "Sweet!",
+                        text: "Here's a custom image.",
+                        imageUrl: "img/thumbs-up.png"
                     });
                 });
             }
         }
     })
             
-    //Auto Close Timer
-    .directive('swalTimer', function(){
+//Auto Close Timer
+    .directive('swalTimer', function () {
         return {
             restrict: 'A',
-            link: function(scope, element, attrs) {
-                element.click(function(){
-                     swal({   
-                        title: "Auto close alert!",   
-                        text: "I will close in 2 seconds.",   
-                        timer: 2000,   
-                        showConfirmButton: false 
+            link: function (scope, element, attrs) {
+                element.click(function () {
+                    swal({
+                        title: "Auto close alert!",
+                        text: "I will close in 2 seconds.",
+                        timer: 2000,
+                        showConfirmButton: false
                     });
                 });
             }
@@ -163,27 +163,27 @@ angular.module('angular-ui')
 
     
 
-    // =========================================================================
-    // GROWL
-    // =========================================================================
+// =========================================================================
+// GROWL
+// =========================================================================
 
-    .directive('growlDemo', function(){
+    .directive('growlDemo', function () {
         return {
             restrict: 'A',
-            link: function(scope, element, attrs) {
-                function notify(from, align, icon, type, animIn, animOut){
+            link: function (scope, element, attrs) {
+                function notify(from, align, icon, type, animIn, animOut) {
                     $.growl({
                         icon: icon,
                         title: ' Bootstrap Growl ',
                         message: 'Turning standard Bootstrap alerts into awesome notifications',
                         url: ''
-                    },{
+                    }, {
                             element: 'body',
                             type: type,
                             allow_dismiss: true,
                             placement: {
-                                    from: from,
-                                    align: align
+                                from: from,
+                                align: align
                             },
                             offset: {
                                 x: 20,
@@ -196,26 +196,26 @@ angular.module('angular-ui')
                             url_target: '_blank',
                             mouse_over: false,
                             animate: {
-                                    enter: animIn,
-                                    exit: animOut
+                                enter: animIn,
+                                exit: animOut
                             },
                             icon_type: 'class',
                             template: '<div data-growl="container" class="alert" role="alert">' +
-                                            '<button type="button" class="close" data-growl="dismiss">' +
-                                                '<span aria-hidden="true">&times;</span>' +
-                                                '<span class="sr-only">Close</span>' +
-                                            '</button>' +
-                                            '<span data-growl="icon"></span>' +
-                                            '<span data-growl="title"></span>' +
-                                            '<span data-growl="message"></span>' +
-                                            '<a href="#" data-growl="url"></a>' +
-                                        '</div>'
-                    });
+                            '<button type="button" class="close" data-growl="dismiss">' +
+                            '<span aria-hidden="true">&times;</span>' +
+                            '<span class="sr-only">Close</span>' +
+                            '</button>' +
+                            '<span data-growl="icon"></span>' +
+                            '<span data-growl="title"></span>' +
+                            '<span data-growl="message"></span>' +
+                            '<a href="#" data-growl="url"></a>' +
+                            '</div>'
+                        });
                 }
-                
-                element.on('click', function(e){
+
+                element.on('click', function (e) {
                     e.preventDefault();
-                    
+
                     var nFrom = attrs.from;
                     var nAlign = attrs.align;
                     var nIcons = attrs.icon;
@@ -224,11 +224,68 @@ angular.module('angular-ui')
                     var nAnimOut = attrs.animationOut;
 
                     notify(nFrom, nAlign, nIcons, nType, nAnimIn, nAnimOut);
-            
+
                 })
-                
-                
+
+
             }
         }
     })
+    
+    
+// =========================================================================
+// Malihu Scroll - Custom Scroll bars
+// =========================================================================
+    .factory('scrollService', function () {
+        var ss = {};
+        ss.malihuScroll = function scrollBar(selector, theme, mousewheelaxis) {
+            $(selector).mCustomScrollbar({
+                theme: theme,
+                scrollInertia: 100,
+                axis: 'yx',
+                mouseWheel: {
+                    enable: true,
+                    axis: mousewheelaxis,
+                    preventDefault: true
+                }
+            });
+        }
+
+        return ss;
+    })
+
+
+//==============================================
+// BOOTSTRAP GROWL
+//==============================================
+
+    .factory('growlService', function () {
+        var gs = {};
+        gs.growl = function (message, type) {
+            $.notify({
+                message: message
+            }, {
+                    type: type,
+                    allow_dismiss: false,
+                    label: 'Cancel',
+                    className: 'btn-xs btn-inverse',
+                    placement: {
+                        from: 'top',
+                        align: 'right'
+                    },
+                    delay: 2500,
+                    animate: {
+                        enter: 'animated bounceIn',
+                        exit: 'animated bounceOut'
+                    },
+                    offset: {
+                        x: 20,
+                        y: 85
+                    }
+                });
+        }
+
+        return gs;
+    })
+
 
