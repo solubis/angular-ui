@@ -15,6 +15,7 @@ System.config({
   map: {
     "angular": "github:angular/bower-angular@1.4.8",
     "angular-animate": "github:angular/bower-angular-animate@1.4.8",
+    "angular-chosen": "github:localytics/angular-chosen@1.0.7",
     "angular-loading-bar": "github:chieffancypants/angular-loading-bar@0.8.0",
     "angular-ui-bootstrap": "npm:angular-ui-bootstrap@0.14.3",
     "angular-ui-router": "github:angular-ui/ui-router@0.2.15",
@@ -24,6 +25,7 @@ System.config({
     "bootstrap": "github:twbs/bootstrap@3.3.6",
     "bootstrap-growl": "npm:bootstrap-growl@3.1.3",
     "bootstrap-sweetalert": "npm:bootstrap-sweetalert@0.4.2",
+    "chosen": "github:harvesthq/chosen@1.4.2",
     "clean-css": "npm:clean-css@3.4.8",
     "core-js": "npm:core-js@1.2.6",
     "css": "github:systemjs/plugin-css@0.1.20",
@@ -44,6 +46,9 @@ System.config({
     "github:chieffancypants/angular-loading-bar@0.8.0": {
       "angular": "github:angular/bower-angular@1.4.8",
       "css": "github:systemjs/plugin-css@0.1.20"
+    },
+    "github:harvesthq/chosen@1.4.2": {
+      "jquery": "github:components/jquery@2.1.4"
     },
     "github:jspm/nodelibs-assert@0.1.0": {
       "assert": "npm:assert@1.3.0"
