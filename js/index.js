@@ -5,15 +5,16 @@ import 'malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.css!';
 
 import 'jquery';
 import 'chosen';
-import 'autosize';
 import 'bootstrap-sweetalert/lib/sweet-alert.js';
 import 'bootstrap-growl';
 
 import malihu from 'malihu-custom-scrollbar-plugin';
 import Waves from 'node-waves';
+import autosize from 'autosize';
 
 malihu($)
 window.Waves = Waves;
+window.autosize = autosize;
 
 import 'angular';
 import 'angular-animate';
