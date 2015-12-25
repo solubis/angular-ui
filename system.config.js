@@ -20,6 +20,7 @@ System.config({
     "angular-ui-bootstrap": "npm:angular-ui-bootstrap@0.14.3",
     "angular-ui-router": "github:angular-ui/ui-router@0.2.15",
     "animate.css": "npm:animate.css@3.4.0",
+    "autosize": "github:jackmoore/autosize@3.0.14",
     "babel": "npm:babel-core@5.8.34",
     "babel-runtime": "npm:babel-runtime@5.8.34",
     "bootstrap": "github:twbs/bootstrap@3.3.6",

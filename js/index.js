@@ -5,6 +5,7 @@ import 'malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.css!';
 
 import 'jquery';
 import 'chosen';
+import 'autosize';
 import 'bootstrap-sweetalert/lib/sweet-alert.js';
 import 'bootstrap-growl';
 
