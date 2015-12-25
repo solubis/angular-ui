@@ -53,7 +53,7 @@
     "output": "less/vendors.less",
     "dependencies": [
       "material-shadows/material-shadows",
-      "node-waves/src/less/waves"
+      "node-waves/src/scss/waves"
     ]
   }
 }
