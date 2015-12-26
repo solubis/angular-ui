@@ -1,60 +1,71 @@
 {
-  "name": "angular-ui",
-  "version": "master",
-  "registry": "github",
-  "description": "Solubis UI",
-  "repository": {
-    "url": "https://github.com/solubis/angular-ui"
-  },
-  "license": "Unlicense",
-  "main": "./js/index.js",
-  "scripts": {
-    "postinstall": "jspm install; jspm link",
-    "style": "../bin/style-deps.sh"
-  },
-  "devDependencies": {
-    "jspm": "^0.16.19"
-  },
-  "jspm": {
-    "directories": {
-      "packages": "lib"
+    "name": "angular-ui",
+    "version": "master",
+    "registry": "github",
+    "description": "Solubis UI",
+    "repository": {
+        "url": "https://github.com/solubis/angular-ui"
     },
-    "configFile": "system.config.js",
-    "dependencies": {
-      "angular": "angular/bower-angular@^1.4.8",
-      "angular-animate": "angular/bower-angular-animate@^1.4.8",
-      "angular-chosen": "localytics/angular-chosen@^1.0.7",
-      "angular-loading-bar": "chieffancypants/angular-loading-bar@^0.8.0",
-      "angular-ui-bootstrap": "npm:angular-ui-bootstrap@^0.14.3",
-      "angular-ui-router": "angular-ui/ui-router@^0.2.15",
-      "animate.css": "npm:animate.css@^3.4.0",
-      "autosize": "jackmoore/autosize@^3.0.14",
-      "bootstrap": "twbs/bootstrap@^3.3.6",
-      "bootstrap-growl": "npm:bootstrap-growl@^3.1.3",
-      "bootstrap-sweetalert": "npm:bootstrap-sweetalert@^0.4.2",
-      "chosen": "harvesthq/chosen@^1.4.2",
-      "css": "systemjs/plugin-css@^0.1.20",
-      "easy-pie-chart": "rendro/easy-pie-chart@^2.1.6",
-      "jquery": "components/jquery@^2.1.4",
-      "malihu-custom-scrollbar-plugin": "npm:malihu-custom-scrollbar-plugin@^3.1.3",
-      "material-design-iconic-font": "npm:material-design-iconic-font@^2.2.0",
-      "material-shadows": "mrmlnc/material-shadows@^2.0.2",
-      "ng-scrollbars": "npm:ng-scrollbars@^0.0.5",
-      "node-waves": "npm:node-waves@^0.7.4"
+    "license": "Unlicense",
+    "main": false,
+    "scripts": {
+        "postinstall": "jspm install; jspm link",
+        "style": "../bin/style-deps.sh"
     },
     "devDependencies": {
-      "babel": "npm:babel-core@^5.8.24",
-      "babel-runtime": "npm:babel-runtime@^5.8.24",
-      "clean-css": "npm:clean-css@^3.4.8",
-      "core-js": "npm:core-js@^1.1.4",
-      "typescript": "npm:typescript@^1.7.5"
+        "jspm": "^0.16.19"
+    },
+    "jspm": {
+        "directories": {
+            "packages": "lib"
+        },
+        "configFile": "system.config.js",
+        "dependencies": {
+            "angular": "angular/bower-angular@^1.4.8",
+            "angular-animate": "angular/bower-angular-animate@^1.4.8",
+            "angular-chosen": "localytics/angular-chosen@^1.0.7",
+            "angular-loading-bar": "chieffancypants/angular-loading-bar@^0.8.0",
+            "angular-ui-bootstrap": "npm:angular-ui-bootstrap@^0.14.3",
+            "angular-ui-router": "angular-ui/ui-router@^0.2.15",
+            "animate.css": "npm:animate.css@^3.4.0",
+            "autosize": "jackmoore/autosize@^3.0.14",
+            "bootstrap": "twbs/bootstrap@^3.3.6",
+            "bootstrap-growl": "npm:bootstrap-growl@^3.1.3",
+            "bootstrap-sweetalert": "npm:bootstrap-sweetalert@^0.4.2",
+            "chosen": "harvesthq/chosen@^1.4.2",
+            "css": "systemjs/plugin-css@^0.1.20",
+            "easy-pie-chart": "rendro/easy-pie-chart@^2.1.6",
+            "jquery": "components/jquery@^2.1.4",
+            "malihu-custom-scrollbar-plugin": "npm:malihu-custom-scrollbar-plugin@^3.1.3",
+            "material-design-iconic-font": "npm:material-design-iconic-font@^2.2.0",
+            "material-shadows": "mrmlnc/material-shadows@^2.0.2",
+            "ng-scrollbars": "npm:ng-scrollbars@^0.0.5",
+            "node-waves": "npm:node-waves@^0.7.4"
+        },
+        "devDependencies": {
+            "babel": "npm:babel-core@^5.8.24",
+            "babel-runtime": "npm:babel-runtime@^5.8.24",
+            "clean-css": "npm:clean-css@^3.4.8",
+            "core-js": "npm:core-js@^1.1.4",
+            "typescript": "npm:typescript@^1.7.5"
+        },
+        "overrides": {
+            "github:jackmoore/autosize@3.0.14": {
+                "format": "global"
+            },
+            "npm:node-waves@^0.7.4": {
+                "format": "global"
+            },
+            "npm:malihu-custom-scrollbar-plugin@^3.1.3": {
+                "format": "global"
+            }
+        }
+    },
+    "styleDependencies": {
+        "output": "less/vendors.less",
+        "dependencies": [
+            "material-shadows/material-shadows",
+            "node-waves/src/scss/waves"
+        ]
     }
-  },
-  "styleDependencies": {
-    "output": "less/vendors.less",
-    "dependencies": [
-      "material-shadows/material-shadows",
-      "node-waves/src/scss/waves"
-    ]
-  }
 }
