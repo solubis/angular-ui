@@ -11,7 +11,7 @@
     .f-menu {
         display: block;
         width: 100%;
-        @extend list-inline;
+        @extend .list-inline;
         margin-top: 8px;
         
         & > li > a {

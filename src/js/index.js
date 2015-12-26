@@ -1,12 +1,11 @@
-import 'animate.css/animate.css!'
-import 'material-design-iconic-font/dist/css/material-design-iconic-font.min.css!';
-import 'bootstrap-sweetalert/lib/sweet-alert.css!';
-import 'malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.css!';
+import 'animate.css/animate.css';
+import 'bootstrap-sweetalert/lib/sweet-alert.css';
+import 'malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.css';
 
 import 'jquery';
-import 'chosen';
+import 'chosen-npm/public/chosen.jquery';
 import 'bootstrap-sweetalert/lib/sweet-alert.js';
-import 'bootstrap-growl';
+import 'bootstrap-notify';
 
 import malihu from 'malihu-custom-scrollbar-plugin';
 import Waves from 'node-waves';
@@ -21,8 +20,7 @@ import 'angular-animate';
 import 'angular-ui-router';
 import 'angular-ui-bootstrap';
 import 'angular-loading-bar';
-import 'angular-chosen';
-
+import 'angular-chosen/chosen';
 import './module';
 import './templates';
 import './form';

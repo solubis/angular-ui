@@ -117,7 +117,7 @@
         /* Weather Icons */
         @mixin wi-item($icon)
 {
-            @include img-retina('../img/icons/weather/${icon}.png', '../img/icons/weather/${icon}$2x.png', 125px, 125px);
+            @include img-retina('../img/icons/weather/#{$icon}.png', '../img/icons/weather/#{$icon}@2x.png', 125px, 125px);
         }
         
         &.wi-0 { @include wi-item(0); }
@@ -199,7 +199,7 @@
             
             @mixin wli-icon($icon)
 {
-                background-image: url('../img/icons/weather/${icon}.png');
+                background-image: url('../img/icons/weather/#{$icon}.png');
             }
             
             &.weather-list-icon {

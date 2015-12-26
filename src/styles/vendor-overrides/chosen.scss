@@ -90,7 +90,7 @@
         }
         
         div b {
-            @include img-retina('../img/select.png', '../img/select$2x.png', 10px, 10px);
+            @include img-retina('../img/select.png', '../img/select@2x.png', 10px, 10px);
             background-repeat: no-repeat !important;
             background-position: right 17px !important;
             background-size: 10px 10px !important; 
