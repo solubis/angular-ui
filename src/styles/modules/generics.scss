@@ -3,84 +3,84 @@
  * margin, margin-top, margin-bottom, margin-left, margin-right
  */
 
-@mixin margin($label, $size: 1, $key:1)  {
-    
-    @if ($size <= 30){
-        
+@mixin margin($size, $key)  {
+
+    @if ($size <= 35){
+
         .m-#{$key} {
             margin: $size !important;
         }
-    
+
         .m-t-#{$key} {
             margin-top: $size !important;
         }
-        
+
         .m-b-#{$key} {
             margin-bottom: $size !important;
         }
-        
+
         .m-l-#{$key} {
             margin-left: $size !important;
         }
-        
+
         .m-r-#{$key} {
             margin-right: $size !important;
         }
-        
-        @include margin($label - 5, $size + 5, $key + 5);
-    
-    }   
-   
+
+        @include margin($size + 5, $key + 5);
+
+    }
+
 }
 
-@include margin(25, 0px, 0);
+@include margin(0px, 0);
 
 /*
  * Generate Padding Class
  * padding, padding-top, padding-bottom, padding-left, padding-right
  */
 
-@mixin padding($label, $size: 1, $key:1) 
+@mixin padding($size, $key)
 {
-     @if ($size <= 30){
+     @if ($size <= 35){
         .p-#{$key} {
             padding: $size !important;
         }
-        
+
         .p-t-#{$key} {
             padding-top: $size !important;
         }
-        
+
         .p-b-#{$key} {
             padding-bottom: $size !important;
         }
-        
+
         .p-l-#{$key} {
             padding-left: $size !important;
         }
-        
-        .p-r-#{$key} {
-            padding-right: $size !important; 
-        }
-        
-        @include padding($label - 5, $size + 5, $key + 5);
-     }
-} 
 
-@include padding(25, 0px, 0);
+        .p-r-#{$key} {
+            padding-right: $size !important;
+        }
+
+        @include padding($size + 5, $key + 5);
+     }
+}
+
+@include padding(0px, 0);
 
 /*
  * Generate Font-Size Classes (8px - 20px)
  */
-@mixin font-size($label, $size: 8, $key:10) { 
+@mixin font-size($label, $size: 8, $key:10) {
     @if ($size <= 20) {
         .f-#{$key} {
             font-size: $size !important;
         }
-        
+
         @include font-size($label - 1, $size + 1, $key + 1);
     }
-} 
+}
 
 @include font-size(20, 8px, 8);
 
@@ -112,9 +112,9 @@
  * Display
  */
 .d-block { display: block !important; }
-.di-block { display: inline-block !important; } 
+.di-block { display: inline-block !important; }
 
-/* 
+/*
  * Material Background Colors
  */
 $array: c-white bgm-white $m-white, c-black bgm-black $m-black, c-brown bgm-brown $m-brown, c-pink bgm-pink $m-pink, c-red bgm-red $m-red, c-blue bgm-blue $m-blue, c-purple bgm-purple $m-purple, c-deeppurple bgm-deeppurple $m-deeppurple, c-lightblue bgm-lightblue $m-lightblue, c-cyan bgm-cyan $m-cyan, c-teal bgm-teal $m-teal, c-green bgm-green $m-green, c-lightgreen bgm-lightgreen $m-lightgreen, c-lime bgm-lime $m-lime, c-yellow bgm-yellow $m-yellow, c-amber bgm-amber $m-amber, c-orange bgm-orange $m-orange, c-deeporange bgm-deeporange $m-deeporange, c-gray bgm-gray $m-gray, c-bluegray bgm-bluegray $m-bluegray, c-indigo bgm-indigo $m-indigo;
@@ -123,16 +123,16 @@ $array: c-white bgm-white $m-white, c-black bgm-black $m-black, c-brown bgm-brow
 {
     $name:  nth($value, 1);
     $name2:  nth($value, 2);
-    $color: nth($value, 3); 
-    
+    $color: nth($value, 3);
+
     &.#{$name2} {
         background-color: $color !important;
     }
-    
+
     &.#{$name} {
         color: $color !important;
     }
-} 
+}
 
 /*
  * Background Colors
@@ -147,9 +147,9 @@ $array: c-white bgm-white $m-white, c-black bgm-black $m-black, c-brown bgm-brow
 /*
  * width
  */
-.w-100 { width: 100% !important; } 
+.w-100 { width: 100% !important; }
 
 /*
- * Border Radius 
- */ 
+ * Border Radius
+ */
 .brd-2 { border-radius: 2px; }

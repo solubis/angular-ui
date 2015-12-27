@@ -16,7 +16,7 @@ angular.module('angular-ui')
             }
         }
     })
-    
+
 //A title with a text under
     .directive('swalText', function () {
         return {
@@ -108,7 +108,7 @@ angular.module('angular-ui')
             }
         }
     })
-            
+
 //Auto Close Timer
     .directive('swalTimer', function () {
         return {
@@ -126,7 +126,7 @@ angular.module('angular-ui')
         }
     })
 
-    
+
 
 // =========================================================================
 // GROWL
@@ -137,7 +137,7 @@ angular.module('angular-ui')
             restrict: 'A',
             link: function (scope, element, attrs) {
                 function notify(from, align, icon, type, animIn, animOut) {
-                    $.growl({
+                    $.notify({
                         icon: icon,
                         title: ' Bootstrap Growl ',
                         message: 'Turning standard Bootstrap alerts into awesome notifications',
@@ -154,27 +154,17 @@ angular.module('angular-ui')
                                 x: 20,
                                 y: 85
                             },
+                            className: 'btn-xs btn-inverse',
                             spacing: 10,
                             z_index: 1031,
-                            delay: 2500,
-                            timer: 1000,
+                            delay: 500,
+                            timer: 2000,
                             url_target: '_blank',
                             mouse_over: false,
                             animate: {
                                 enter: animIn,
                                 exit: animOut
                             },
-                            icon_type: 'class',
-                            template: '<div data-growl="container" class="alert" role="alert">' +
-                            '<button type="button" class="close" data-growl="dismiss">' +
-                            '<span aria-hidden="true">&times;</span>' +
-                            '<span class="sr-only">Close</span>' +
-                            '</button>' +
-                            '<span data-growl="icon"></span>' +
-                            '<span data-growl="title"></span>' +
-                            '<span data-growl="message"></span>' +
-                            '<a href="#" data-growl="url"></a>' +
-                            '</div>'
                         });
                 }
 
@@ -196,8 +186,8 @@ angular.module('angular-ui')
             }
         }
     })
-    
-    
+
+
 // =========================================================================
 // Malihu Scroll - Custom Scroll bars
 // =========================================================================
@@ -254,45 +244,14 @@ angular.module('angular-ui')
     })
 
 // =========================================================================
-// MEDIA ELEMENT
+// MALIHU SCROLL
 // =========================================================================
-    
-    .directive('mediaElement', function () {
-        return {
-            restrict: 'A',
-            link: function (scope, element) {
-                element.mediaelementplayer();
-            }
-        }
 
-    })
-
-
-// =========================================================================
-// LIGHTBOX
-// =========================================================================
-    
-    .directive('lightbox', function () {
+//On Custom Class
+    .directive('cOverflow', ['scrollService', function (scrollService) {
         return {
             restrict: 'C',
             link: function (scope, element) {
-                element.lightGallery({
-                    enableTouch: true
-                });
-            }
-        }
-
-    })
-    
-    // =========================================================================
-    // MALIHU SCROLL
-    // =========================================================================
-    
-    //On Custom Class
-    .directive('cOverflow', ['scrollService', function(scrollService){
-        return {
-            restrict: 'C',
-            link: function(scope, element) {
 
                 if (!$('html').hasClass('ismobile')) {
                     scrollService.malihuScroll(element, 'minimal-dark', 'y');
@@ -301,20 +260,20 @@ angular.module('angular-ui')
         }
     }])
 
-    // =========================================================================
-    // WAVES
-    // =========================================================================
+// =========================================================================
+// WAVES
+// =========================================================================
 
-    // For .btn classes
-    .directive('btn', function(){
+// For .btn classes
+    .directive('btn', function () {
         return {
             restrict: 'C',
-            link: function(scope, element) {
-                if(element.hasClass('btn-icon') || element.hasClass('btn-float')) {
+            link: function (scope, element) {
+                if (element.hasClass('btn-icon') || element.hasClass('btn-float')) {
                     Waves.attach(element, ['waves-circle']);
                 }
 
-                else if(element.hasClass('btn-light')) {
+                else if (element.hasClass('btn-light')) {
                     Waves.attach(element, ['waves-light']);
                 }
 
@@ -326,37 +285,37 @@ angular.module('angular-ui')
             }
         }
     })
-    
-     // =========================================================================
-    // LAYOUT
-    // =========================================================================
-    
-    .directive('changeLayout', function(){
-        
+
+// =========================================================================
+// LAYOUT
+// =========================================================================
+
+    .directive('changeLayout', function () {
+
         return {
             restrict: 'A',
             scope: {
                 changeLayout: '='
             },
-            
-            link: function(scope, element, attr) {
-                
+
+            link: function (scope, element, attr) {
+
                 //Default State
-                if(scope.changeLayout === '1') {
+                if (scope.changeLayout === '1') {
                     element.prop('checked', true);
                 }
-                
+
                 //Change State
-                element.on('change', function(){
-                    if(element.is(':checked')) {
+                element.on('change', function () {
+                    if (element.is(':checked')) {
                         localStorage.setItem('ma-layout-status', 1);
-                        scope.$apply(function(){
+                        scope.$apply(function () {
                             scope.changeLayout = '1';
                         })
                     }
                     else {
                         localStorage.setItem('ma-layout-status', 0);
-                        scope.$apply(function(){
+                        scope.$apply(function () {
                             scope.changeLayout = '0';
                         })
                     }
@@ -367,11 +326,11 @@ angular.module('angular-ui')
 
 
 
-    // =========================================================================
-    // MAINMENU COLLAPSE
-    // =========================================================================
+// =========================================================================
+// MAINMENU COLLAPSE
+// =========================================================================
 
-    .directive('toggleSidebar', function(){
+    .directive('toggleSidebar', function () {
 
         return {
             restrict: 'A',
@@ -379,54 +338,54 @@ angular.module('angular-ui')
                 modelLeft: '=',
                 modelRight: '='
             },
-            
-            link: function(scope, element, attr) {
-                element.on('click', function(){
- 
+
+            link: function (scope, element, attr) {
+                element.on('click', function () {
+
                     if (element.data('target') === 'mainmenu') {
                         if (scope.modelLeft === false) {
-                            scope.$apply(function(){
+                            scope.$apply(function () {
                                 scope.modelLeft = true;
                             })
                         }
                         else {
-                            scope.$apply(function(){
+                            scope.$apply(function () {
                                 scope.modelLeft = false;
                             })
                         }
                     }
-                    
+
                     if (element.data('target') === 'chat') {
                         if (scope.modelRight === false) {
-                            scope.$apply(function(){
+                            scope.$apply(function () {
                                 scope.modelRight = true;
                             })
                         }
                         else {
-                            scope.$apply(function(){
+                            scope.$apply(function () {
                                 scope.modelRight = false;
                             })
                         }
-                        
+
                     }
                 })
             }
         }
-    
+
     })
-    
 
-    
-    // =========================================================================
-    // SUBMENU TOGGLE
-    // =========================================================================
 
-    .directive('toggleSubmenu', function(){
+
+// =========================================================================
+// SUBMENU TOGGLE
+// =========================================================================
+
+    .directive('toggleSubmenu', function () {
 
         return {
             restrict: 'A',
-            link: function(scope, element, attrs) {
-                element.click(function(){
+            link: function (scope, element, attrs) {
+                element.click(function () {
                     element.next().slideToggle(200);
                     element.parent().toggleClass('toggled');
                 });
@@ -435,26 +394,26 @@ angular.module('angular-ui')
     })
 
 
-    // =========================================================================
-    // STOP PROPAGATION
-    // =========================================================================
-    
-    .directive('stopPropagate', function(){
+// =========================================================================
+// STOP PROPAGATION
+// =========================================================================
+
+    .directive('stopPropagate', function () {
         return {
             restrict: 'C',
-            link: function(scope, element) {
-                element.on('click', function(event){
+            link: function (scope, element) {
+                element.on('click', function (event) {
                     event.stopPropagation();
                 });
             }
         }
     })
 
-    .directive('aPrevent', function(){
+    .directive('aPrevent', function () {
         return {
             restrict: 'C',
-            link: function(scope, element) {
-                element.on('click', function(event){
+            link: function (scope, element) {
+                element.on('click', function (event) {
                     event.preventDefault();
                 });
             }
@@ -462,17 +421,17 @@ angular.module('angular-ui')
     })
 
 
-    // =========================================================================
-    // PRINT
-    // =========================================================================
-    
-    .directive('print', function(){
+// =========================================================================
+// PRINT
+// =========================================================================
+
+    .directive('print', function () {
         return {
             restrict: 'A',
-            link: function(scope, element){
-                element.click(function(){
+            link: function (scope, element) {
+                element.click(function () {
                     window.print();
-                })   
+                })
             }
         }
     })

@@ -3,15 +3,15 @@
  */
 .media {
     @include clearfix();
-    
+
     & > .pull-left {
         padding-right: 15px;
     }
-    
+
     & > .pull-right {
         padding-left: 15px;
     }
-    
+
     overflow: visible;
 }
 
@@ -24,16 +24,17 @@
     zoom: 1;
     display: block;
     width: auto;
-} 
+}
 
 .media-object {
     border-radius: 2px;
 }
 
-.close { 
+.close {
     @include opacity(0.5);
     font-weight: normal;
     text-shadow: none;
+    color: $m-white;
 
     &:hover {
         color: inherit;

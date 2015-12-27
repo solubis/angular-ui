@@ -5,7 +5,7 @@ import './Data';
 
 @Component({
     selector: 'app',
-    templateUrl: 'app/html/app.html',
+    templateUrl: 'html/app.html',
     dependencies: ['angular-ui', 'demoControllers']
 })
 class Application {
@@ -82,7 +82,7 @@ class Application {
             $stateProvider
                 .state(page, {
                     url: `/${page}`,
-                    templateUrl: `app/html/${page}.html`
+                    templateUrl: `html/${page}.html`
                 });
         });
     }

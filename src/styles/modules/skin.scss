@@ -6,8 +6,16 @@
     .skin-switch {
         padding: 15px 0 8px;
         text-align: center;
+        bottom: -35px !important;
+        right: 95px !important;
+
+
+        .dropdown-menu {
+            top: -26px !important;
+            left: -40px !important;
+        }
     }
-    
+
     .ss-skin {
         width: 16px;
         height: 16px;
@@ -25,22 +33,22 @@
  * You may remove these if you opt header 1
  */
 
-#header-2 {
+#header-2, #header {
     .skin-switch {
         position: absolute;
         right: 58px;
         bottom: 23px;
         z-index: 1;
-        
+
         .btn {
             background: #fff;
             width: 50px;
-            height: 50px; 
+            height: 50px;
             border-radius: 50%;
             font-size: 25px;
             z-index: 2;
         }
-        
+
         .dropdown-menu {
             min-width: 130px;
             height: 130px;
@@ -51,8 +59,8 @@
             z-index: 1;
             @include transform-origin(center);
             @include scale-rotate(0, -360deg);
-            @include transition-duration(500ms); 
-            
+            @include transition-duration(500ms);
+
             .ss-skin {
                 position: absolute;
 
@@ -101,7 +109,7 @@
                 }
             }
         }
-        
+
         &.open {
             .dropdown-menu {
                 @include scale-rotate(1, 0deg);
@@ -122,7 +130,7 @@
     height: 16px;
     border-radius: 50%;
     cursor: pointer;
-    
+
     &:hover {
         @include opacity(0.8);
     }
@@ -130,9 +138,9 @@
 @mixin current-skin($color)
 {
     background-color: $color;
-    
+
     .ss-icon { color: $color; }
-    
+
     .ha-menu {
         @media (max-width: $screen-xs-max) {
             background: $color;

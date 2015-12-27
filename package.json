@@ -8,7 +8,7 @@
   "license": "Unlicense",
   "main": "src/js/index.js",
   "scripts": {
-    "install": "napa mrmlnc/material-shadows localytics/angular-chosen harvesthq/bower-chosen:chosen",
+    "install": "napa mrmlnc/material-shadows localytics/angular-chosen harvesthq/bower-chosen:chosen MichaelZinsmaier/CurvedLines:flot.curved-lines",
     "start": "node_modules/webpack-dev-server/bin/webpack-dev-server.js --port 3000 --hot --inline --no-info"
   },
   "devDependencies": {
@@ -42,7 +42,11 @@
     "autosize": "^3.0.14",
     "bootstrap-notify": "^3.1.3",
     "bootstrap-sweetalert": "^0.4.2",
+    "easy-pie-chart": "^2.1.7",
+    "flot": "flot/flot",
     "jquery": "^2.1.4",
+    "jquery-sparkline": "^2.3.0",
+    "lightgallery": "^1.1.5",
     "malihu-custom-scrollbar-plugin": "^3.1.3",
     "material-design-iconic-font": "^2.2.0",
     "ng-scrollbars": "0.0.5",

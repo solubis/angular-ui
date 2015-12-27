@@ -186,11 +186,11 @@ angular.module('demoControllers', [])
 
     .controller('bestsellingCtrl', function(bestsellingService) {
         //  Get Best Selling widget Data
-        this.img = bestsellingService.img;
-        this.name = bestsellingService.name;
-        this.range = bestsellingService.range;
+        this.img = bestsellingService.data[0].img;
+        this.name = bestsellingService.data[0].name;
+        this.range = bestsellingService.data[0].range;
 
-        this.bsResult = bestsellingService.getBestselling(this.img, this.name, this.range);
+        this.bsResult = bestsellingService.data;
     })
 
 
@@ -201,12 +201,15 @@ angular.module('demoControllers', [])
     .controller('todoCtrl', function(todoService) {
 
         // Get Todo List Widget Data
-        this.todo = todoService.todo;
+        this.todo = null;
 
-        this.tdResult = todoService.getTodo(this.todo);
+        this.tdResult = todoService.data;
 
         // Add new Item (closed by default)
         this.addTodoStat = false;
+
+        this.addTodo = () => {
+        };
     })
 
 
@@ -217,11 +220,11 @@ angular.module('demoControllers', [])
     .controller('recentitemCtrl', function(recentitemService) {
 
         // Get Recent Items Widget Data
-        this.id = recentitemService.id;
-        this.name = recentitemService.name;
-        this.parseInt = recentitemService.price;
+        this.id = recentitemService.data[0].id;
+        this.name = recentitemService.data[0].name;
+        this.parseInt = recentitemService.data[0].price;
 
-        this.riResult = recentitemService.getRecentitem(this.id, this.name, this.price);
+        this.riResult = recentitemService.data;
     })
 
 
@@ -232,11 +235,11 @@ angular.module('demoControllers', [])
     .controller('recentpostCtrl', function(recentpostService) {
 
         // Get Recent Posts Widget Items
-        this.img = recentpostService.img;
-        this.user = recentpostService.user;
-        this.text = recentpostService.text;
+        this.img = recentpostService.data[0].img;
+        this.user = recentpostService.data[0].user;
+        this.text = recentpostService.data[0].text;
 
-        this.rpResult = recentpostService.getRecentpost(this.img, this.user, this.text);
+        this.rpResult = recentpostService.data;
     })
 
 
@@ -250,11 +253,11 @@ angular.module('demoControllers', [])
 
         // User
         this.profileSummary =
-            `Sed eu est vulputate, fringilla ligula ac, maximus arcu. 
-        Donec sed felis vel magna mattis ornare ut non turpis. 
-        Sed id arcu elit. Sed nec sagittis tortor. 
-        Mauris ante urna, ornare sit amet mollis eu, aliquet ac ligula. 
-        Nullam dolor metus, suscipit ac imperdiet nec, consectetur sed ex. 
+            `Sed eu est vulputate, fringilla ligula ac, maximus arcu.
+        Donec sed felis vel magna mattis ornare ut non turpis.
+        Sed id arcu elit. Sed nec sagittis tortor.
+        Mauris ante urna, ornare sit amet mollis eu, aliquet ac ligula.
+        Nullam dolor metus, suscipit ac imperdiet nec, consectetur sed ex.
         Sed cursus porttitor leo.`;
 
         this.fullName = 'Mallinda Hollaway';
@@ -316,31 +319,31 @@ angular.module('demoControllers', [])
 
     .controller('calendarCtrl', function($modal) {
 
-        // Create and add Action button with dropdown in Calendar header. 
+        // Create and add Action button with dropdown in Calendar header.
         this.month = 'month';
 
         this.actionMenu = `
         <ul class="actions actions-alt" id="fc-actions">
-            <li class="dropdown" dropdown> 
-                <a href="" dropdown-toggle><i class="zmdi zmdi-more-vert"></i></a> 
+            <li class="dropdown" dropdown>
+                <a href="" dropdown-toggle><i class="zmdi zmdi-more-vert"></i></a>
                     <ul class="dropdown- menu dropdown- menu - right">
-                        <li class="active"> 
+                        <li class="active">
                             <a data-calendar-view="month" href="">Month View</a>
                         </li>
-                        <li> 
+                        <li>
                             <a data-calendar-view="basicWeek" href="">Week View</a>
                         </li>
-                        <li> 
+                        <li>
                             <a data-calendar-view="agendaWeek" href="">Agenda Week View</a>
                         </li>
-                        <li> 
-                            <a data-calendar-view="basicDay" href="">Day View</a> 
+                        <li>
+                            <a data-calendar-view="basicDay" href="">Day View</a>
                         </li>
-                        <li> 
+                        <li>
                             <a data-calendar-view="agendaDay" href="">Agenda Day View</a>
                         </li>
-                    </ul> 
-            </li> 
+                    </ul>
+            </li>
         </ul>`;
 
 
@@ -413,7 +416,7 @@ angular.module('demoControllers', [])
             }
         };
 
-        // Dismiss 
+        // Dismiss
         $scope.eventDismiss = function() {
             $modalInstance.dismiss();
         };
@@ -671,15 +674,15 @@ angular.module('demoControllers', [])
     // ====================================
     .controller('ModalDemoCtrl', function($scope, $uibModal, $log) {
 
-        $scope.modalContent = `Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-        Proin sodales orci ante, sed ornare eros vestibulum ut. 
-        Ut accumsan vitae eros sit amet tristique. 
-        Nullam scelerisque nunc enim, non dignissim nibh faucibus ullamcorper. 
-        Fusce pulvinar libero vel ligula iaculis ullamcorper. 
-        Integer dapibus, mi ac tempor letius, purus nibh mattis erat, 
-        vitae porta nunc nisi non tellus. 
-        Vivamus mollis ante non massa egestas fringilla. 
-        Vestibulum egestas consectetur nunc at ultricies. 
+        $scope.modalContent = `Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+        Proin sodales orci ante, sed ornare eros vestibulum ut.
+        Ut accumsan vitae eros sit amet tristique.
+        Nullam scelerisque nunc enim, non dignissim nibh faucibus ullamcorper.
+        Fusce pulvinar libero vel ligula iaculis ullamcorper.
+        Integer dapibus, mi ac tempor letius, purus nibh mattis erat,
+        vitae porta nunc nisi non tellus.
+        Vivamus mollis ante non massa egestas fringilla.
+        Vestibulum egestas consectetur nunc at ultricies.
         Morbi quis consectetur nunc.`;
 
         // Create Modal
@@ -821,47 +824,47 @@ angular.module('demoControllers', [])
         $scope.tabs = [
             {
                 title: 'Home',
-                content: `In hac habitasse platea dictumst. 
-                Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos hymenaeos. 
-                Nam eget dui. In ac felis quis tortor malesuada pretium. Phasellus consectetuer vestibulum elit. 
-                Duis lobortis massa imperdiet quam. Pellentesque commodo eros a enim. 
-                Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; 
-                In ac dui quis mi consectetuer lacinia. Phasellus a est. Pellentesque commodo eros a enim. 
-                Cras ultricies mi eu turpis hendrerit fringilla. Donec mollis hendrerit risus. 
-                Vestibulum turpis sem, aliquet eget, lobortis pellentesque, rutrum eu, nisl. 
+                content: `In hac habitasse platea dictumst.
+                Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos hymenaeos.
+                Nam eget dui. In ac felis quis tortor malesuada pretium. Phasellus consectetuer vestibulum elit.
+                Duis lobortis massa imperdiet quam. Pellentesque commodo eros a enim.
+                Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae;
+                In ac dui quis mi consectetuer lacinia. Phasellus a est. Pellentesque commodo eros a enim.
+                Cras ultricies mi eu turpis hendrerit fringilla. Donec mollis hendrerit risus.
+                Vestibulum turpis sem, aliquet eget, lobortis pellentesque, rutrum eu, nisl.
                 Praesent egestas neque eu enim. In hac habitasse platea dictumst.`
             },
             {
                 title: 'Profile',
-                content: `Duis arcu tortor, suscipit eget, imperdiet nec, imperdiet iaculis, ipsum. 
-                Vestibulum purus quam, scelerisque ut, mollis sed, nonummy id, metus. 
-                Nulla sit amet est. Praesent ac massa at ligula laoreet iaculis. 
-                Vivamus aliquet elit ac nisl. Nulla porta dolor. Cras dapibus. 
+                content: `Duis arcu tortor, suscipit eget, imperdiet nec, imperdiet iaculis, ipsum.
+                Vestibulum purus quam, scelerisque ut, mollis sed, nonummy id, metus.
+                Nulla sit amet est. Praesent ac massa at ligula laoreet iaculis.
+                Vivamus aliquet elit ac nisl. Nulla porta dolor. Cras dapibus.
                 Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus.`,
             },
             {
                 title: 'Messages',
-                content: `Etiam rhoncus. Phasellus leo dolor, tempus non, auctor et, hendrerit quis, nisi. Cras id dui. 
-                Curabitur turpis. Etiam ut purus mattis mauris sodales aliquam. 
-                Aenean viverra rhoncus pede. Nulla sit amet est. 
-                Donec mi odio, faucibus at, scelerisque quis, convallis in, nisi. 
-                Praesent ac sem eget est egestas volutpat. 
-                Cras letius. Morbi mollis tellus ac sapien. 
-                In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. 
-                Nam ipsum risus, rutrum vitae, vestibulum eu, molestie vel, lacus. 
-                Fusce vel dui.Morbi mattis ullamcorper velit. Etiam rhoncus. 
-                Phasellus leo dolor, tempus non, auctor et, hendrerit quis, nisi. 
-                Cras id dui. Curabitur turpis. Etiam ut purus mattis mauris sodales aliquam. 
-                Aenean viverra rhoncus pede. Nulla sit amet est. 
-                Donec mi odio, faucibus at, scelerisque quis, convallis in, nisi. 
-                Praesent ac sem eget est egestas volutpat. Cras letius. 
-                Morbi mollis tellus ac sapien. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. 
+                content: `Etiam rhoncus. Phasellus leo dolor, tempus non, auctor et, hendrerit quis, nisi. Cras id dui.
+                Curabitur turpis. Etiam ut purus mattis mauris sodales aliquam.
+                Aenean viverra rhoncus pede. Nulla sit amet est.
+                Donec mi odio, faucibus at, scelerisque quis, convallis in, nisi.
+                Praesent ac sem eget est egestas volutpat.
+                Cras letius. Morbi mollis tellus ac sapien.
+                In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo.
+                Nam ipsum risus, rutrum vitae, vestibulum eu, molestie vel, lacus.
+                Fusce vel dui.Morbi mattis ullamcorper velit. Etiam rhoncus.
+                Phasellus leo dolor, tempus non, auctor et, hendrerit quis, nisi.
+                Cras id dui. Curabitur turpis. Etiam ut purus mattis mauris sodales aliquam.
+                Aenean viverra rhoncus pede. Nulla sit amet est.
+                Donec mi odio, faucibus at, scelerisque quis, convallis in, nisi.
+                Praesent ac sem eget est egestas volutpat. Cras letius.
+                Morbi mollis tellus ac sapien. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo.
                 Nam ipsum risus, rutrum vitae, vestibulum eu, molestie vel, lacus. Fusce vel dui.`,
             },
             {
                 title: 'Settings',
-                content: `Praesent turpis. Phasellus magna. 
-                Fusce vulputate eleifend sapien. Duis arcu tortor, suscipit eget, imperdiet nec, imperdiet iaculis, ipsum. 
+                content: `Praesent turpis. Phasellus magna.
+                Fusce vulputate eleifend sapien. Duis arcu tortor, suscipit eget, imperdiet nec, imperdiet iaculis, ipsum.
                 Donec elit libero, sodales nec, volutpat a, suscipit non, turpis.`,
             }
         ];
