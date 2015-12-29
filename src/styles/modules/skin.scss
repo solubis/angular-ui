@@ -1,145 +1,106 @@
-/*
- * For header type 1 only
- * You may remove these if you opt header 2
- */
-#header {
-    .skin-switch {
-        padding: 15px 0 8px;
-        text-align: center;
-        bottom: -35px !important;
-        right: 95px !important;
 
+.skin-switch.dropdown:not([data-animation]) {
+    position: fixed;
+    right: 50px;
+    bottom: 50px;
+    z-index: 1;
 
-        .dropdown-menu {
-            top: -26px !important;
-            left: -40px !important;
+    .btn {
+        background: $m-red;
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        font-size: 25px;
+        z-index: 2;
+
+        &.ss-icon {
+            color: $m-white;
         }
     }
 
-    .ss-skin {
-        width: 16px;
-        height: 16px;
+    .dropdown-menu:not(.pull-right):not(.dropdown-menu-right) {
+        min-width: 130px;
+        height: 130px;
+        width: 130px;
+        top: -35px;
+        left: -35px;
         border-radius: 50%;
-        cursor: pointer;
-        display: inline-block;
-        margin: 2px 5px;
-    }
-}
-/* ----------------------------- End header type 1 ------------------------------------- */
-
-
-/*
- * For header type 2 only
- * You may remove these if you opt header 1
- */
-
-#header-2, #header {
-    .skin-switch {
-        position: absolute;
-        right: 58px;
-        bottom: 23px;
         z-index: 1;
 
-        .btn {
-            background: #fff;
-            width: 50px;
-            height: 50px;
+        @include transform-origin(center);
+        @include scale-rotate(0, -360deg);
+        @include transition-duration(500ms);
+
+        .ss-skin {
+            position: absolute;
+            width: 16px;
+            height: 16px;
             border-radius: 50%;
-            font-size: 25px;
-            z-index: 2;
-        }
+            cursor: pointer;
 
-        .dropdown-menu {
-            min-width: 130px;
-            height: 130px;
-            border-radius: 50%;
-            width: 130px;
-            top: -42px;
-            left: -40px;
-            z-index: 1;
-            @include transform-origin(center);
-            @include scale-rotate(0, -360deg);
-            @include transition-duration(500ms);
-
-            .ss-skin {
-                position: absolute;
-
-                &:nth-child(1) {
-                    margin-left: -8px;
-                    top: 12px;
-                    left: 50%;
-                }
-                &:nth-child(2) {
-                    right: 24px;
-                    top: 26px;
-                }
-
-
-                &:nth-child(3) {
-                    top: 50%;
-                    margin-top: -8px;
-                    right: 12px;
-                }
-
-                &:nth-child(4) {
-                    right: 24px;
-                    bottom: 26px;
-                }
-
-                &:nth-child(5) {
-                    margin-left: -8px;
-                    bottom: 12px;
-                    left: 50%;
-                }
-
-                &:nth-child(6) {
-                    left: 24px;
-                    bottom: 26px;
-                }
-
-                &:nth-child(7) {
-                    top: 50%;
-                    margin-top: -8px;
-                    left: 12px;
-                }
-
-                &:nth-child(8) {
-                    left: 24px;
-                    top: 26px;
-                }
+            &:hover {
+                @include opacity(0.8);
             }
-        }
 
-        &.open {
-            .dropdown-menu {
-                @include scale-rotate(1, 0deg);
+            &:nth-child(1) {
+                margin-left: -8px;
+                top: 12px;
+                left: 50%;
+            }
+            &:nth-child(2) {
+                right: 24px;
+                top: 26px;
+            }
+
+
+            &:nth-child(3) {
+                top: 50%;
+                margin-top: -8px;
+                right: 12px;
+            }
+
+            &:nth-child(4) {
+                right: 24px;
+                bottom: 26px;
+            }
+
+            &:nth-child(5) {
+                margin-left: -8px;
+                bottom: 12px;
+                left: 50%;
+            }
+
+            &:nth-child(6) {
+                left: 24px;
+                bottom: 26px;
+            }
+
+            &:nth-child(7) {
+                top: 50%;
+                margin-top: -8px;
+                left: 12px;
+            }
+
+            &:nth-child(8) {
+                left: 24px;
+                top: 26px;
             }
         }
     }
-}
-/* ----------------------------- End header type 2 ------------------------------------- */
 
-
-
-/*
- * Do not remove these
- * This is common for both
- */
-.ss-skin {
-    width: 16px;
-    height: 16px;
-    border-radius: 50%;
-    cursor: pointer;
-
-    &:hover {
-        @include opacity(0.8);
+    &.open {
+        .dropdown-menu:not(.pull-right):not(.dropdown-menu-right) {
+            @include scale-rotate(1, 0deg);
+        }
     }
 }
+
+
 @mixin current-skin($color)
 {
     background-color: $color;
 
-    .ss-icon { color: $color; }
+    //.ss-icon { color: $color; }
 
     .ha-menu {
         @media (max-width: $screen-xs-max) {
