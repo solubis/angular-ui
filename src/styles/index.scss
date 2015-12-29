@@ -7,9 +7,9 @@
 @import 'variables';
 
 /*
- * Load Main Bootstrap LESS files
+ * Load Main Bootstrap files
  */
- 
+
 
 @import 'bootstrap/bootstrap';
 
@@ -20,13 +20,14 @@
 
 /*
  * Vendors
- */ 
+ */
 @import 'vendors';
 
 /*
- * Load Website related LESS files
+ * Load Modules
  */
 @import 'modules/generics';
+@import 'modules/shadow';
 @import 'modules/bootstrap-overrides';
 @import 'modules/base';
 @import 'modules/list';
@@ -59,7 +60,6 @@
 @import 'modules/profile';
 @import 'modules/photos';
 @import 'modules/contacts';
-@import 'modules/shadow';
 @import 'modules/misc';
 @import 'modules/ie-warning';
 @import 'modules/load';
