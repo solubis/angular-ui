@@ -125,7 +125,7 @@
     & > a {
         position: relative;
 
-        &:before, &:after {
+        &:before {
             position: absolute;
             top: 12px;
             color: #575757;
@@ -140,17 +140,12 @@
 
         &:before {
             content: "\f2f9";
-            @include scale(1);
         }
 
-        &:after {
-            content: "\f2fc";
-            @include scale(0);
-        }
     }
 
     .sub-menu > a {
-        &:before, &:after {
+        &:before {
             top: 5px;
         }
     }
@@ -159,12 +154,7 @@
         & > a {
             &:before {
                 content: "\f2f9";
-                @include scale(0);
-            }
-
-            &:after {
-                content: "\f2fc";
-                @include scale(1);
+                @include rotate(180deg);
             }
         }
     }
