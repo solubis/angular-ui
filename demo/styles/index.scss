@@ -1,1 +1,17 @@
-@import '../../src/styles/index.scss'; 
+@import '../../src/styles/index.scss';
+
+#main {
+    position: absolute;
+    top: $header-height;
+    padding-bottom: $footer-height;
+    padding-top: $margin-default;
+    bottom: 0;
+    left:0;
+    overflow-y: scroll;
+}
+
+app {
+    display: block;
+    height: 100%;
+    width: 100%;
+}

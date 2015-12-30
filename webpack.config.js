@@ -24,7 +24,14 @@ module.exports = {
             { test: /\.tsx?$/, loader: 'ts' },
             { test: /\.coffee$/, loader: 'coffee' },
             { test: /\.(png|jpg|gif)$/, loader: 'url' },
-            { test: /\.jsx?$/, loader: 'babel', query: { presets: ['es2015'] }, exclude: /node_modules/, },
+            { test: /\.jsx?$/, loader: 'babel',
+                query: {
+                    presets: ['es2015', 'stage-0'],
+                    cacheDirectory: true,
+                    plugins: ['transform-runtime']
+                },
+                exclude: /node_modules/,
+            },
             { test: /\.scss$/, loader: ExtractTextPlugin.extract('style', 'css?sourceMap!sass?sourceMap') },
             { test: /\.css$/, loader: ExtractTextPlugin.extract('style', 'css?sourceMap') },
             { test: /\.(ttf|eot|svg|woff(2)?)(\?[\s\S]+)?$/, loader: 'url' }

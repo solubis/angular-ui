@@ -42,8 +42,8 @@ $app-gray:                  #F7F7F7;
  * Colors
  */
 $ace:                      #F7F7F7;
-
-
+$gray-light:                lighten($m-gray, 20%);
+$gray-dark:                 darken($m-gray, 20%);
 
 /*
  * Grid System
@@ -254,6 +254,10 @@ $sidebar-left-width: 268px;
 $sidebar-right-width: 280px;
 $footer-height: 110px;
 $header-height: 70px;
+
+$margin-default: 20px;
+$margin-small: 10px;
+$margin-large: 30px;
 
 /*
  * Misc

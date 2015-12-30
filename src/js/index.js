@@ -1,7 +1,10 @@
 import './module';
 import './templates';
+import './sweatalert';
+import './growl';
+import './utils';
 import './form';
-import './components';
-import './charts/flot';
-import './charts/other-charts';
+import './sidebar';
+import './charts';
 import './media';
+import './scrollbar';

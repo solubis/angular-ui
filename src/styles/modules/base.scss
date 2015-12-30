@@ -10,12 +10,14 @@
 }
 
 html {
-    overflow-x: #{"hidden\0/"};
+    overflow-x: hidden;
     -ms-overflow-style: none;
 }
 
 html, body {
-    min-height: 100vh;
+    height: 100%;
+    color: rgba(0,0,0,.87);
+    position: relative;
 }
 
 body {
@@ -28,7 +30,7 @@ audio, video {
 }
 
 p {
-    margin-bottom: 20px;
+    margin-bottom: $margin-default;
 }
 
 small {
@@ -39,12 +41,6 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
     small {
         font-size: 12px;
     }
-}
-
-#main {
-    position: relative;
-    padding-bottom: $footer-height;
-    padding-top: $header-height + 30;
 }
 
 .container {
@@ -58,6 +54,10 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
         padding-left: 15px;
         padding-right: 15px;
     }
+}
+
+.overflow-hidden {
+    overflow: hidden;
 }
 
 body {

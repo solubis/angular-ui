@@ -7,9 +7,6 @@
 
     transition: box-shadow 0.3s ease;
 
-    &:hover {
-        @include z-depth(2);
-    }
 }
 
 .card-header {
