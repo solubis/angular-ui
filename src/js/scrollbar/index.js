@@ -8,7 +8,17 @@ angular.module('angular-ui')
             scope: {
             },
             link: function (scope, element, attrs) {
-                let options = scope.$eval(attrs.scrollbarOptions)
+                let options = {
+                    cursorcolor: attrs['scrollbarColor'] || 'rgba(0,0,0,0.2)',
+                    cursorborder: 0,
+                    cursorborderradius: 0,
+                    cursorwidth: attrs['scrollbarWidth'] || '6px',
+                    bouncescroll: true,
+                    scrollspeed: 10,
+                    mousescrollstep: 10
+                };
+
+                angular.extend(options, scope.$eval(attrs.scrollbar));
 
                 let scrollbar = element.niceScroll(options);
 
@@ -19,4 +29,5 @@ angular.module('angular-ui')
                 })
             }
         }
-    })
+    });
+

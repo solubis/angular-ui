@@ -1,17 +1,14 @@
 <header id="header" data-current-skin="{{ctrl.currentSkin}}" data-ng-include src="'html/header.html'"></header>
 
-<section id="main">
-    <aside id="sidebar" data-ng-include src="'html/sidebar-left.html'" data-ng-class="{ 'toggled': ctrl.sidebarToggle.left === true }"></aside>
+<aside id="sidebar" data-ng-include src="'html/sidebar-left.html'" data-ng-class="{ 'toggled': ctrl.sidebarToggle.left === true }"></aside>
 
-    <aside id="chat" data-ng-include src="'html/chat.html'" data-ng-class="{ 'toggled': ctrl.sidebarToggle.right === true }"></aside>
+<aside id="chat" data-ng-include src="'html/chat.html'" data-ng-class="{ 'toggled': ctrl.sidebarToggle.right === true }"></aside>
 
-    <section id="content" class="page-view" data-ui-view></section>
+<section id="content" class="page-view" data-ui-view scrollbar></section>
 
-    <div class="skin-switch dropdown hidden-xs" uib-dropdown>
-        <button uib-dropdown-toggle class="btn ss-icon"><i class="zmdi zmdi-palette"></i></button>
-        <div class="dropdown-menu">
-            <span ng-repeat="w in ctrl.skinList" class="ss-skin bgm-{{ w }}" data-ng-click="ctrl.skinSwitch(w)"></span>
-        </div>
+<div class="skin-switch dropdown hidden-xs" uib-dropdown>
+    <button uib-dropdown-toggle class="btn ss-icon"><i class="zmdi zmdi-palette"></i></button>
+    <div class="dropdown-menu">
+        <span ng-repeat="w in ctrl.skinList" class="ss-skin bgm-{{ w }}" data-ng-click="ctrl.skinSwitch(w)"></span>
     </div>
-
-</section>
+</div>
