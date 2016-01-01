@@ -1,4 +1,4 @@
-import {Component, Inject, Value, bootstrap} from 'angular-components';
+import {Component, Inject, bootstrap} from 'angular-components';
 
 import './Demo';
 import './Data';
@@ -6,7 +6,7 @@ import './Data';
 @Component({
     selector: 'app',
     templateUrl: 'html/app.html',
-    dependencies: ['angular-ui', 'demoControllers']
+    dependencies: ['angular-ui', 'demoControllers', 'dataModule']
 })
 class Application {
 
@@ -98,7 +98,7 @@ class Application {
         @Inject('$state') private $state,
         @Inject('growlService') private growlService) {
 
-        this.growlService.growl('Welcome back Mallinda!', 'inverse')
+        this.growlService.growl('Welcome back User!', 'inverse')
 
         // Detect Mobile Browser
         if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {

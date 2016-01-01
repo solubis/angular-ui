@@ -8,3 +8,4 @@ import './sidebar';
 import './charts';
 import './media';
 import './scrollbar';
+import './chosen';

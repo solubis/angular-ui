@@ -2,33 +2,33 @@
     background: $m-amber;
     color: #fff;
     margin-bottom: 30px;
-    font-family: 'shadowsintolight', cursive;
+    font-family: 'Roboto', cursive;
     box-shadow: 0 1px 1px rgba(0, 0, 0, 0.15);
 }
 
 .tl-header {
     position: relative;
     padding: 25px;
-    
+
     & > h2 {
         margin: 0;
         color: #fff;
         line-height: 100%;
     }
-    
+
     & > small {
         font-size: 17px;
         display: block;
         margin-top: 3px;
     }
-    
+
     .actions {
-        position: absolute; 
+        position: absolute;
         right: 10px;
         padding: 0;
         list-style: none;
         top: 15px;
-        
+
         & > li {
             display: inline-block;
             vertical-align: baseline;
@@ -49,7 +49,7 @@
 
     .checkbox {
         margin-bottom: 15px;
-        
+
         span {
             display: inline-block;
             margin-top: -3px;
@@ -58,17 +58,17 @@
         input:checked + i + span {
             text-decoration: line-through;
         }
-        
+
         .input-helper {
             &:before {
                 border-color: rgba(255,255,255,0.8);
                 border-width: 2px;
             }
-            
+
             &:after {
                 border-color: #fff;
-            } 
-        } 
+            }
+        }
     }
 }
 
@@ -83,19 +83,19 @@
     @include transition(all);
     @include backface-visibility(hidden);
     @include transition-duration(200ms);
-    
+
     .add-new-item {
         @include transition(all);
         @include transition-duration(200ms);
         @include scale(1);
     }
-    
+
     .add-tl-body {
         overflow: hidden;
         @include opacity(0);
         @include transition(all);
         @include transition-duration(300ms);
-        
+
         textarea {
             padding: 25px 25px 45px;
             resize: none;
@@ -108,10 +108,10 @@
             outline: none;
         }
     }
-    
+
     &:not(.toggled) {
         overflow: hidden;
-        
+
         .add-new-item {
             position: relative;
             z-index: 1;
@@ -126,7 +126,7 @@
             line-height: 50px;
         }
     }
-    
+
     &.toggled {
         width: #{"calc(100% - 47px)"};
         height: #{"calc(100% - 25px)"};
@@ -136,7 +136,7 @@
         box-shadow: 0 5px 8px rgba(0, 0, 0, 0.2);
         max-height: 300px;
         overflow: visible;
-        
+
         .add-new-item {
             @include scale(0);
             height: 0;
@@ -146,7 +146,7 @@
 
         .add-tl-body {
             @include opacity(1);
-            
+
             .add-tl-actions {
                 position: absolute;
                 bottom: 0;
@@ -167,20 +167,20 @@
                     border-radius: 50%;
                     @include transition(background-color);
                     @include transition-duration(300ms);
-                    
+
                     &:hover {
                         background-color: #eee;
                     }
                 }
-                
+
                 [data-tl-action="dismiss"] {
                     color: $m-red;
                 }
-                
+
                 [data-tl-action="save"] {
                     color: $m-green;
                 }
-            } 
+            }
         }
     }
 }

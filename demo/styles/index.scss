@@ -1,6 +1,7 @@
 @import '../../src/styles/index.scss';
 
 #content {
+    width: 100%;
     position: absolute;
     top: $header-height;
     padding-bottom: $footer-height;

@@ -5,44 +5,54 @@ angular.module('angular-ui')
 // MAINMENU COLLAPSE
 // =========================================================================
 
-    .directive('toggleSidebar', function ($timeout) {
+    .directive('sidebarToggle', function ($timeout) {
 
         return {
             restrict: 'A',
             scope: {
-                modelLeft: '=',
-                modelRight: '='
+                sidebarModelLeft: '=',
+                sidebarModelRight: '=',
+                sidebarToggle: '@'
             },
 
             link: function (scope, element, attr) {
-                scope.$watch('modelLeft', function (value) {
-                    $(document.body).toggleClass('overflow-hidden', !!value);
+                scope.$watch('sidebarModelLeft', function (value) {
+                    if (value) {
+                        $(document).on('click', function (e) {
+                            let sidebar = document.getElementById(scope.sidebarToggle);
+                            if (($(e.target).closest(sidebar).length === 0) && ($(e.target).closest(element).length === 0)) {
+                                $timeout(function () {
+                                    scope.sidebarModelLeft = false;
+                                });
+                            }
+                        });
+                    }
                 })
 
                 element.on('click', function () {
 
-                    if (typeof scope.modelLeft !== 'undefined') {
-                        if (scope.modelLeft === false) {
+                    if (typeof scope.sidebarModelLeft !== 'undefined') {
+                        if (scope.sidebarModelLeft === false) {
                             scope.$apply(function () {
-                                scope.modelLeft = true;
+                                scope.sidebarModelLeft = true;
                             })
                         }
                         else {
                             scope.$apply(function () {
-                                scope.modelLeft = false;
+                                scope.sidebarModelLeft = false;
                             })
                         }
                     }
 
-                    if (typeof scope.modelRight !== 'undefined') {
-                        if (scope.modelRight === false) {
+                    if (typeof scope.sidebarModelRight !== 'undefined') {
+                        if (scope.sidebarModelRight === false) {
                             scope.$apply(function () {
-                                scope.modelRight = true;
+                                scope.sidebarModelRight = true;
                             })
                         }
                         else {
                             scope.$apply(function () {
-                                scope.modelRight = false;
+                                scope.sidebarModelRight = false;
                             })
                         }
                     }

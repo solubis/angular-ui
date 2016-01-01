@@ -16,7 +16,7 @@
 /*
  * Load Font
  */
-@import 'font';
+@if ($load-local-fonts) {@import 'font';}
 
 /*
  * Vendors
@@ -78,14 +78,10 @@
 @import 'vendor-overrides/mediaelement';
 @import 'vendor-overrides/fullcalendar';
 @import 'vendor-overrides/chosen';
-@import 'vendor-overrides/noUiSlider';
-@import 'vendor-overrides/farbtastic';
 @import 'vendor-overrides/summernote';
 @import 'vendor-overrides/bootstrap-datetimepicker';
 @import 'vendor-overrides/fileinput';
 @import 'vendor-overrides/light-gallery';
 @import 'vendor-overrides/waves';
 @import 'vendor-overrides/ui-bootstrap';
-@import 'vendor-overrides/ng-table';
 @import 'vendor-overrides/sweetalert';
-@import 'vendor-overrides/malihu-custom-scrollbar';

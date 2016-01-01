@@ -1,11 +1,11 @@
 /*
  * Roboto Light
- */ 
+ */
 @include font-face(roboto, 'Roboto-Light-webfont', 300, normal);
 
 /*
  * Roboto Regular
- */ 
+ */
 @include font-face(roboto, 'Roboto-Regular-webfont', 400, normal);
 
 /*
@@ -17,8 +17,3 @@
  * Roboto Bold
  */
 @include font-face(roboto, 'Roboto-Bold-webfont', 700, normal);
-
-/*
- * Shadow Light
- */
-@include font-face(shadowsintolight, 'shadowsintolight-webfont', 400, normal); 

@@ -1,7 +1,10 @@
 /*
  * Font Icon Family
  */
-$font-icon-md:              'Material-Design-Iconic-Font';
+$font-icon-md:             'Material-Design-Iconic-Font';
+$icon-font-name:           'Material-Design-Iconic-Font' !default;
+$icon-font-path:           '../fonts/';
+$load-local-fonts: false;
 
 /*
  * Material Colors

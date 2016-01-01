@@ -2,7 +2,7 @@ import 'nicescroll';
 
 angular.module('angular-ui')
 
-    .directive('scrollbar', function () {
+    .directive('scrollbar', function ($timeout) {
         return {
             restrict: 'A',
             scope: {
@@ -23,7 +23,7 @@ angular.module('angular-ui')
                 let scrollbar = element.niceScroll(options);
 
                 scope.$on('$destroy', function () {
-                    if (angular.isDefined(scrollbar.version)) {
+                    if (scrollbar) {
                         scrollbar.remove();
                     }
                 })

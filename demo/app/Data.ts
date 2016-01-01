@@ -1,4 +1,4 @@
-angular.module('angular-ui')
+angular.module('dataModule', [])
 
 
     // =========================================================================

@@ -14,7 +14,8 @@ module.exports = {
         publicPath: '/',
         filename: '[name].js'
     },
-    debug: true,
+    cache: true,
+    debug: false,
     devtool: 'source-map',
     resolve: {
         extensions: ['', '.ts', '.js']
@@ -33,7 +34,9 @@ module.exports = {
                 exclude: /node_modules/,
             },
             { test: /\.scss$/, loader: ExtractTextPlugin.extract('style', 'css?sourceMap!sass?sourceMap') },
-            { test: /\.css$/, loader: ExtractTextPlugin.extract('style', 'css?sourceMap') },
+            { test: /\.css$/, loader: ExtractTextPlugin.extract('style', 'css') },
+            //{ test: /\.scss$/, loaders: ['style', 'css?sourceMap!sass?sourceMap'] },
+            //{ test: /\.css$/, loaders: ['style', 'css'] },
             { test: /\.(ttf|eot|svg|woff(2)?)(\?[\s\S]+)?$/, loader: 'url' }
         ]
     },
