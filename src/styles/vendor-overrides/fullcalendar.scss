@@ -157,7 +157,7 @@
 
 		& > span {
 		    position: relative;
-		    font-family: $font-icon-md;
+		    font-family: $icon-font-name;
 		    font-size: 20px;
 		    line-height: 100%;
 		    width: 30px;
@@ -238,7 +238,7 @@ div.fc-row {
 
 	&.selected {
 	    &:before {
-            font-family: $font-icon-md;
+            font-family: $icon-font-name;
             content: "\f26b";
             position: absolute;
             text-align: center;

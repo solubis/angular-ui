@@ -1,15 +1,18 @@
 /*
  * Font Icon Family
  */
-$font-icon-md:             'Material-Design-Iconic-Font';
-$icon-font-name:           'Material-Design-Iconic-Font' !default;
-$icon-font-path:           '../fonts/';
-$load-local-fonts: false;
+$icon-font-name:            'Material-Design-Iconic-Font';
+$icon-font-path:            '../fonts/';
+$load-local-fonts:          true;
+$font-light:                300;
+$font-regular:              400;
+$font-medium:               500;
+$font-bold:                 700;
 
 /*
  * Material Colors
  */
-$m-white:                  #ffffff;
+$m-white:                  #fff;
 $m-black:                  #000000;
 $m-blue:                   #2196F3;
 $m-red:                    #F44336;
@@ -38,15 +41,18 @@ $brand-success:             $m-green;
 $brand-info:                $m-cyan;
 $brand-warning:             $m-orange;
 $brand-danger:              $m-red;
-$app-gray:                  #F7F7F7;
 
 
 /*
  * Colors
  */
-$ace:                      #F7F7F7;
-$gray-light:                lighten($m-gray, 20%);
-$gray-dark:                 darken($m-gray, 20%);
+$gray-lightest:            #f5f5f5;
+$gray-lighter:             #e2e2e2;
+$gray-light:               #c8c8c8;
+$gray:                     #a2a2a2;
+$gray-dark:                #7e7e7e;
+$gray-darker:              #5e5e5e;
+$gray-darkest:             #444;
 
 /*
  * Grid System
@@ -56,12 +62,12 @@ $container-desktop:                     100%;
 
 
 /* Typography + Scaffolding + Links */
-$body-bg:                   #edecec;
-$text-color:                #5E5E5E;
+$body-bg:                   $gray-lightest;
+$text-color:                $gray-dark;
 $font-family-sans-serif:    roboto;
 $font-size-base:            13px;
 $link-hover-decoration:     none;
-$headings-color:			#000000;
+$headings-color:			$m-black;
 
 /* Border Radius */
 $border-radius-base:        2px;
@@ -69,27 +75,27 @@ $border-radius-large:       4px;
 $border-radius-small:       2px;
 
 /* Tabs */
-$nav-tabs-border-color:                     #fff;
-$nav-tabs-active-link-hover-border-color:   #fff;
+$nav-tabs-border-color:                     $m-white;
+$nav-tabs-active-link-hover-border-color:   $m-white;
 $nav-tabs-active-link-hover-bg:             transparent;
 
 /* Form */
-$input-border:              #e0e0e0;
-$input-color:               #000000;
+$input-border:              $gray-lightest;
+$input-color:               $m-black;
 $input-border-radius:       0;
 $input-border-radius-large: 0px;
 $input-height-large:        40px;
 $input-height-base:         35px;
 $input-height-small:        30px;
-$input-border-focus:        #b4b4b4;
+$input-border-focus:        $gray-light;
 
 /* Table */
-$table-bg:                      #fff;
-$table-border-color:            #f0f0f0;
+$table-bg:                      $m-white;
+$table-border-color:            $gray-light;
 $table-cell-padding:            10px;
 $table-condensed-cell-padding:  7px;
-$table-bg-accent:               #f4f4f4;
-$table-bg-active:               #FFFCBE;
+$table-bg-accent:               $gray-lightest;
+$table-bg-active:               $gray-light;
 
 /*
  * Input Group
@@ -100,15 +106,15 @@ $input-group-addon-border-color: transparent;
 /*
  * Pagination
  */
-$pagination-bg:                 #E2E2E2;
-$pagination-border:             #fff;
-$pagination-color:              #7E7E7E;
+$pagination-bg:                 $gray-lightest;
+$pagination-border:             $m-white;
+$pagination-color:              $gray;
 $pagination-active-bg:          $m-cyan;
 $pagination-active-border:      $pagination-border;
-$pagination-disabled-bg:        #E2E2E2;
+$pagination-disabled-bg:        $gray-lightest;
 $pagination-disabled-border:    $pagination-border;
-$pagination-hover-color:        #333;
-$pagination-hover-bg:           #d7d7d7;
+$pagination-hover-color:        $gray-darkest;
+$pagination-hover-bg:           $gray-lighter;
 $pagination-hover-border:       $pagination-border;
 $pager-border-radius:           5px;
 
@@ -125,11 +131,11 @@ $dropdown-fallback-border:      transparent;
 $dropdown-border:               transparent;
 $dropdown-divider-bg:           '';
 $dropdown-link-hover-bg:        rgba(0,0,0,0.075);
-$dropdown-link-color:           #333;
-$dropdown-link-hover-color:     #333;
-$dropdown-link-disabled-color:  #e4e4e4;
+$dropdown-link-color:           $gray-darkest;
+$dropdown-link-hover-color:     $gray-darkest;
+$dropdown-link-disabled-color:  $gray-lighter;
 $dropdown-divider-bg:           rgba(0,0,0,0.08);
-$dropdown-link-active-color:    #333;
+$dropdown-link-active-color:    $gray-darkest;
 $dropdown-link-active-bg:       rgba(0, 0, 0, 0.075);
 $zindex-dropdown:               9;
 $dropdown-shadow:               0 2px 10px rgba(0, 0, 0, 0.2);
@@ -137,7 +143,7 @@ $dropdown-shadow:               0 2px 10px rgba(0, 0, 0, 0.2);
 /*
  * Thumbnail
  */
-$thumbnail-bg:                  #fff;
+$thumbnail-bg:                  $m-white;
 
 /*
  * Alerts
@@ -152,13 +158,13 @@ $alert-success-bg:                      rgba($m-green, 0.7);
 $alert-info-bg:		 		            rgba($m-blue, 0.7);
 $alert-warning-bg:                      rgba($m-amber, 0.7);
 $alert-danger-bg:                       rgba($m-red, 0.7);
-$alert-inverse-bg:                      #333;
+$alert-inverse-bg:                      $gray-darkest;
 
-$alert-success-text:                    #fff;
-$alert-info-text:                       #fff;
-$alert-warning-text:                    #fff;
-$alert-danger-text:                     #fff;
-$alert-inverse-text:                    #fff;
+$alert-success-text:                    $m-white;
+$alert-info-text:                       $m-white;
+$alert-warning-text:                    $m-white;
+$alert-danger-text:                     $m-white;
+$alert-inverse-text:                    $m-white;
 
 /*
  * Form Validations
@@ -190,14 +196,14 @@ $thumbnail-padding:				3px;
 /*
  * Carousel
  */
-$carousel-caption-color:        #fff;
+$carousel-caption-color:        $m-white;
 
 /*
  * Modal
  */
 $modal-content-fallback-border-color:	transparent;
 $modal-content-border-color:			transparent;
-$modal-backdrop-bg:						#000;
+$modal-backdrop-bg:						$m-black;
 $modal-header-border-color:				transparent;
 $modal-title-line-height:				transparent;
 $modal-footer-border-color:				transparent;
@@ -206,48 +212,48 @@ $zindex-modal-background: 				11;
 /*
  * Tooltips
  */
-$tooltip-bg:                #737373;
+$tooltip-bg:                $gray-dark;
 $tooltip-opacity:           1;
 
 /*
  * Popover
  */
 $zindex-popover:                9;
-$popover-title-bg:              #fff;
-$popover-border-color:          #fff;
-$popover-fallback-border-color: #fff;
+$popover-title-bg:              $m-white;
+$popover-border-color:          $m-white;
+$popover-fallback-border-color: $m-white;
 
 /*
  * Breadcrumbs
  */
 $breadcrumb-bg:            transparent;
 $breadcrumb-padding-horizontal: 20px;
-$breadcrumb-active-color:       #7c7c7c;
+$breadcrumb-active-color:       $gray-dark;
 
 /*
  * Jumbotron
  */
-$jumbotron-bg:              #F7F7F7;
+$jumbotron-bg:              $gray-lightest;
 
 /*
  * List Groups
  */
-$list-group-border:                 #E9E9E9;
-$list-group-active-color:           #000;
-$list-group-active-bg:              #f5f5f5;
-$list-group-active-border:          #e9e9e9;
-$list-group-disabled-color:         #B5B4B4;
-$list-group-disabled-bg:            #fff;
-$list-group-disabled-text-color:    #B5B4B4;
+$list-group-border:                 $gray-lightest;
+$list-group-active-color:           $m-black;
+$list-group-active-bg:              $gray-lighter;
+$list-group-active-border:          $gray-lightest;
+$list-group-disabled-color:         $gray;
+$list-group-disabled-bg:            $m-white;
+$list-group-disabled-text-color:    $gray-lighter;
 
 /*
  * Badges
  */
-$badge-color:               #fff;
+$badge-color:               $m-white;
 $badge-bg:                  $brand-primary;
 $badge-border-radius:       2px;
 $badge-font-weight:         400;
-$badge-active-color:        #fff;
+$badge-active-color:        $m-white;
 $badge-active-bg:           $brand-primary;
 
 /*

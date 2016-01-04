@@ -1,3 +1,11 @@
+@mixin center-vertically()
+{
+    display: inline-block;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
 /*
  * Font Face
  */
@@ -154,13 +162,13 @@
             border-color: transparent
         }
     }
-    
+
     &:active,
     &.active,
     .open > .dropdown-toggle & {
         background-image: none;
     }
-    
+
     &.disabled,
     &[disabled],
     fieldset[disabled] & {

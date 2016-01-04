@@ -1,0 +1,10 @@
+import './sweatalert';
+import './growl';
+import './form';
+import './sidebar';
+import './charts';
+import './media';
+import './scrollbar';
+import './select';
+import './datatable';
+import './ripple';

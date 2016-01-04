@@ -2,6 +2,7 @@ import {Component, Inject, bootstrap} from 'angular-components';
 
 import './Demo';
 import './Data';
+import './Datatable';
 
 @Component({
     selector: 'app',

@@ -1,0 +1,44 @@
+.md-table-pagination {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  box-sizing: border-box;
+  height: 56px;
+  padding: 0 24px;
+  font-size: 12px;
+  color: $md-dark-secondary;
+  border-top: 1px $md-dark-divider solid;
+
+  .btn-icon {
+      width: 20px;
+      height: 20px;
+      margin-left: 10px;
+      line-height: 20px;
+    i {
+      font-size: 20px;
+    }
+  }
+
+  .dropdown {
+      width: 50px;
+  }
+
+  .label {
+      color: $gray-dark;
+      font-weight: 500;
+      font-size: 12px;
+  }
+
+  .chosen {
+    width: 70px;
+    .chosen-single span {
+          text-align: center;
+    }
+      .chosen-single span, .chosen-drop li {
+
+            color: $gray-dark;
+            font-weight: 500;
+            font-size: 12px;
+      }
+  }
+}

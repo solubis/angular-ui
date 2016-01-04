@@ -1,19 +1,19 @@
 #profile-main {
     min-height: 500px;
-    
+
     position: relative;
-    
+
     .pm-overview {
         overflow-y: auto;
-        
+
         @media (min-width: 1200px) {
             width: 300px;
         }
-        
+
         @media (min-width: $screen-sm-min) and (max-width: 1200px) {
             width: 250px;
         }
-        
+
         @media (min-width: $screen-sm-min) {
             position: absolute;
             left: 0;
@@ -22,7 +22,7 @@
             background: #f8f8f8;
             border-right: 1px solid #eee;
         }
-        
+
         @media (max-width: $screen-xs-max) {
             width: 100%;
             background: #333;
@@ -30,32 +30,32 @@
         }
 
     }
-    
+
     .pm-body {
         @media (min-width: 1200px) {
             padding-left: 300px;
         }
-        
+
         @media (min-width: $screen-sm-min) and (max-width: 1200px) {
             padding-left: 250px;
         }
-        
+
         @media (max-width: $screen-xs-max) {
-            padding-left: 0; 
+            padding-left: 0;
         }
 
     }
-    
+
     .pmo-pic {
         position: relative;
         margin: 20px;
-        
-        img { 
+
+        img {
             @media(min-width: $screen-sm-min) {
                 width: 100%;
                 border-radius: 2px 2px 0 0;
             }
-            
+
             @media(max-width: $screen-xs-max) {
                 width: 180px;
                 display: inline-block;
@@ -65,19 +65,19 @@
                 @include z-depth(2);
             }
         }
-        
+
         .pmo-stat {
             border-radius: 0 0 2px 2px;
             color: #fff;
             text-align: center;
             padding: 30px 5px 0;
-            
+
             @media(min-width: $screen-sm-min) {
                  background: $m-amber;
                  padding-bottom: 15px;
             }
         }
-        
+
         .pmop-edit {
             position: absolute;
             top: 0;
@@ -85,50 +85,50 @@
             color: #fff;
             background: rgba(0, 0, 0, 0.38);
             text-align: center;
-            padding: 10px 10px 11px; 
+            padding: 10px 10px 11px;
             @include transition(opacity);
             @include transition-duration(250ms);
-            
+
             &:hover {
                 background: rgba(0, 0, 0, 0.8);
             }
-            
+
             i {
                 font-size: 18px;
                 vertical-align: middle;
                 margin-top: -3px;
             }
-            
+
             @media (min-width: $screen-sm-min) {
                 width: 100%;
                 @include opacity(0);
-                
+
                 i {
                     margin-right: 4px;
                 }
             }
         }
-        
+
         &:hover {
             .pmop-edit {
                 @include opacity(1);
             }
         }
-        
+
         .pmop-message  {
             position: absolute;
             bottom: 27px;
-            left: 50%; 
+            left: 50%;
             margin-left: -25px;
-            
+
             .dropdown-menu {
-                padding: 5px 0 55px; 
+                padding: 5px 0 55px;
                 left: -90px;
                 width: 228px;
                 height: 150px;
                 top: -74px;
                 @include transform-origin(center);
-                
+
                 textarea {
                     width: 100%;
                     height: 95px;
@@ -136,7 +136,7 @@
                     resize: none;
                     padding: 10px 19px;
                 }
-                
+
                 button {
                     bottom: 5px;
                     left: 88px;
@@ -144,64 +144,64 @@
             }
         }
     }
-    
+
     .pmb-block {
         margin-bottom: 20px;
-        
+
         @media (min-width: 1200px) {
             padding: 40px 42px 0;
         }
-        
+
         @media (max-width: 1199px) {
             padding: 30px 20px 0;
         }
-        
+
         &:last-child {
             margin-bottom: 50px;
         }
-        
+
         .pmbb-header {
             margin-bottom: 25px;
             position: relative;
-            
+
             .actions {
                 position: absolute;
                 top: -2px;
                 right: 0;
             }
-            
+
             h2 {
                 margin: 0;
                 font-weight: 100;
                 font-size: 20px;
             }
         }
-        
+
         .pmbb-edit {
             position: relative;
-            z-index: 1; 
+            z-index: 1;
         }
 
     }
-    
+
     .pmo-block {
         padding: 25px;
-        
+
         & > h2 {
             font-size: 16px;
             margin: 0 0 15px;
         }
     }
-    
+
     .pmo-items {
         .pmob-body {
             padding: 0 10px;
         }
-        
+
         a {
             display: block;
             padding: 4px;
-            
+
             img {
                 width: 100%;
             }
@@ -225,7 +225,7 @@
                 line-height: 100%;
                 position: absolute;
                 left: 0;
-                width: 18px; 
+                width: 18px;
                 text-align: center;
             }
         }
@@ -235,7 +235,7 @@
 .pmo-map {
     margin: 20px -20px -18px;
     display: block;
-    
+
     img {
         width: 100%;
     }
@@ -245,7 +245,7 @@
     @media(max-width: $screen-xs-max) {
         background: $body-bg;
         box-shadow: none;
-        
+
         .tab-nav {
             background: #fff;
             box-shadow: 0 1px 1px rgba(0,0,0,.15);
@@ -255,12 +255,12 @@
 
 .timeline {
     position: relative;
-    
+
     @media(min-width: $screen-sm-min) {
         padding: 50px;
         padding-left: 100px;
     }
-    
+
     @media(max-width: $screen-xs-max) {
         margin-top: 30px;
     }
@@ -270,47 +270,47 @@
     border: 1px solid #eee;
     position: relative;
     margin-bottom: 35px;
-    
+
     @media(max-width: $screen-xs-max) {
         background: #fff;
         box-shadow: 0 1px 1px rgba(0,0,0,.15);
     }
-    
+
     .tv-header {
         padding: 16px 18px;
         border-bottom: 1px solid #eee;
         background: #F9F9F9;
-        
+
         .actions {
             position: absolute;
             top: 5px;
             right: 10px;
-        } 
+        }
     }
-    
+
     .tv-body {
         padding: 23px 25px;
-        
+
         .tvb-lightbox {
             margin: 0 -8px 15px;
-            
+
             [data-src] {
                 padding: 0 5px;
                 margin-bottom: 5px;
             }
         }
     }
-    
+
     .tvh-user {
         display: block;
-        
+
         img {
             width: 46px;
             height: 46px;
             border-radius: 50%;
         }
     }
-    
+
     &:before {
         position: absolute;
         width: 40px;
@@ -323,11 +323,11 @@
         font-size: 16px;
         line-height: 34px;
         color: #FFF;
-        font-family: $font-icon-md;
+        font-family: $icon-font-name;
         z-index: 1;
-        
+
     }
-    
+
     &:after {
         content: "";
         position: absolute;
@@ -335,91 +335,91 @@
         left: -50px;
         width: 1px;
         height: #{"calc(100% + 37px)"};
-        
+
     }
-    
+
     &[data-tv-type="text"] {
         &:before {
             content: "\f24f";
             background: $m-cyan;
             box-shadow: 0 0 0 1px $m-cyan;
         }
-        
+
         &:after {
             background: $m-cyan;
         }
     }
-    
+
     &[data-tv-type="image"] {
         &:before {
             content: "\f17f";
             background: $m-green;
             box-shadow: 0 0 0 1px $m-green;
         }
-        
+
         &:after {
             background: $m-green;
         }
     }
-    
+
     &[data-tv-type="video"] {
         &:before {
             content: "\f3a9";
             background: $m-amber;
             box-shadow: 0 0 0 1px $m-amber;
         }
-        
-        &:after { 
+
+        &:after {
             background: $m-amber;
         }
     }
-    
+
 
     .tvb-stats {
         list-style: none;
         padding: 0;
         margin: 10px 0 20px;
-        
+
         & > li {
             display: inline-block;
             padding: 5px 10px 6px;
             border: 1px solid #ccc;
             margin-right: 2px;
-            
+
             i {
                 font-size: 15px;
                 line-height: 100%;
                 vertical-align: top;
                 margin-top: 2px;
             }
-            
+
             &.tvbs-comments {
                 border-color: $m-green;
                 color: $m-green;
             }
-            
+
             &.tvbs-likes {
                 border-color: $m-lightblue;
                 color: $m-lightblue;
-            } 
-            
+            }
+
             &.tvbs-views {
                 border-color: $m-orange;
                 color: $m-orange;
             }
         }
-        
-        
+
+
      }
 }
 
 .tv-comments {
-    
+
     .tvc-lists {
         padding: 0;
         list-style: none;
         margin: 0;
-        
+
         & > li {
             padding: 15px 20px;
             margin: 0;
@@ -428,15 +428,15 @@
     }
 }
 
-.tvc-more { 
+.tvc-more {
     color: #333;
     display: block;
     margin-bottom: -10px;
-    
+
     &:hover {
         color: #000;
     }
-    
+
     i {
         vertical-align: middle;
         margin-right: 5px;
@@ -446,7 +446,7 @@
 .p-header {
     position: relative;
     margin: 0 -7px;
-    
+
     .actions {
         position: absolute;
         top: -18px;
@@ -458,18 +458,18 @@
     list-style: none;
     padding: 0 5px;
     margin: 0 0 30px;
-    
+
     & > li {
         display: inline-block;
         vertical-align: top;
-        
+
         & > a {
             display: block;
             padding: 5px 20px 5px 0;
             font-weight: 500;
             text-transform: uppercase;
             font-size: 15px;
-            
+
             & > i {
                 margin-right: 4px;
                 font-size: 20px;
@@ -477,39 +477,39 @@
                 margin-top: -5px;
             }
         }
-        
+
         &:not(.active) > a {
             color: #4285F4;
-            
+
             &:hover {
                 color: #333;
             }
         }
-        
+
         &.active > a {
             color: #000;
         }
     }
-    
+
     .pm-search {
         @media(max-width: $screen-sm-max) {
             margin: 20px 2px 30px;
             display: block;
-            
+
             input[type="text"] {
                 width: 100%;
                 border: 1px solid #ccc;
             }
         }
     }
-    
+
     .pms-inner {
         margin: -2px 0 0;
         position: relative;
         top: -2px;
         overflow: hidden;
         white-space: nowrap;
-        
+
         i {
             vertical-align: top;
             font-size: 20px;
@@ -519,12 +519,12 @@
             top: 8px;
             color: #333;
         }
-        
+
         input[type="text"] {
             height: 35px;
             border-radius: 2px;
             padding: 0 10px 0 40px;
-            
+
             @media(min-width:  $screen-sm-min) {
                 border: 1px solid #fff;
                 width: 50px;
@@ -533,7 +533,7 @@
                 z-index: 1;
                 @include transition(all);
                 @include transition-duration(300ms);
-            
+
                 &:focus {
                     border-color: #DFDFDF;
                     width: 200px;

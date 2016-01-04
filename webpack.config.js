@@ -6,13 +6,16 @@ var ExtractTextPlugin = require('extract-text-webpack-plugin');
 module.exports = {
     entry: {
         demo: ['./demo/index.ts', 'webpack-dev-server/client?http://localhost:3000'],
-        lib: ['./src/js/index.js'],
-        vendors: ['./src/js/vendors.js'],
+        components: ['./src/components'],
+        core: ['./src/core'],
+        vendors: ['./src/vendors.js'],
     },
     output: {
         path: './build/',
         publicPath: '/',
-        filename: '[name].js'
+        filename: '[name].js',
+        libraryTarget: 'umd',
+        library: '[name]'
     },
     cache: true,
     debug: false,
@@ -23,6 +26,7 @@ module.exports = {
     module: {
         loaders: [
             { test: /\.tsx?$/, loader: 'ts' },
+            { test: /\.html$/, loader: 'ngtemplate!html'},
             { test: /\.coffee$/, loader: 'coffee' },
             { test: /\.(png|jpg|gif)$/, loader: 'url' },
             { test: /\.jsx?$/, loader: 'babel',

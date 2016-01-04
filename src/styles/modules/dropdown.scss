@@ -1,11 +1,10 @@
 .dropdown-menu {
     box-shadow: $dropdown-shadow;
-    @include transition(all);
+    @include transition(opacity);
     @include transition-duration(250ms);
-    @include backface-visibility(hidden);
     margin-top: 1px;
-    
-    & > li > a { 
+
+    & > li > a {
         padding: 8px 17px;
         @include transition(background-color);
         @include transition-duration(300ms);
@@ -15,15 +14,15 @@
     &.dropdown-menu-lg {
         width: 300px;
     }
-    
+
     &.dropdown-menu-sm {
         width: 150px;
     }
-    
+
     &.dropdown-menu-right {
         right: 0;
         left: auto;
-        
+
         & > li > a {
             text-align: right;
         }
@@ -39,17 +38,17 @@
             margin-right: 10px;
         }
     }
-    
+
     &:not([class*="bgm-"]) {
         & > li > a {
             color: #4C4C4C;
-            
+
             &:hover {
                 color: #000;
             }
         }
     }
-    
+
     &[class*="bgm-"] {
         & > li > a {
             font-weight: 300;
@@ -61,7 +60,7 @@
 .dropdown:not([data-animation]), .btn-group, .date-picker {
     .dropdown-menu {
         @include scale(0);
-        @include opacity(0); 
+        @include opacity(0);
         display: block;
     }
 }

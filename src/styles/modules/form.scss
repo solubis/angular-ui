@@ -101,10 +101,10 @@ input:focus {
         &:after {
             @include opacity(0);
             @include scale-rotate(0, 80deg);
-            width: 22px;
+            width: 18px;
             height: 9px;
-            border-bottom: 2px solid $m-teal;
-            border-left: 2px solid $m-teal;
+            border-bottom: 2px solid $brand-primary;
+            border-left: 2px solid $brand-primary;
             border-bottom-left-radius: 2px;
             left: -1px;
             top: 1px;
@@ -135,7 +135,7 @@ input:focus {
         &:after {
             width: 11px;
             height: 11px;
-            background: $m-teal;
+            background: $brand-primary;
             border-radius: 50%;
             top: 3px;
             left: 4px;
@@ -149,6 +149,7 @@ input:focus {
     vertical-align: top;
     margin-top: 0;
     padding-left: 25px;
+    height: 18px;
 }
 
 /*
