@@ -3,6 +3,7 @@
 @import "../../styles/bootstrap/bootstrap/mixins";
 
 .chosen-container {
+
     .chosen-drop {
         box-shadow: $dropdown-shadow;
         margin-top: 1px;
@@ -170,6 +171,7 @@
         }
     }
 }
+
 select.chosen {
     display: none;
 }

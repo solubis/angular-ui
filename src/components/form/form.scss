@@ -1,3 +1,5 @@
+@import '../../styles/core';
+
 label {
     font-weight: 500;
 }
@@ -39,14 +41,16 @@ input:focus {
  * Checkbox and Radio
  */
 .checkbox, .radio {
+    margin: 0;
+
     label {
         padding-left: 30px;
         position: relative;
     }
 
     input {
-        top: 0;
-        left: 0;
+        top: 6px;
+        left: 6px;
         margin-left: 0 !important;
         z-index: 1;
         cursor: pointer;
@@ -55,6 +59,10 @@ input:focus {
     }
 
     .input-helper {
+        top: 0;
+        left: 0;
+        position: absolute;
+
         &:before, &:after {
             @include transition(all);
             @include transition-duration(250ms);
@@ -75,6 +83,9 @@ input:focus {
 }
 
 .checkbox {
+    width: 29px;
+    height: 29px;
+
     input {
         width: 17px;
         height: 17px;
@@ -93,7 +104,8 @@ input:focus {
 
     .input-helper {
         &:before {
-            top: 0;
+            top: 6px;
+            left: 6px;
             width: 17px;
             height: 17px;
         }
@@ -106,16 +118,16 @@ input:focus {
             border-bottom: 2px solid $brand-primary;
             border-left: 2px solid $brand-primary;
             border-bottom-left-radius: 2px;
-            left: -1px;
-            top: 1px;
+            left: 5px;
+            top: 7px;
         }
     }
 }
 
 .radio {
     input {
-        width: 19px;
-        height: 19px;
+        width: 31px;
+        height: 31px;
 
         &:checked + .input-helper {
             &:after {
@@ -125,8 +137,10 @@ input:focus {
     }
 
     .input-helper {
+
         &:before {
-            top: -1px;
+            top: 5px;
+            left: 6px;
             width: 19px;
             height: 19px;
             border-radius: 50%;
@@ -137,8 +151,8 @@ input:focus {
             height: 11px;
             background: $brand-primary;
             border-radius: 50%;
-            top: 3px;
-            left: 4px;
+            top: 9px;
+            left: 10px;
             @include scale(0);
         }
     }
@@ -148,7 +162,7 @@ input:focus {
 .radio-inline {
     vertical-align: top;
     margin-top: 0;
-    padding-left: 25px;
+    padding-left: 20px;
     height: 18px;
 }
 
@@ -168,7 +182,6 @@ html:not(.ie9) {
             background-color: #FFF;
             background-position: right #{"calc(100% - 7px)"};
             background-repeat: no-repeat;
-            @include img-retina('../img/select.png', '../img/select@2x.png', 12px, 12px);
             pointer-events: none;
             z-index: 5;
         }

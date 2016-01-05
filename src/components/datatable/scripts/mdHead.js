@@ -28,7 +28,7 @@ function mdHead($compile) {
     }
 
     function createCheckBox() {
-      var checkbox = angular.element('<md-checkbox class="md-ripple md-ripple-center">');
+      var checkbox = angular.element('<md-checkbox>');
 
       checkbox.attr('aria-label', 'Select All');
       checkbox.attr('ng-click', 'toggleAll()');
