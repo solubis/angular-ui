@@ -1,8 +1,8 @@
 'use strict';
 
-import templateUrl from '../templates/md-table-pagination.html';
+import templateUrl from '../templates/m-table-pagination.html';
 
-angular.module('md.data.table').directive('mdTablePagination', mdTablePagination);
+angular.module('m.data.table').directive('mTablePagination', mTablePagination);
 
 /*
 return {
@@ -21,26 +21,26 @@ return {
 */
 
 
-function mdTablePagination() {
+function mTablePagination() {
 
     return {
         compile: compile,
         restrict: 'E',
         scope: {
-            boundaryLinks: '=?mdBoundaryLinks',
-            label: '@?mdLabel',
-            limit: '=mdLimit',
-            page: '=mdPage',
-            pageSelect: '=?mdPageSelect',
-            onPaginate: '=?mdOnPaginate',
-            options: '=mdOptions',
-            total: '@mdTotal'
+            boundaryLinks: '=?mBoundaryLinks',
+            label: '@?mLabel',
+            limit: '=mLimit',
+            page: '=mPage',
+            pageSelect: '=?mPageSelect',
+            onPaginate: '=?mOnPaginate',
+            options: '=mOptions',
+            total: '@mTotal'
         },
         templateUrl: templateUrl
     };
 
     function compile(tElement) {
-        tElement.addClass('md-table-pagination');
+        tElement.addClass('m-table-pagination');
         return postLink;
     }
 
@@ -126,7 +126,7 @@ function mdTablePagination() {
         };
 
         scope.showBoundaryLinks = function () {
-            if (attrs.hasOwnProperty('mdBoundaryLinks') && attrs.mdBoundaryLinks === '') {
+            if (attrs.hasOwnProperty('mBoundaryLinks') && attrs.mBoundaryLinks === '') {
                 return true;
             }
 
@@ -134,7 +134,7 @@ function mdTablePagination() {
         };
 
         scope.showPageSelect = function () {
-            if (attrs.hasOwnProperty('mdPageSelect') && attrs.mdPageSelect === '') {
+            if (attrs.hasOwnProperty('mPageSelect') && attrs.mPageSelect === '') {
                 return true;
             }
 

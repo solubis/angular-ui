@@ -1,1 +1,1 @@
-angular.module('md.data.table', []);
+angular.module('m.data.table', []);

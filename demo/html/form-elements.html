@@ -63,21 +63,21 @@
             <div class="row">
                 <div class="col-sm-4">
                     <div class="form-group">
-                <div class="fg-line">
+                        <div class="fg-line">
                             <input type="text" class="form-control" placeholder="col-sm-4">
                         </div>
                     </div>
                 </div>
                 <div class="col-sm-4">
                     <div class="form-group">
-                <div class="fg-line">
+                        <div class="fg-line">
                             <input type="text" class="form-control" placeholder="col-sm-4">
                         </div>
                     </div>
                 </div>
                 <div class="col-sm-4">
                     <div class="form-group">
-                <div class="fg-line">
+                        <div class="fg-line">
                             <input type="text" class="form-control" placeholder="col-sm-4">
                         </div>
                     </div>
@@ -85,28 +85,28 @@
 
                 <div class="col-sm-3">
                     <div class="form-group">
-                <div class="fg-line">
+                        <div class="fg-line">
                             <input type="text" class="form-control" placeholder="col-sm-3">
                         </div>
                     </div>
                 </div>
                 <div class="col-sm-3">
                     <div class="form-group">
-                <div class="fg-line">
+                        <div class="fg-line">
                             <input type="text" class="form-control" placeholder="col-sm-3">
                         </div>
                     </div>
                 </div>
                 <div class="col-sm-3">
                     <div class="form-group">
-                <div class="fg-line">
+                        <div class="fg-line">
                             <input type="text" class="form-control" placeholder="col-sm-3">
                         </div>
                     </div>
                 </div>
                 <div class="col-sm-3">
                     <div class="form-group">
-                <div class="fg-line">
+                        <div class="fg-line">
                             <input type="text" class="form-control" placeholder="col-sm-3">
                         </div>
                     </div>
@@ -114,14 +114,14 @@
 
                 <div class="col-sm-6">
                     <div class="form-group">
-                <div class="fg-line">
+                        <div class="fg-line">
                             <input type="text" class="form-control" placeholder="col-sm-6">
                         </div>
                     </div>
                 </div>
                 <div class="col-sm-6">
                     <div class="form-group">
-                <div class="fg-line">
+                        <div class="fg-line">
                             <input type="text" class="form-control" placeholder="col-sm-6">
                         </div>
                     </div>
@@ -262,86 +262,39 @@
         <div class="card-body card-padding">
             <p class="c-black f-500 m-b-20">Basic Example</p>
 
-            <div class="checkbox m-b-15">
-                <label>
-                    <input type="checkbox" value="">
-                    <i class="input-helper"></i>
-                    Option one is this and that-be sure to include why it's great
-                </label>
-            </div>
+            <m-checkbox>
+                Option one is this and that-be sure to include why it's great
+            </m-checkbox>
 
-            <div class="checkbox disabled">
-                <label>
-                    <input type="checkbox" value="" disabled="">
-                    <i class="input-helper"></i>
-                    Option two is disabled
-                </label>
-            </div>
+            <m-checkbox ng-disabled="true">
+                Option two is disabled
+            </m-checkbox>
 
             <br/>
 
-            <div class="radio m-b-15">
-                <label>
-                    <input type="radio" name="sample" value="">
-                    <i class="input-helper"></i>
-                    Option one is this and that-be sure to include why it's great
-                </label>
-            </div>
+            <m-radio>
+                Option one is this and that-be sure to include why it's great
+            </m-radio>
 
-            <div class="radio m-b-15">
-                <label>
-                    <input type="radio" name="sample" value="">
-                    <i class="input-helper"></i>
-                    Option two can be something else and selecting it will deselect option one
-                </label>
-            </div>
+            <m-radio>
+                Option two can be something else and selecting it will deselect option one
+            </m-radio>
 
-            <div class="radio disabled">
-                <label>
-                    <input type="radio" value="" disabled="">
-                    <i class="input-helper"></i>
-                    Option three is disabled
-                </label>
-            </div>
+            <m-radio>
+                Option three is disabled
+            </m-radio>
 
             <br/>
-            <p class="c-black f-500 m-b-20 m-t-20">Inline Checkboxes and Radios - Use the '.checkbox-inline' or '.radio-inline' classes on a series of checkboxes or radios for controls that appear on the same line.</p>
+            <p class="c-black f-500 m-b-20 m-t-20">Inline Checkboxes and Radios - Use the '.checkbox-inline' or '.radio-inline' classes on a series of checkboxes
+                or radios for controls that appear on the same line.</p>
 
-            <label class="checkbox checkbox-inline m-r-20">
-                <input type="checkbox" value="option1">
-                <i class="input-helper"></i>
-                1
-            </label>
-            <label class="checkbox checkbox-inline m-r-20">
-                <input type="checkbox" value="option2">
-                <i class="input-helper"></i>
-                2
-            </label>
-            <label class="checkbox checkbox-inline m-r-20">
-                <input type="checkbox" value="option3">
-                <i class="input-helper"></i>
-                3
-            </label>
+            <m-checkbox>Checkbox Description 1</m-checkbox>
+            <m-checkbox>Checkbox Description 2</m-checkbox>
+            <m-checkbox>Checkbox Description 3</m-checkbox>
 
-            <br/><br/>
+            <m-radio>Radio 1</m-radio>
+            <m-radio>Radio 2</m-radio>
 
-            <label class="radio radio-inline m-r-20">
-                <input type="radio" name="inlineRadioOptions" value="option1">
-                <i class="input-helper"></i>
-                1
-            </label>
-
-            <label class="radio radio-inline m-r-20">
-                <input type="radio" name="inlineRadioOptions" value="option2">
-                <i class="input-helper"></i>
-                2
-            </label>
-
-            <label class="radio radio-inline m-r-20">
-                <input type="radio" name="inlineRadioOptions" value="option3">
-                <i class="input-helper"></i>
-                3
-            </label>
         </div>
     </div>
 </div>

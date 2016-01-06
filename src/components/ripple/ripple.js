@@ -1,34 +1,45 @@
 
-function mdRipple() {
+function mRipple() {
     return {
-        restrict: 'C',
+        restrict: 'A',
         link: postLink
     };
 }
 
 function postLink(scope, element, attrs) {
-    let x, y, size, center;
+    let x, y, size, center, config;
+
+    if (attrs.mRipple) {
+        let coordinates = attrs.mRipple.split(',');
+
+        config = {};
+        config.left = Number(coordinates[0]);
+        config.top = Number(coordinates[1]) || config.left;
+        config.size = 30;
+    }
 
     element.on('touchend mouseup', handler);
+
+    element[0].style.position = 'relative';
 
     scope.$on('$destroy', function () {
         element.off('touchend mouseup', handler);
     });
 
     function handler(event) {
-        let rippleContainer = this.querySelector('.md-ripple-container');
+        let rippleContainer = this.querySelector('.m-ripple-container');
 
         if (rippleContainer === null) {
             // Create ripple
             rippleContainer = document.createElement('span');
-            rippleContainer.className += ' md-ripple-container';
+            rippleContainer.className += ' m-ripple-container';
 
             // Prepend ripple to element
             this.insertBefore(rippleContainer, this.firstChild);
 
             // Set ripple size
             if (!rippleContainer.offsetHeight && !rippleContainer.offsetWidth) {
-                size = Math.max(this.offsetWidth, this.offsetHeight);
+                size = config.size || Math.max(this.offsetWidth, this.offsetHeight);
                 rippleContainer.style.width = size + 'px';
                 rippleContainer.style.height = size + 'px';
             }
@@ -39,7 +50,7 @@ function postLink(scope, element, attrs) {
 
         // get click coordinates by event type
         if (event.type === 'mouseup') {
-            if (this.className.includes('md-ripple-center')) {
+            if (config) {
                 let box = this.getBoundingClientRect();
                 x = box.left + size / 2;
                 y = box.top + size / 2;
@@ -86,7 +97,11 @@ function postLink(scope, element, attrs) {
             return { top: top, left: left };
         }
 
-        center = getRippleCenter(element[0], x, y, size);
+        if (config) {
+            center = { left: config.left, top: config.top };
+        } else {
+            center = getRippleCenter(element[0], x, y, size);
+        }
 
         rippleContainer.style.left = center.left + 'px';
         rippleContainer.style.top = center.top + 'px';
@@ -96,4 +111,4 @@ function postLink(scope, element, attrs) {
     }
 }
 
-export default mdRipple;
+export default mRipple;

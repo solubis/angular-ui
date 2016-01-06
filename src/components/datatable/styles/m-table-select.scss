@@ -1,16 +1,16 @@
-md-select.md-table-select {
+m-select.m-table-select {
   margin: 0;
-  
-  > .md-select-value {
+
+  > .m-select-value {
     padding: 0;
     min-width: initial;
     min-height: 24px;
     border-bottom: 0 !important;
-    
+
     > span {
       transform: none !important;
-      
-      &.md-select-icon {
+
+      &.m-select-icon {
         display: flex;
         align-items: center;
         height: 24px;
@@ -20,26 +20,26 @@ md-select.md-table-select {
   }
 }
 
-.md-select-menu-container.md-table-select,
-.md-select-menu-container.md-pagination-select {
+.m-select-menu-container.m-table-select,
+.m-select-menu-container.m-pagination-select {
   margin-top: -2px;
   margin-left: -2px;
   border-radius: 2px;
 
-  md-select-menu,
-  md-content {
+  m-select-menu,
+  m-content {
     border-radius: inherit;
   }
 
-  md-content {
+  m-content {
     padding: 0;
   }
 }
 
-.md-select-menu-container.md-table-select .md-text {
+.m-select-menu-container.m-table-select .m-text {
   font-size: 13px;
 }
 
-.md-select-menu-container.md-pagination-select .md-text {
+.m-select-menu-container.m-pagination-select .m-text {
   font-size: 12px;
 }

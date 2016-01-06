@@ -1,8 +1,8 @@
 'use strict';
 
-angular.module('md.data.table').directive('mdSelect', mdSelect);
+angular.module('m.data.table').directive('mSelect', mSelect);
 
-function mdSelect($compile) {
+function mSelect($compile) {
 
   // empty controller to be bind scope properties to
   function Controller() {
@@ -69,7 +69,7 @@ function mdSelect($compile) {
     };
 
     function autoSelect() {
-      if(attrs.hasOwnProperty('mdAutoSelect') && attrs.mdAutoSelect === '') {
+      if(attrs.hasOwnProperty('mAutoSelect') && attrs.mAutoSelect === '') {
         return true;
       }
 
@@ -77,19 +77,19 @@ function mdSelect($compile) {
     }
 
     function createCheckbox() {
-      var checkbox = angular.element('<md-checkbox>');
+      var checkbox = angular.element('<m-checkbox>');
 
       checkbox.attr('aria-label', 'Select Row');
-      checkbox.attr('ng-click', '$mdSelect.toggle($event)');
-      checkbox.attr('ng-checked', '$mdSelect.isSelected()');
-      checkbox.attr('ng-disabled', '$mdSelect.disabled');
+      checkbox.attr('ng-click', '$mSelect.toggle($event)');
+      checkbox.attr('ng-checked', '$mSelect.isSelected()');
+      checkbox.attr('ng-disabled', '$mSelect.disabled');
 
-      return angular.element('<td class="md-cell md-checkbox-cell">').append($compile(checkbox)(scope));
+      return angular.element('<td class="m-cell m-checkbox-cell">').append($compile(checkbox)(scope));
     }
 
     function disableSelection() {
       Array.prototype.some.call(element.children(), function (child) {
-        return child.classList.contains('md-checkbox-cell') && element[0].removeChild(child);
+        return child.classList.contains('m-checkbox-cell') && element[0].removeChild(child);
       });
 
       if(autoSelect()) {
@@ -156,7 +156,7 @@ function mdSelect($compile) {
     });
 
     scope.$watch(self.isSelected, function (isSelected) {
-      return isSelected ? element.addClass('md-selected') : element.removeClass('md-selected');
+      return isSelected ? element.addClass('m-selected') : element.removeClass('m-selected');
     });
 
     tableCtrl.registerModelChangeListener(onSelectChange);
@@ -169,19 +169,19 @@ function mdSelect($compile) {
   return {
     bindToController: true,
     controller: Controller,
-    controllerAs: '$mdSelect',
+    controllerAs: '$mSelect',
     link: postLink,
-    require: ['mdSelect', '^^mdTable'],
+    require: ['mSelect', '^^mTable'],
     restrict: 'A',
     scope: {
-      id: '@mdSelectId',
-      model: '=mdSelect',
+      id: '@mSelectId',
+      model: '=mSelect',
       disabled: '=ngDisabled',
-      onSelect: '=?mdOnSelect',
-      onDeselect: '=?mdOnDeselect',
-      autoSelect: '=mdAutoSelect'
+      onSelect: '=?mOnSelect',
+      onDeselect: '=?mOnDeselect',
+      autoSelect: '=mAutoSelect'
     }
   };
 }
 
-mdSelect.$inject = ['$compile'];
+mSelect.$inject = ['$compile'];

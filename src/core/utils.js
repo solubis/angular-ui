@@ -10,7 +10,7 @@ angular.module('angular-ui')
         return {
             restrict: 'C',
             link: function (scope, element) {
-                if (element.hasClass('md-ripple')){
+                if (element.attr('m-ripple')){
                     return;
                 }
 

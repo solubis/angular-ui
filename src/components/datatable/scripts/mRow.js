@@ -1,27 +1,27 @@
 'use strict';
 
-angular.module('md.data.table').directive('mdRow', mdRow);
+angular.module('m.data.table').directive('mRow', mRow);
 
-function mdRow() {
+function mRow() {
 
   function compile(tElement) {
-    tElement.addClass('md-row');
+    tElement.addClass('m-row');
     return postLink;
   }
-  
+
   function postLink(scope, element, attrs, tableCtrl) {
     function enableRowSelection() {
       return tableCtrl.$$rowSelect;
     }
-    
+
     function isBodyRow() {
       return tableCtrl.getBodyRows().indexOf(element[0]) !== -1;
     }
-    
+
     if(isBodyRow()) {
       scope.$watch(enableRowSelection, function (enable) {
-        if(enable && !attrs.mdSelect) {
-          console.error('Missing md-select attribute on table row');
+        if(enable && !attrs.mSelect) {
+          console.error('Missing m-select attribute on table row');
         }
       });
     }
@@ -29,7 +29,7 @@ function mdRow() {
 
   return {
     compile: compile,
-    require: '^^mdTable',
+    require: '^^mTable',
     restrict: 'A'
   };
 }

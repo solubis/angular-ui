@@ -15,27 +15,27 @@
     </ul>
 </div>
 
-<md-table-container>
-    <table md-table md-progress="promise" md-row-select ng-model="ctrl.selected">
-        <thead md-head md-order="ctrl.query.order" md-on-reorder="ctrl.onReorder">
-            <tr md-row>
-                <th md-column md-order-by="{{column.orderBy}}" ng-repeat="column in ctrl.columns">{{column.name}}</th>
+<m-table-container>
+    <table m-table m-progress="promise" m-row-select ng-model="ctrl.selected">
+        <thead m-head m-order="ctrl.query.order" m-on-reorder="ctrl.onReorder">
+            <tr m-row>
+                <th m-column m-order-by="{{column.orderBy}}" ng-repeat="column in ctrl.columns">{{column.name}}</th>
             </tr>
         </thead>
-        <tbody md-body>
-            <tr md-row md-select="id" md-select-id="{{item.id}}" ng-dblclick="ctrl.edit(item)" ng-repeat="item in ctrl.data | orderBy: ctrl.query.order | limitTo: ctrl.query.limit : (ctrl.query.page - 1) * ctrl.query.limit track by item.id ">
-                <td md-cell>{{item.id}}</td>
-                <td md-cell>{{item.name}}</td>
-                <td md-cell>{{item.description}}</td>
+        <tbody m-body>
+            <tr m-row m-select="id" m-select-id="{{item.id}}" ng-dblclick="ctrl.edit(item)" ng-repeat="item in ctrl.data | orderBy: ctrl.query.order | limitTo: ctrl.query.limit : (ctrl.query.page - 1) * ctrl.query.limit track by item.id ">
+                <td m-cell>{{item.id}}</td>
+                <td m-cell>{{item.name}}</td>
+                <td m-cell>{{item.description}}</td>
             </tr>
         </tbody>
     </table>
-</md-table-container>
+</m-table-container>
 
-<md-table-pagination
-    md-limit="ctrl.query.limit"
-    md-page="ctrl.query.page"
-    md-page-select
-    md-total="{{ctrl.data.length}}"
-    md-on-paginate="ctrl.onPageChange">
-</md-table-pagination>
+<m-table-pagination
+    m-limit="ctrl.query.limit"
+    m-page="ctrl.query.page"
+    m-page-select
+    m-total="{{ctrl.data.length}}"
+    m-on-paginate="ctrl.onPageChange">
+</m-table-pagination>

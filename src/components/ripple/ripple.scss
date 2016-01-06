@@ -1,8 +1,4 @@
- .md-ripple {
-    position: relative;
-    overflow: visible;
-  }
-  .md-ripple-container {
+  .m-ripple-container {
     display: block;
     position: absolute;
     background-color: rgba(0,0,0,0.3);
@@ -10,7 +6,7 @@
     transform: scale(0);
     z-index:10;
   }
-  .md-ripple-container.animate {
+  .m-ripple-container.animate {
     animation: ripple 0.40s ease-out;
   }
   @keyframes ripple {

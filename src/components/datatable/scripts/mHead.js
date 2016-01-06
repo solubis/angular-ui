@@ -1,11 +1,11 @@
 'use strict';
 
-angular.module('md.data.table').directive('mdHead', mdHead);
+angular.module('m.data.table').directive('mHead', mHead);
 
-function mdHead($compile) {
+function mHead($compile) {
 
   function compile(tElement) {
-    tElement.addClass('md-head');
+    tElement.addClass('m-head');
     return postLink;
   }
 
@@ -21,24 +21,24 @@ function mdHead($compile) {
 
       // append an empty cell to preceding rows
       for(var i = 0; i < children.length - 1; i++) {
-        children.eq(i).prepend('<th class="md-column">');
+        children.eq(i).prepend('<th class="m-column">');
       }
 
       children.eq(children.length - 1).prepend(createCheckBox());
     }
 
     function createCheckBox() {
-      var checkbox = angular.element('<md-checkbox>');
+      var checkbox = angular.element('<m-checkbox>');
 
       checkbox.attr('aria-label', 'Select All');
       checkbox.attr('ng-click', 'toggleAll()');
       checkbox.attr('ng-checked', 'allSelected()');
 
-      return angular.element('<th class="md-column md-checkbox-column">').append($compile(checkbox)(scope));
+      return angular.element('<th class="m-column m-checkbox-column">').append($compile(checkbox)(scope));
     }
 
     function getController(row) {
-      return angular.element(row).controller('mdSelect');
+      return angular.element(row).controller('mSelect');
     }
 
     function removeCheckbox() {
@@ -46,7 +46,7 @@ function mdHead($compile) {
       var child = children.eq(children.length - 1);
 
       Array.prototype.some.call(child.prop('cells'), function (cell) {
-        return cell.classList.contains('md-checkbox-column') && child[0].removeChild(cell);
+        return cell.classList.contains('m-checkbox-column') && child[0].removeChild(cell);
       });
     }
 
@@ -95,14 +95,14 @@ function mdHead($compile) {
     bindToController: true,
     compile: compile,
     controller: Controller,
-    controllerAs: '$mdHead',
-    require: '^^mdTable',
+    controllerAs: '$mHead',
+    require: '^^mTable',
     restrict: 'A',
     scope: {
-      order: '=?mdOrder',
-      onReorder: '=?mdOnReorder'
+      order: '=?mOrder',
+      onReorder: '=?mOnReorder'
     }
   };
 }
 
-mdHead.$inject = ['$compile'];
+mHead.$inject = ['$compile'];

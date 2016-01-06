@@ -1,10 +1,10 @@
 'use strict';
 
-import templateUrl from '../templates/md-table-progress.html'
+import templateUrl from '../templates/m-table-progress.html'
 
-angular.module('md.data.table').directive('mdTableProgress', mdTableProgress);
+angular.module('m.data.table').directive('mTableProgress', mTableProgress);
 
-function mdTableProgress() {
+function mTableProgress() {
 
   function postLink(scope, element, attrs, tableCtrl) {
     scope.columnCount = tableCtrl.columnCount;
@@ -13,7 +13,7 @@ function mdTableProgress() {
 
   return {
     link: postLink,
-    require: '^^mdTable',
+    require: '^^mTable',
     restrict: 'C',
     scope: {},
     templateUrl: templateUrl

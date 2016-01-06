@@ -4,5 +4,5 @@ angular.module('angular-ui', [
     'ui.router',
     'ui.bootstrap',
     'angular-loading-bar',
-    'md.data.table'
+    'm.data.table'
 ]);

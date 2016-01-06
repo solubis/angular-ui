@@ -1,4 +1,4 @@
-.md-table-pagination {
+.m-table-pagination {
   display: flex;
   align-items: center;
   justify-content: flex-end;
@@ -6,8 +6,8 @@
   height: 56px;
   padding: 0 24px;
   font-size: 12px;
-  color: $md-dark-secondary;
-  border-top: 1px $md-dark-divider solid;
+  color: $gray-dark;
+  border-top: 1px $gray-lighter solid;
 
   .btn-icon {
       margin-left: 10px;

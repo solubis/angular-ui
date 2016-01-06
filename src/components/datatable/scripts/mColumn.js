@@ -1,21 +1,21 @@
 'use strict';
 
-angular.module('md.data.table').directive('mdColumn', mdColumn);
+angular.module('m.data.table').directive('mColumn', mColumn);
 
-function mdColumn($compile) {
+function mColumn($compile) {
 
     return {
         compile: compile,
-        require: ['^^mdHead', '^^mdTable'],
+        require: ['^^mHead', '^^mTable'],
         restrict: 'A',
         scope: {
-            numeric: '=?mdNumeric',
-            orderBy: '@?mdOrderBy'
+            numeric: '=?mNumeric',
+            orderBy: '@?mOrderBy'
         }
     };
 
     function compile(tElement) {
-        tElement.addClass('md-column');
+        tElement.addClass('m-column');
         return postLink;
     }
 
@@ -24,11 +24,11 @@ function mdColumn($compile) {
         var tableCtrl = ctrls.shift();
 
         function attachSortIcon() {
-            var sortIcon = angular.element('<i class="zmdi zmdi-long-arrow-up"></i>');
+            var sortIcon = angular.element('<i class="zmi zmi-long-arrow-up"></i>');
 
-            $compile(sortIcon.addClass('md-sort-icon').attr('ng-class', 'getDirection()'))(scope);
+            $compile(sortIcon.addClass('m-sort-icon').attr('ng-class', 'getDirection()'))(scope);
 
-            if (element.hasClass('md-numeric')) {
+            if (element.hasClass('m-numeric')) {
                 element.prepend(sortIcon);
             } else {
                 element.append(sortIcon);
@@ -37,18 +37,18 @@ function mdColumn($compile) {
 
         function detachSortIcon() {
             Array.prototype.some.call(element.find('i'), function (icon) {
-                return icon.classList.contains('md-sort-icon') && element[0].removeChild(icon);
+                return icon.classList.contains('m-sort-icon') && element[0].removeChild(icon);
             });
         }
 
         function disableSorting() {
             detachSortIcon();
-            element.removeClass('md-sort').off('click', setOrder);
+            element.removeClass('m-sort').off('click', setOrder);
         }
 
         function enableSorting() {
             attachSortIcon();
-            element.addClass('md-sort').on('click', setOrder);
+            element.addClass('m-sort').on('click', setOrder);
         }
 
         function getIndex() {
@@ -64,7 +64,7 @@ function mdColumn($compile) {
         }
 
         function isNumeric() {
-            if (attrs.hasOwnProperty('mdNumeric') && attrs.mdNumeric === '') {
+            if (attrs.hasOwnProperty('mNumeric') && attrs.mNumeric === '') {
                 return true;
             }
 
@@ -74,9 +74,9 @@ function mdColumn($compile) {
         function setOrder() {
             scope.$applyAsync(function () {
                 if (!isActive()) {
-                    headCtrl.order = scope.getDirection() === 'md-asc' ? scope.orderBy : '-' + scope.orderBy;
+                    headCtrl.order = scope.getDirection() === 'm-asc' ? scope.orderBy : '-' + scope.orderBy;
                 } else {
-                    headCtrl.order = scope.getDirection() === 'md-asc' ? '-' + scope.orderBy : scope.orderBy;
+                    headCtrl.order = scope.getDirection() === 'm-asc' ? '-' + scope.orderBy : scope.orderBy;
                 }
 
                 if (angular.isFunction(headCtrl.onReorder)) {
@@ -89,25 +89,25 @@ function mdColumn($compile) {
             tableCtrl.$$columns[index] = column;
 
             if (column.numeric) {
-                element.addClass('md-numeric');
+                element.addClass('m-numeric');
             } else {
-                element.removeClass('md-numeric');
+                element.removeClass('m-numeric');
             }
         }
 
         scope.getDirection = function () {
             if (!isActive()) {
-                return attrs.hasOwnProperty('mdDesc') ? 'md-desc' : 'md-asc';
+                return attrs.hasOwnProperty('mDesc') ? 'm-desc' : 'm-asc';
             }
 
-            return headCtrl.order === '-' + scope.orderBy ? 'md-desc' : 'md-asc';
+            return headCtrl.order === '-' + scope.orderBy ? 'm-desc' : 'm-asc';
         };
 
         scope.$watch(isActive, function (active) {
             if (active) {
-                element.addClass('md-active');
+                element.addClass('m-active');
             } else {
-                element.removeClass('md-active');
+                element.removeClass('m-active');
             }
         });
 
@@ -131,4 +131,4 @@ function mdColumn($compile) {
 
 }
 
-mdColumn.$inject = ['$compile'];
+mColumn.$inject = ['$compile'];

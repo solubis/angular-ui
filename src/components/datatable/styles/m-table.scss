@@ -1,52 +1,53 @@
-@import 'md-variables';
-@import 'md-edit-dialog';
-@import 'md-table-pagination';
-@import 'md-table-select';
-@import 'md-table-toolbar';
+@import "../../../styles/core";
 
-md-card {
-  > md-toolbar.md-table-toolbar:first-child,
-  > md-table-container:first-child {
+@import 'm-edit-dialog';
+@import 'm-table-pagination';
+@import 'm-table-select';
+@import 'm-table-toolbar';
+
+m-card {
+  > m-toolbar.m-table-toolbar:first-child,
+  > m-table-container:first-child {
     border-top-left-radius: 2px;
     border-top-right-radius: 2px;
   }
 
-  > md-toolbar.md-table-toolbar:last-child,
-  > md-table-container:last-child {
+  > m-toolbar.m-table-toolbar:last-child,
+  > m-table-container:last-child {
     border-bottom-left-radius: 2px;
     border-bottom-right-radius: 2px;
   }
 }
 
-md-table-container {
+m-table-container {
   display: block;
   max-width: 100%;
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
 }
 
-table.md-table {
+table.m-table {
   width: 100%;
   border-spacing: 0;
   overflow: hidden;
 
-  thead.md-head > tr.md-row {
+  thead.m-head > tr.m-row {
     height: 56px;
   }
 
-  tbody.md-body > tr.md-row,
-  tfoot.md-foot > tr.md-row {
+  tbody.m-body > tr.m-row,
+  tfoot.m-foot > tr.m-row {
     height: 48px;
   }
 
-  thead.md-head + .md-table-progress md-progress-linear {
+  thead.m-head + .m-table-progress m-progress-linear {
     top: -3px;
   }
 
-  .md-table-progress th {
+  .m-table-progress th {
     padding: 0;
 
-    md-progress-linear {
+    m-progress-linear {
       height: 0;
       transition: opacity 1s;
 
@@ -54,25 +55,25 @@ table.md-table {
         opacity: 0;
       }
 
-      > .md-container {
+      > .m-container {
         height: 3px;
         top: 0;
         transition: none;
 
-        > .md-bar {
+        > .m-bar {
           height: 3px;
         }
       }
     }
   }
 
-  th.md-column {
-    color: $md-dark-secondary;
+  th.m-column {
+    color: $gray-dark;
     font-size: 12px;
     font-weight: bold;
     white-space: nowrap;
 
-    &.md-sort {
+    &.m-sort {
       cursor: pointer;
     }
 
@@ -82,16 +83,16 @@ table.md-table {
       font-size: 16px !important;
       line-height: 16px !important;
 
-      &.md-sort-icon {
-        color: $md-dark-disabled;
+      &.m-sort-icon {
+        color: $gray-dark;
         opacity: 0;
         transition: transform 0.25s, opacity 0.25s;
 
-        &.md-asc {
+        &.m-asc {
           transform: rotate(0deg);
         }
 
-        &.md-desc {
+        &.m-desc {
           transform: rotate(180deg);
         }
       }
@@ -105,18 +106,18 @@ table.md-table {
       }
     }
 
-    &.md-active,
-    &.md-active i {
-      color: $md-dark;
+    &.m-active,
+    &.m-active i {
+      color: $gray-darkest;
     }
 
-    &:hover i.md-sort-icon,
-    &.md-active i.md-sort-icon {
+    &:hover i.m-sort-icon,
+    &.m-active i.m-sort-icon {
       opacity: 1;
     }
   }
 
-  tr.md-row {
+  tr.m-row {
     &[ng\:repeat].ng-leave,
     &[ng-repeat].ng-leave,
     &[x-ng-repeat].ng-leave,
@@ -125,20 +126,20 @@ table.md-table {
     }
   }
 
-  &.md-row-select tbody.md-body > tr.md-row {
+  &.m-row-select tbody.m-body > tr.m-row {
     transition: background-color 0.2s;
 
     &:not([disabled]):hover {
-      background-color: $md-dark-row-hover !important;
+      background-color: $gray-lightest !important;
     }
 
-    &.md-selected {
-      background-color: $md-dark-row-select;
+    &.m-selected {
+      background-color: $gray-lighter;
     }
   }
 
-  &.md-row-select td.md-cell,
-  &.md-row-select th.md-column {
+  &.m-row-select td.m-cell,
+  &.m-row-select th.m-column {
     &:first-child {
       padding: 0 0 0 13px;
     }
@@ -152,8 +153,8 @@ table.md-table {
     }
   }
 
-  &:not(.md-row-select) td.md-cell,
-  &:not(.md-row-select) th.md-column {
+  &:not(.m-row-select) td.m-cell,
+  &:not(.m-row-select) th.m-column {
     &:first-child {
       padding: 0 13px;
     }
@@ -163,8 +164,8 @@ table.md-table {
     }
   }
 
-  td.md-cell,
-  th.md-column {
+  td.m-cell,
+  th.m-column {
     vertical-align: middle;
     text-align: left;
 
@@ -176,7 +177,7 @@ table.md-table {
       padding: 0 13px 0 0;
     }
 
-    &.md-clickable {
+    &.m-clickable {
       cursor: pointer;
 
       &:focus {
@@ -184,36 +185,36 @@ table.md-table {
       }
     }
 
-    &.md-numeric {
+    &.m-numeric {
       text-align: right;
     }
 
-    md-checkbox {
+    m-checkbox {
       margin: 0;
       width: 18px;
     }
   }
 
-  td.md-cell {
-    color: $md-dark;
+  td.m-cell {
+    color: $gray-darker;
     font-size: 13px;
-    border-top: 1px $md-dark-divider solid;
+    border-top: 1px $gray-lighter solid;
 
-    &.md-numeric md-select {
+    &.m-numeric m-select {
       justify-content: flex-end;
 
-      .md-select-value {
+      .m-select-value {
         flex-grow: initial;
       }
     }
 
-    &.md-placeholder {
-      color: $md-dark-disabled;
+    &.m-placeholder {
+      color: $gray-lightest;
     }
 
-    md-select > .md-select-value > span.md-select-icon {
+    m-select > .m-select-value > span.m-select-icon {
       justify-content: flex-end;
-      color: $md-dark-secondary;
+      color: $gray-lighter;
       width: 18px;
       text-align: right;
 

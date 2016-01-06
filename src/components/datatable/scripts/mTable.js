@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('md.data.table').directive('mdTable', mdTable);
+angular.module('m.data.table').directive('mTable', mTable);
 
 function Hash() {
     var keys = {};
@@ -26,14 +26,14 @@ function Hash() {
     };
 }
 
-function mdTable() {
+function mTable() {
 
     function compile(tElement, tAttrs) {
-        tElement.addClass('md-table');
+        tElement.addClass('m-table');
 
-        if (tAttrs.hasOwnProperty('mdProgress')) {
+        if (tAttrs.hasOwnProperty('mProgress')) {
             var body = tElement.find('tbody').eq(0)[0];
-            var progress = angular.element('<thead class="md-table-progress">');
+            var progress = angular.element('<thead class="m-table-progress">');
 
             if (body) {
                 tElement[0].insertBefore(progress[0], body);
@@ -53,13 +53,13 @@ function mdTable() {
         function enableRowSelection() {
             self.$$rowSelect = true;
 
-            watchListener = $scope.$watchCollection('$mdTable.selected', function (selected) {
+            watchListener = $scope.$watchCollection('$mTable.selected', function (selected) {
                 modelChangeListeners.forEach(function (listener) {
                     listener(selected);
                 });
             });
 
-            $element.addClass('md-row-select');
+            $element.addClass('m-row-select');
         }
 
         function disableRowSelection() {
@@ -69,7 +69,7 @@ function mdTable() {
                 watchListener();
             }
 
-            $element.removeClass('md-row-select');
+            $element.removeClass('m-row-select');
         }
 
         function resolvePromises() {
@@ -84,7 +84,7 @@ function mdTable() {
         }
 
         function rowSelect() {
-            if ($attrs.hasOwnProperty('mdRowSelect') && $attrs.mdRowSelect === '') {
+            if ($attrs.hasOwnProperty('mRowSelect') && $attrs.mRowSelect === '') {
                 return true;
             }
 
@@ -155,8 +155,8 @@ function mdTable() {
             }
         };
 
-        if ($attrs.hasOwnProperty('mdProgress')) {
-            $scope.$watch('$mdTable.progress', self.queuePromise);
+        if ($attrs.hasOwnProperty('mProgress')) {
+            $scope.$watch('$mTable.progress', self.queuePromise);
         }
 
         $scope.$watch(rowSelect, function (enable) {
@@ -174,12 +174,12 @@ function mdTable() {
         bindToController: true,
         compile: compile,
         controller: Controller,
-        controllerAs: '$mdTable',
+        controllerAs: '$mTable',
         restrict: 'A',
         scope: {
-            progress: '=?mdProgress',
+            progress: '=?mProgress',
             selected: '=ngModel',
-            rowSelect: '=mdRowSelect'
+            rowSelect: '=mRowSelect'
         }
     };
 }

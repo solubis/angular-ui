@@ -1,56 +1,58 @@
-md-backdrop.md-edit-dialog-backdrop {
-  z-index: $md-backdrop-index;
+$backdrop-index: 80;
+
+m-backdrop.m-edit-dialog-backdrop {
+  z-index: $backdrop-index;
 }
 
-md-edit-dialog {
+m-edit-dialog {
   display: flex;
   flex-direction: column;
   position: fixed;
-  z-index: $md-backdrop-index + 1;
-  background-color: $md-table-dialog-color;
+  z-index: $backdrop-index + 1;
+  background-color: $m-white;
   border-radius: 2px;
   cursor: default;
 
-  > .md-content {
+  > .m-content {
     padding: 16px 24px 0;
-    
-    .md-title {
-      color: $md-dark;
+
+    .m-title {
+      color: $gray-dark;
       margin-bottom: 8px;
     }
-    
-    md-input-container {
+
+    m-input-container {
       margin: 0;
       font-size: 13px;
-      
+
       input {
         float: none;
       }
-      
-      .md-errors-spacer {
+
+      .m-errors-spacer {
         min-height: auto;
         min-width: auto;
-        color: $md-dark-secondary;
-        
-        .md-char-counter {
+        color: $gray-dark;
+
+        .m-char-counter {
           padding: 5px 2px 5px 0;
         }
       }
-      
+
       [ng-message] {
         padding: 5px 0 5px 2px;
       }
     }
   }
 
-  > .md-actions {
+  > .m-actions {
     margin: 0 16px 8px;
-    
-    .md-button {
+
+    .m-button {
       margin: 0;
       min-width: initial;
-      
-      & + .md-button {
+
+      & + .m-button {
         margin-left: 8px;
       }
     }
