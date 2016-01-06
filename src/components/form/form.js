@@ -39,12 +39,14 @@ function autosize() {
 function checkbox() {
     return {
         restrict: 'EA',
-        scope: {},
-        bindToController: {
+        scope: {
             model: '=ngModel',
             name: '@',
-            disabled: '=ngDisabled'
+            disabled: '=ngDisabled',
+            click: '&ngClick',
+            checked: '=ngChecked'
         },
+        bindToController: true,
         replace: true,
         transclude: true,
         controllerAs: 'ctrl',
@@ -53,7 +55,11 @@ function checkbox() {
         },
         template: `
             <label class="checkbox" m-ripple="static" ng-class="{disabled: ctrl.disabled}">
-                <input type="checkbox" name="{{ctrl.name}}" ng-model="ctrl.model" ng-disabled="ctrl.disabled">
+                <input  type="checkbox" name="{{ctrl.name}}"
+                        ng-model="ctrl.model"
+                        ng-click="ctrl.click"
+                        ng-checked="ctrl.checked"
+                        ng-disabled="ctrl.disabled">
                 <i class="input-helper"></i>
             </label>`
     }

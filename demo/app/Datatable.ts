@@ -14,7 +14,7 @@ class Datatable {
     query: any = { filter: '', order: 'name', limit: 5, page: 1 };
 
     constructor(
-        @Inject('$element') element) {
+        @Inject('$element') private $element) {
 
         for (let i = 0; i < 100; i++) {
             this.data.push({ id: i, name: `Name ${i}`, description: `Description of element ${i}` })
@@ -26,7 +26,12 @@ class Datatable {
     edit(item) {
     }
 
+
     delete() {
+    }
+
+    onSelect(item, flag) {
+        console.log(`${flag ? 'Select' : 'Deselect'}: ${item.id}`);
     }
 
 }

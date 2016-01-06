@@ -1,5 +1,3 @@
-'use strict';
-
 angular.module('m.data.table').directive('mFoot', mFoot);
 
 function mFoot() {

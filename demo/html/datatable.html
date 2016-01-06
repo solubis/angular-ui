@@ -1,5 +1,9 @@
-<div class="card-header">
+<div class="card-header" ng-show="!ctrl.selected.length">
     <h2>Sales Statistics <small>Vestibulum purus quam scelerisque, mollis nonummy metus</small></h2>
+</div>
+
+<div class="card-header" ng-show="ctrl.selected.length">
+    <h2>{{ctrl.selected.length}} {{ctrl.selected.length > 1 ? 'items' : 'item'}} selected<small>Vestibulum purus quam scelerisque, mollis nonummy metus</small></h2>
 
     <ul class="actions">
         <li>
@@ -16,14 +20,14 @@
 </div>
 
 <m-table-container>
-    <table m-table m-progress="promise" m-row-select ng-model="ctrl.selected">
+    <table m-table m-row-select ng-model="ctrl.selected">
         <thead m-head m-order="ctrl.query.order" m-on-reorder="ctrl.onReorder">
             <tr m-row>
                 <th m-column m-order-by="{{column.orderBy}}" ng-repeat="column in ctrl.columns">{{column.name}}</th>
             </tr>
         </thead>
         <tbody m-body>
-            <tr m-row m-select="id" m-select-id="{{item.id}}" ng-dblclick="ctrl.edit(item)" ng-repeat="item in ctrl.data | orderBy: ctrl.query.order | limitTo: ctrl.query.limit : (ctrl.query.page - 1) * ctrl.query.limit track by item.id ">
+            <tr m-row m-select="item.id" m-auto-select m-on-select="ctrl.onSelect(item, true)" m-on.deselect="ctrl.onSelect(item, false)" ng-dblclick="ctrl.edit(item)" ng-repeat="item in ctrl.data | orderBy: ctrl.query.order | limitTo: ctrl.query.limit : (ctrl.query.page - 1) * ctrl.query.limit track by item.id ">
                 <td m-cell>{{item.id}}</td>
                 <td m-cell>{{item.name}}</td>
                 <td m-cell>{{item.description}}</td>

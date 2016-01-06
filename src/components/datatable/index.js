@@ -3,7 +3,6 @@ import "./scripts/module.js";
 import "./scripts/mBody";
 import "./scripts/mCell";
 import "./scripts/mColumn";
-import "./scripts/mEditDialog";
 import "./scripts/mFoot";
 import "./scripts/mHead";
 import "./scripts/mRow";

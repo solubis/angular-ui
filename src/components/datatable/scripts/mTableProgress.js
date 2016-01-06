@@ -1,5 +1,3 @@
-'use strict';
-
 import templateUrl from '../templates/m-table-progress.html'
 
 angular.module('m.data.table').directive('mTableProgress', mTableProgress);

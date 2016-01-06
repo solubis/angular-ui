@@ -187,6 +187,10 @@ class Application {
         }, (z * 150) + 200);
     }
 
+    click(event) {
+        console.log(event.target.localName);
+    }
+
     fullScreen() {
         // Launch
         function launchIntoFullscreen(element) {

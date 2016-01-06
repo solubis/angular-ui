@@ -1,5 +1,3 @@
-'use strict';
-
 angular.module('m.data.table').directive('mTable', mTable);
 
 function Hash() {
@@ -28,6 +26,19 @@ function Hash() {
 
 function mTable() {
 
+    return {
+        bindToController: true,
+        compile: compile,
+        controller: Controller,
+        controllerAs: '$mTable',
+        restrict: 'A',
+        scope: {
+            progress: '=?mProgress',
+            selected: '=ngModel',
+            rowSelect: '=mRowSelect'
+        }
+    };
+
     function compile(tElement, tAttrs) {
         tElement.addClass('m-table');
 
@@ -41,17 +52,19 @@ function mTable() {
         }
     }
 
+    Controller.$inject = ['$attrs', '$element', '$q', '$scope'];
+
     function Controller($attrs, $element, $q, $scope) {
-        var self = this;
+        var ctrl = this;
         var queue = [];
         var watchListener;
         var modelChangeListeners = [];
 
-        self.$$hash = new Hash();
-        self.$$columns = {};
+        ctrl.$$hash = new Hash();
+        ctrl.$$columns = {};
 
         function enableRowSelection() {
-            self.$$rowSelect = true;
+            ctrl.$$rowSelect = true;
 
             watchListener = $scope.$watchCollection('$mTable.selected', function (selected) {
                 modelChangeListeners.forEach(function (listener) {
@@ -63,7 +76,7 @@ function mTable() {
         }
 
         function disableRowSelection() {
-            self.$$rowSelect = false;
+            ctrl.$$rowSelect = false;
 
             if (angular.isFunction(watchListener)) {
                 watchListener();
@@ -88,52 +101,56 @@ function mTable() {
                 return true;
             }
 
-            return self.rowSelect;
+            return ctrl.rowSelect;
         }
 
         function validateModel() {
-            if (!self.selected) {
-                return console.error('Row selection: ngModel is not defined.');
+            if (!ctrl.selected) {
+                console.error('Row selection: ngModel is not defined.');
+
+                return;
             }
 
-            if (!angular.isArray(self.selected)) {
-                return console.error('Row selection: Expected an array. Recived ' + typeof self.selected + '.');
+            if (!angular.isArray(ctrl.selected)) {
+                console.error('Row selection: Expected an array. Recived ' + typeof ctrl.selected + '.');
+
+                return;
             }
 
             return true;
         }
 
-        self.columnCount = function () {
-            return self.getRows($element[0]).reduce(function (count, row) {
+        ctrl.columnCount = function () {
+            return ctrl.getRows($element[0]).reduce(function (count, row) {
                 return row.cells.length > count ? row.cells.length : count;
             }, 0);
         };
 
-        self.getRows = function (element) {
+        ctrl.getRows = function (element) {
             return Array.prototype.filter.call(element.rows, function (row) {
                 return !row.classList.contains('ng-leave');
             });
         };
 
-        self.getBodyRows = function () {
+        ctrl.getBodyRows = function () {
             return Array.prototype.reduce.call($element.prop('tBodies'), function (result, tbody) {
-                return result.concat(self.getRows(tbody));
+                return result.concat(ctrl.getRows(tbody));
             }, []);
         };
 
-        self.getElement = function () {
+        ctrl.getElement = function () {
             return $element;
         };
 
-        self.getHeaderRows = function () {
-            return self.getRows($element.prop('tHead'));
+        ctrl.getHeaderRows = function () {
+            return ctrl.getRows($element.prop('tHead'));
         };
 
-        self.waitingOnPromise = function () {
+        ctrl.waitingOnPromise = function () {
             return !!queue.length;
         };
 
-        self.queuePromise = function (promise) {
+        ctrl.queuePromise = function (promise) {
             if (!promise) {
                 return;
             }
@@ -143,11 +160,11 @@ function mTable() {
             }
         };
 
-        self.registerModelChangeListener = function (listener) {
+        ctrl.registerModelChangeListener = function (listener) {
             modelChangeListeners.push(listener);
         };
 
-        self.removeModelChangeListener = function (listener) {
+        ctrl.removeModelChangeListener = function (listener) {
             var index = modelChangeListeners.indexOf(listener);
 
             if (index !== -1) {
@@ -156,7 +173,7 @@ function mTable() {
         };
 
         if ($attrs.hasOwnProperty('mProgress')) {
-            $scope.$watch('$mTable.progress', self.queuePromise);
+            $scope.$watch('$mTable.progress', ctrl.queuePromise);
         }
 
         $scope.$watch(rowSelect, function (enable) {
@@ -167,19 +184,4 @@ function mTable() {
             }
         });
     }
-
-    Controller.$inject = ['$attrs', '$element', '$q', '$scope'];
-
-    return {
-        bindToController: true,
-        compile: compile,
-        controller: Controller,
-        controllerAs: '$mTable',
-        restrict: 'A',
-        scope: {
-            progress: '=?mProgress',
-            selected: '=ngModel',
-            rowSelect: '=mRowSelect'
-        }
-    };
 }

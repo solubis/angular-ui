@@ -1,6 +1,5 @@
 @import "../../../styles/core";
 
-@import 'm-edit-dialog';
 @import 'm-table-pagination';
 @import 'm-table-select';
 @import 'm-table-toolbar';
@@ -130,11 +129,11 @@ table.m-table {
     transition: background-color 0.2s;
 
     &:not([disabled]):hover {
-      background-color: $gray-lightest !important;
+      background-color: $gray-lighter !important;
     }
 
     &.m-selected {
-      background-color: $gray-lighter;
+      background-color: $gray-lightest;
     }
   }
 
