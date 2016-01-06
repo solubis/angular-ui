@@ -2,28 +2,6 @@
 
 @import 'm-table-pagination';
 @import 'm-table-select';
-@import 'm-table-toolbar';
-
-m-card {
-  > m-toolbar.m-table-toolbar:first-child,
-  > m-table-container:first-child {
-    border-top-left-radius: 2px;
-    border-top-right-radius: 2px;
-  }
-
-  > m-toolbar.m-table-toolbar:last-child,
-  > m-table-container:last-child {
-    border-bottom-left-radius: 2px;
-    border-bottom-right-radius: 2px;
-  }
-}
-
-m-table-container {
-  display: block;
-  max-width: 100%;
-  overflow-x: auto;
-  -webkit-overflow-scrolling: touch;
-}
 
 table.m-table {
   width: 100%;
