@@ -272,15 +272,15 @@
 
             <br/>
 
-            <m-radio>
+            <m-radio ng-model="radioModel" value="1">
                 Option one is this and that-be sure to include why it's great
             </m-radio>
 
-            <m-radio>
+            <m-radio ng-model="radioModel" value="2">
                 Option two can be something else and selecting it will deselect option one
             </m-radio>
 
-            <m-radio>
+            <m-radio ng-disabled="true" ng-model="radioModel" value="3">
                 Option three is disabled
             </m-radio>
 
@@ -288,12 +288,15 @@
             <p class="c-black f-500 m-b-20 m-t-20">Inline Checkboxes and Radios - Use the '.checkbox-inline' or '.radio-inline' classes on a series of checkboxes
                 or radios for controls that appear on the same line.</p>
 
-            <m-checkbox>Checkbox Description 1</m-checkbox>
-            <m-checkbox>Checkbox Description 2</m-checkbox>
-            <m-checkbox>Checkbox Description 3</m-checkbox>
+            <m-checkbox class="checkbox-inline"> 1</m-checkbox>
+            <m-checkbox class="checkbox-inline"> 2</m-checkbox>
+            <m-checkbox class="checkbox-inline"> 3</m-checkbox>
 
-            <m-radio>Radio 1</m-radio>
-            <m-radio>Radio 2</m-radio>
+            <br>
+
+            <m-radio class="radio-inline" ng-model="radioModel" value="1"> 1</m-radio>
+            <m-radio class="radio-inline" ng-model="radioModel" value="2"> 2</m-radio>
+            <m-radio class="radio-inline" ng-model="radioModel" value="3"> 3</m-radio>
 
         </div>
     </div>

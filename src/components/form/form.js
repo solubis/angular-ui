@@ -43,18 +43,17 @@ function checkbox() {
         bindToController: {
             model: '=ngModel',
             name: '@',
-            disabled: '@ngDisabled'
+            disabled: '=ngDisabled'
         },
         replace: true,
         transclude: true,
         controllerAs: 'ctrl',
         controller: function ($scope, $element, $transclude) {
-            let icon = $element.find('i');
-            icon.after($transclude());
+            $element.find('i').after($transclude());
         },
         template: `
-            <label class="checkbox" m-ripple="0">
-                <input type="checkbox" name="{{name}}" ng-model="ctrl.model" ng-disabled="{{disabled}}">
+            <label class="checkbox" m-ripple="static" ng-class="{disabled: ctrl.disabled}">
+                <input type="checkbox" name="{{ctrl.name}}" ng-model="ctrl.model" ng-disabled="ctrl.disabled">
                 <i class="input-helper"></i>
             </label>`
     }
@@ -66,7 +65,8 @@ function radiobutton() {
         scope: {
             model: '=ngModel',
             name: '@',
-            value: '@'
+            value: '@',
+            disabled: '=ngDisabled'
         },
         replace: true,
         transclude: true,
@@ -74,8 +74,8 @@ function radiobutton() {
             element.find('i').after(transclude());
         },
         template: `
-            <label class="radio" m-ripple="0">
-                <input type="radio" name="{{name}}" value="{{value}}" ng-model="model">
+            <label class="radio" m-ripple="static" ng-class="{disabled: disabled}">
+                <input type="radio" name="{{name}}" value="{{value}}" ng-model="model" ng-disabled="disabled">
                 <i class="input-helper"></i>
             </label>`
     }

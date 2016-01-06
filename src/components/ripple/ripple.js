@@ -12,6 +12,10 @@ function postLink(scope, element, attrs) {
     if (attrs.mRipple) {
         let coordinates = attrs.mRipple.split(',');
 
+        if (coordinates[0] === 'static'){
+            coordinates[0] = 0;
+        }
+
         config = {};
         config.left = Number(coordinates[0]);
         config.top = Number(coordinates[1]) || config.left;
@@ -28,6 +32,10 @@ function postLink(scope, element, attrs) {
 
     function handler(event) {
         let rippleContainer = this.querySelector('.m-ripple-container');
+
+        if (this.getAttribute('disabled')) {
+            return;
+        }
 
         if (rippleContainer === null) {
             // Create ripple
