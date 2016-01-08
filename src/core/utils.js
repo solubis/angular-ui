@@ -10,7 +10,7 @@ angular.module('angular-ui')
         return {
             restrict: 'C',
             link: function (scope, element) {
-                if (element.attr('m-ripple')){
+                if (element.attr('m-ripple')) {
                     return;
                 }
 
@@ -69,6 +69,15 @@ angular.module('angular-ui')
                 element.click(function () {
                     window.print();
                 })
+            }
+        }
+    })
+
+    .directive('scrollReveal', ($timeout) => {
+        return {
+            restrict: 'A',
+            link: function (scope, element) {
+                window.ScrollReveal.reveal('.card', { delay: 300, duration: 500, container: element[0] });
             }
         }
     })

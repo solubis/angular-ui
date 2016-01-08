@@ -27,6 +27,8 @@
         border-radius: 50%;
         z-index: 1;
 
+        transition: opacity, transform;
+
         @include transform-origin(center);
         @include scale-rotate(0, -360deg);
         @include transition-duration(500ms);

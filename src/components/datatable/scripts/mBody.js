@@ -8,6 +8,6 @@ function mBody() {
 
   return {
     compile: compile,
-    restrict: 'A'
+    restrict: 'AE'
   };
 }

@@ -5,7 +5,7 @@ function mColumn($compile) {
     return {
         compile: compile,
         require: ['^^mHead', '^^mTable'],
-        restrict: 'A',
+        restrict: 'EA',
         scope: {
             numeric: '=?mNumeric',
             orderBy: '@?mOrderBy'

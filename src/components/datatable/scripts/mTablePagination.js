@@ -2,28 +2,12 @@ import templateUrl from '../templates/m-table-pagination.html';
 
 angular.module('m.data.table').directive('mTablePagination', mTablePagination);
 
-/*
-return {
-        restrict: 'E',
-        scope: {},
-        controller: 'FooDirCtrl',
-        controllerAs: 'vm',
-        bindToController: {
-            name: '='
-        },
-        template: [
-            '<div><input ng-model="vm.name"></div>'
-        ].join(''),
-        link: link
-    };
-*/
-
 
 function mTablePagination() {
 
     return {
         compile: compile,
-        restrict: 'E',
+        restrict: 'EA',
         scope: {
             boundaryLinks: '=?mBoundaryLinks',
             label: '@?mLabel',

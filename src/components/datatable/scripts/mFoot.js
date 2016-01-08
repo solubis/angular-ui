@@ -8,6 +8,6 @@ function mFoot() {
 
   return {
     compile: compile,
-    restrict: 'A'
+    restrict: 'EA'
   };
 }

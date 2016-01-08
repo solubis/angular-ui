@@ -31,7 +31,7 @@ function mTable() {
         compile: compile,
         controller: Controller,
         controllerAs: '$mTable',
-        restrict: 'A',
+        restrict: 'EA',
         scope: {
             progress: '=?mProgress',
             selected: '=ngModel',
@@ -120,31 +120,23 @@ function mTable() {
             return true;
         }
 
-        ctrl.columnCount = function () {
-            return ctrl.getRows($element[0]).reduce(function (count, row) {
-                return row.cells.length > count ? row.cells.length : count;
-            }, 0);
+        ctrl.columnCount =  () =>
+             ctrl.getRows($element[0]).reduce( (count, row) =>
+                 row.cells.length > count ? row.cells.length : count
+            , 0);
+        ;
+
+        ctrl.getRows = (element) => {
+            return Array.from(element.rows).filter((row) => !row.classList.contains('ng-leave'));
         };
 
-        ctrl.getRows = function (element) {
-            return Array.prototype.filter.call(element.rows, function (row) {
-                return !row.classList.contains('ng-leave');
-            });
+        ctrl.getBodyRows =  () => {
+            return Array.from($element.prop('tBodies')).reduce((result, tbody) => result.concat(ctrl.getRows(tbody)), []);
         };
 
-        ctrl.getBodyRows = function () {
-            return Array.prototype.reduce.call($element.prop('tBodies'), function (result, tbody) {
-                return result.concat(ctrl.getRows(tbody));
-            }, []);
-        };
+        ctrl.getElement = () => $element;
 
-        ctrl.getElement = function () {
-            return $element;
-        };
-
-        ctrl.getHeaderRows = function () {
-            return ctrl.getRows($element.prop('tHead'));
-        };
+        ctrl.getHeaderRows = () => ctrl.getRows($element.prop('tHead'));
 
         ctrl.waitingOnPromise = function () {
             return !!queue.length;

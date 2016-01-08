@@ -1,45 +1,67 @@
-<div class="card-header" ng-show="!ctrl.selected.length">
-    <h2>Sales Statistics <small>Vestibulum purus quam scelerisque, mollis nonummy metus</small></h2>
-</div>
+<div class="lv-header-alt clearfix m-b-5" ng-show="!ctrl.selected.length">
+    <h2 class="lvh-label hidden-xs">{{ctrl.data.length}} {{ctrl.data.length > 1 ? 'items' : 'item'}}</h2>
 
-<div class="card-header" ng-show="ctrl.selected.length">
-    <h2>{{ctrl.selected.length}} {{ctrl.selected.length > 1 ? 'items' : 'item'}} selected<small>Vestibulum purus quam scelerisque, mollis nonummy metus</small></h2>
+    <div class="lvh-search" ng-if="ctrl.listviewSearchStat" ng-click="ctrl.listviewSearchStat">
+        <input type="text" placeholder="Search..." class="lvhs-input">
 
-    <ul class="actions">
+        <i class="lvh-search-close" ng-click="ctrl.listviewSearchStat = false">&times;</i>
+    </div>
+
+    <ul class="lv-actions actions">
         <li>
-            <a href="">
-                <i class="zmdi zmdi-refresh-alt"></i>
+            <a href="" ng-click="ctrl.listviewSearchStat = true">
+                <i class="zmdi zmdi-search"></i>
             </a>
         </li>
         <li>
             <a href="">
-                <i class="zmdi zmdi-download"></i>
+                <i class="zmdi zmdi-info"></i>
+            </a>
+        </li>
+        <li class="dropdown" uib-dropdown>
+            <a href="" uib-dropdown-toggle aria-expanded="false" aria-haspopup="true">
+                <i class="zmdi zmdi-more-vert"></i>
+            </a>
+
+            <ul class="dropdown-menu dropdown-menu-right">
+                <li>
+                    <a href="">Refresh</a>
+                </li>
+                <li>
+                    <a href="">Settings</a>
+                </li>
+            </ul>
+        </li>
+    </ul>
+</div>
+
+<div class="lv-header-alt clearfix m-b-5" ng-show="ctrl.selected.length">
+    <h2 class="lvh-label hidden-xs">{{ctrl.selected.length}} {{ctrl.selected.length > 1 ? 'items' : 'item'}} selected</h2>
+
+    <ul class="lv-actions actions">
+        <li>
+            <a href="">
+                <i class="zmdi zmdi-delete"></i>
             </a>
         </li>
     </ul>
 </div>
 
-<m-table-container>
-    <table m-table m-row-select ng-model="ctrl.selected">
-        <thead m-head m-order="ctrl.query.order" m-on-reorder="ctrl.onReorder">
-            <tr m-row>
-                <th m-column m-order-by="{{column.orderBy}}" ng-repeat="column in ctrl.columns">{{column.name}}</th>
-            </tr>
-        </thead>
-        <tbody m-body>
-            <tr m-row m-select="item.id" m-auto-select m-on-select="ctrl.onSelect(item, true)" m-on.deselect="ctrl.onSelect(item, false)" ng-dblclick="ctrl.edit(item)" ng-repeat="item in ctrl.data | orderBy: ctrl.query.order | limitTo: ctrl.query.limit : (ctrl.query.page - 1) * ctrl.query.limit track by item.id ">
-                <td m-cell>{{item.id}}</td>
-                <td m-cell>{{item.name}}</td>
-                <td m-cell>{{item.description}}</td>
-            </tr>
-        </tbody>
-    </table>
-</m-table-container>
+<table m-table m-row-select ng-model="ctrl.selected">
+    <thead m-head m-order="ctrl.query.order" m-on-reorder="ctrl.onReorder">
+        <tr m-row>
+            <th m-column m-order-by="{{column.orderBy}}" ng-repeat="column in ctrl.columns">{{column.name}}</th>
+        </tr>
+    </thead>
+    <tbody m-body>
+        <tr m-row m-select="item.id" m-auto-select m-on-select="ctrl.onSelect(item, true)" m-on.deselect="ctrl.onSelect(item, false)"
+        ng-dblclick="ctrl.edit(item)" ng-repeat="item in ctrl.data | orderBy: ctrl.query.order | limitTo: ctrl.query.limit : (ctrl.query.page - 1) * ctrl.query.limit track by item.id ">
+            <td m-cell>{{item.id}}</td>
+            <td m-cell>{{item.name}}</td>
+            <td m-cell>{{item.description}}</td>
+        </tr>
+    </tbody>
+</table>
 
-<m-table-pagination
-    m-limit="ctrl.query.limit"
-    m-page="ctrl.query.page"
-    m-page-select
-    m-total="{{ctrl.data.length}}"
-    m-on-paginate="ctrl.onPageChange">
+<m-table-pagination m-limit="ctrl.query.limit" m-page="ctrl.query.page" m-page-select m-total="{{ctrl.data.length}}" m-on-paginate="ctrl.onPageChange">
 </m-table-pagination>

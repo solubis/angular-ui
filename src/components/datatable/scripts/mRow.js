@@ -5,7 +5,7 @@ function mRow() {
     return {
         compile: compile,
         require: '^^mTable',
-        restrict: 'A'
+        restrict: 'EA'
     };
 
     function compile(tElement) {
