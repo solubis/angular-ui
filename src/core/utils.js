@@ -73,11 +73,21 @@ angular.module('angular-ui')
         }
     })
 
+    .factory('reveal', function () {
+        return window.ScrollReveal;
+    })
+
     .directive('scrollReveal', ($timeout) => {
         return {
             restrict: 'A',
             link: function (scope, element) {
-                window.ScrollReveal.reveal('.card', { delay: 300, duration: 500, container: element[0] });
+                if (element[0].querySelector('.card')) {
+                    window.ScrollReveal.reveal('.card', { delay: 300, duration: 500, container: element[0] });
+                }
+
+                if (element[0].querySelector('.dynamic-card')) {
+                    window.ScrollReveal.reveal('.dynamic-card', { delay: 300, duration: 500, container: element[0] });
+                }
             }
         }
     })

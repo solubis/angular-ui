@@ -11,7 +11,7 @@ module.exports = {
         vendors: ['./src/vendors.js'],
     },
     output: {
-        path: './build/',
+        path: path.join(__dirname, 'build'),
         publicPath: '/',
         filename: '[name].js',
         libraryTarget: 'umd',

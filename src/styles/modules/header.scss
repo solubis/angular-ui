@@ -127,14 +127,18 @@ $top-menu-button-size: 40px;
 
             & > .tmn-counts {
                 position: absolute;
+                width: 20px;
+                height: 20px;
+                border: 1px solid white;
                 font-style: normal;
+                font-weight: 700;
                 background: $m-red;
                 padding: 1px 5px;
-                border-radius: 2px;
-                right: 3px;
-                top: -3px;
-                font-size: 10px;
-                line-height: 15px;
+                border-radius: 50%;
+                right: 2px;
+                top: -2px;
+                font-size: 11px;
+                background-color: red;
             }
 
 
