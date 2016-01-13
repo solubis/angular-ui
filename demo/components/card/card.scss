@@ -2,12 +2,12 @@
 
 $header-height: 100px;
 
-@mixin bg-image($image, $opacity: 0.5) {
+@mixin bg-image($image: 'http://lorempixel.com/600/300', $opacity: 0.5, $size: cover) {
 	&:before {
-        background-image: url('http://lorempixel.com/600/300');
+        background-image: url($image);
 		position: absolute;
 		z-index: 0;
-		background-size: cover;
+		background-size: $size;
 		content: '';
 		width: 100%;
 		height: 100%;
@@ -26,7 +26,7 @@ $header-height: 100px;
     button.btn-float {
         right: 20px;
         bottom: 20px;
-        transition: all 500ms ease-out;
+        transition: all 500ms cubic-bezier(.3, 0, 0, 1.3);
     }
 
     .zmdi-close {
@@ -42,11 +42,11 @@ $header-height: 100px;
 
     .card-header {
 
-        @include bg-image('fox.jpg');
+        @include bg-image;
 
         bottom: 0;
         height: 100%;
-        transition: height 280ms ease-out;
+        transition: height 280ms cubic-bezier(.3, 0, 0, 1.3);
         margin-bottom:0;
 
         h2 {
@@ -58,7 +58,7 @@ $header-height: 100px;
         small {
             padding: 0 10px;
             text-transform: uppercase;
-            background-color: transparentize($color: $gray-dark, $amount: 0.8);
+            background-color: transparentize($color: $gray-darkest, $amount: 0.5);
             color: $m-white;
         }
     }
@@ -92,56 +92,105 @@ $header-height: 100px;
 .exploading-card .card {
 
     overflow: hidden;
+    position: relative;
+    height: 200px;
+    transition: height .3s cubic-bezier(.3, 0, 0, 1.3);
 
-    .card-header {
-        @include bg-image('fox.jpg');
+    .badge {
+        text-transform: uppercase;
+        transition: 0.5s all;
+        opacity: 1;
+        position: relative;
+        margin-bottom: 10px;
     }
 
-    button.btn-float {
+    h2 {
+        position: absolute;
+    }
+
+    small {
+        padding: 0 10px;
+        text-transform: uppercase;
+        background-color: transparentize($color: $gray-darkest, $amount: 0.5);
+        color: $m-white;
+    }
+
+
+    .card-header {
+        @include bg-image('http://lorempixel.com/600/300', 1, auto);
+        height: 100%;
+    }
+
+    .card-body {
+        color: white;
+        opacity: 0;
+        height: 0;
+        position: absolute;
+        top: 60px;
+        left:0;
+        transition: all 0.35s ease-out;
+    }
+
+    .btn-float {
         right: 20px;
         top: 20px;
         transition: all 300ms ease-out;
+        overflow: visible;
 
-            i.zmdi-close {
-                position: absolute;
-                color: white;
-                opacity: 0;
-                transition: transform 500ms;
-            }
-    }
+         &:before {
+            content: "";
+            position: absolute;
+            background: $m-blue;
+            z-index: -1;
+            top:0;
+            right:0;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            transform: scale(1);
+            transition: transform 0.35s ease-out;
+        }
 
-    .zmdi-close {
-        transform: scale(0) rotate(-360deg);
     }
 
     &.expanded {
-        .btn-float {
-            z-index: 0;
-            transform: scale(20);
+        height: 400px;
 
-            .zmdi-more {
-                opacity: 0;
-            }
-            .zmdi-close {
-                opacity: 1;
-                top: 13px;
-                right: 18px;
-                transform: scale(0.05) rotate(0);
-                &:hover {
-                    transform: none;
+        .card-body {
+            color: white;
+            background: transparent;
+            opacity: 1;
+            height: 100%;
+            display: initial;
+            z-index: 1;
+        }
+
+        .btn-float {
+            &:before{
+                transform: scale(20);
+
+                @media (max-width: 765px) {
+                    transform: scale(35);
                 }
             }
-        }
 
-        .card-header {
-             height: $header-height;
+            .zmdi.zmdi-more:before{
+                content: '\f136';
+                animation: rotation 500ms;
+            }
         }
-        .card-body {
-            opacity: 1;
-            color: white;
-            height: 100%;
-            z-index: 10;
-        }
+    }
+}
+
+@keyframes rotation {
+    from {
+        opacity: 0;
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+        opacity: 1;
     }
 }
 
