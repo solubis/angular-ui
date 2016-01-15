@@ -1,0 +1,11 @@
+.card(ng-class='{expanded: ctrl.isExpanded}')
+  .card-header.ch-alt
+    span.badge Project 1
+    h2
+      | Dynamic card
+      small ipsum id auctor
+    button.btn.bgm-blue.btn-float.no-waves(ng-click='ctrl.toggle()')
+      i.zmdi.zmdi-more
+  .card-body.card-padding
+    | Cras leo sem, egestas a accumsan eget, euismod at nunc. Praesent vel mi blandit, tempus ex gravida, accumsan dui. Sed sed
+    | aliquam augue. Nullam vel suscipit purus, eu facilisis ante. Mauris nec commodo felis.

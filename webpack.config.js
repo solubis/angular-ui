@@ -1,6 +1,8 @@
 
 var path = require('path');
 var webpack = require('webpack')
+var autoprefixer = require('autoprefixer');
+var precss       = require('precss');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
@@ -28,6 +30,7 @@ module.exports = {
             { test: /\.tsx?$/, loader: 'ts' },
             { test: /\.html$/, loader: 'ngtemplate!html'},
             { test: /\.coffee$/, loader: 'coffee' },
+            { test: /\.jade/, loader: 'jade' },
             { test: /\.(png|jpg|gif)$/, loader: 'url' },
             { test: /\.jsx?$/, loader: 'babel',
                 query: {
@@ -37,10 +40,13 @@ module.exports = {
                 },
                 exclude: /node_modules/,
             },
-            { test: /\.scss$/, loader: ExtractTextPlugin.extract('style', 'css?sourceMap!sass?sourceMap') },
+            { test: /\.scss$/, loader: ExtractTextPlugin.extract('style', 'css?sourceMap!postcss!sass?sourceMap') },
             { test: /\.css$/, loader: ExtractTextPlugin.extract('style', 'css') },
             { test: /\.(ttf|eot|svg|woff(2)?)(\?[\s\S]+)?$/, loader: 'url' }
         ]
+    },
+      postcss: function () {
+        return [autoprefixer, precss];
     },
     devServer: {
         contentBase: './demo'

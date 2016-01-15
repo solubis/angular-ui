@@ -3,7 +3,7 @@ import './card.scss';
 
 @Component({
     selector: 'card',
-    templateUrl: require('./card.html')
+    template: require('./card.jade')
 })
 class Card {
 
