@@ -1,19 +1,21 @@
 /*
- * Roboto Light
+ * Font Face
  */
+@mixin font-face($family, $name, $weight, $style)
+{
+    @font-face{
+        font-family: $family;
+        src:url('../fonts/#{$family}/#{$name}.eot');
+        src:url('../fonts/#{$family}/#{$name}.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/#{$family}/#{$name}.woff') format('woff'),
+        url('../fonts/#{$family}/#{$name}.ttf') format('truetype'),
+        url('../fonts/#{$family}/#{$name}.svg#icon') format('svg');
+        font-weight: $weight;
+        font-style: $style;
+    }
+}
+
 @include font-face(roboto, 'Roboto-Light-webfont', 300, normal);
-
-/*
- * Roboto Regular
- */
 @include font-face(roboto, 'Roboto-Regular-webfont', 400, normal);
-
-/*
- * Roboto Medium
- */
 @include font-face(roboto, 'Roboto-Medium-webfont', 500, normal);
-
-/*
- * Roboto Bold
- */
 @include font-face(roboto, 'Roboto-Bold-webfont', 700, normal);

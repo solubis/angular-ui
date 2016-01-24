@@ -13,6 +13,7 @@
     "build": "NODE_ENV=production node node_modules/.bin/webpack && cp demo/index.html build/index.html"
   },
   "devDependencies": {
+    "Flot": "flot/flot",
     "angular-components": "file:../angular-components",
     "angular-loading-bar": "^0.8.0",
     "angular-ui-bootstrap": "^0.14.3",

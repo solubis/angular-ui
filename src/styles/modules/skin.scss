@@ -109,6 +109,10 @@
             background: $color;
         }
     }
+
+    .tmn-counts {
+        border-color: $color !important;
+    }
 }
 
 [data-current-skin="lightblue"] { @include current-skin($m-lightblue); }

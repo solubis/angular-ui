@@ -3,7 +3,6 @@ import {Component, Inject, bootstrap} from 'angular-components';
 import './Demo';
 import './Data';
 import './Datatable';
-import '../components/card';
 
 @Component({
     selector: 'app',

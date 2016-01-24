@@ -125,20 +125,24 @@ $top-menu-button-size: 40px;
                 text-transform: uppercase;
             }
 
+            $tmn-size: 22px;
+            $tmn-border: 2px;
+
             & > .tmn-counts {
                 position: absolute;
-                width: 20px;
-                height: 20px;
-                border: 1px solid white;
+                color: $m-white;
+                width: $tmn-size;
+                height: $tmn-size;
+                border: 2px solid $brand-primary;
                 font-style: normal;
-                font-weight: 700;
+                font-weight: $font-bold;
                 background: $m-red;
-                padding: 1px 5px;
                 border-radius: 50%;
-                right: 2px;
-                top: -2px;
+                right: 0px;
+                top: -5px;
+                line-height: $tmn-size - 2 * $tmn-border;
                 font-size: 11px;
-                background-color: red;
+                background-color: $m-red;
             }
 
 

@@ -5,7 +5,7 @@ $icon-font-name:            'Material-Design-Iconic-Font';
 $icon-font-path:            '../fonts/';
 $load-local-fonts:          true;
 $font-light:                300;
-$font-normal:              400;
+$font-normal:               400;
 $font-medium:               500;
 $font-bold:                 700;
 
@@ -268,7 +268,13 @@ $margin-default: 20px;
 $margin-small: 10px;
 $margin-large: 30px;
 
+$margin-l: 15px;
+$margin-s: 5px;
+$margin-m: 10px;
+
 /*
  * Misc
  */
 $card-shadow: 0 1px 1px rgba(0, 0, 0, 0.15);
+
+$easing-bezier: cubic-bezier(.3, 0, 0, 1.3);

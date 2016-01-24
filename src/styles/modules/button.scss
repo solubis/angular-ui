@@ -1,6 +1,7 @@
 .btn {
     border: 0;
     text-transform: uppercase;
+    font-weight: 500;
 
 
     &[class*="bgm-"]:not(.bgm-white) {
@@ -42,8 +43,10 @@
     text-decoration: none;
     border-radius: 2px;
 
+    transition: box-shadow .2s cubic-bezier(.4,0,1,1),background-color .2s cubic-bezier(.4,0,.2,1),color .2s cubic-bezier(.4,0,.2,1);
+
     &:hover {
-        color: #0a0a0a;
+        background-color: rgba(158,158,158,.2);
     }
 
     &:hover,

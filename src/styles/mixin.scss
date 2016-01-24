@@ -1,44 +1,27 @@
 @mixin vertical-align($position: relative) {
-  position: $position;
-  top: 50%;
-  -webkit-transform: translateY(-50%);
-  -ms-transform: translateY(-50%);
-  transform: translateY(-50%);
+    position: $position;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
 }
 
-/*
- * Font Face
- */
-@mixin font-face($family, $name, $weight, $style)
-{
-    @font-face{
-        font-family: $family;
-        src:url('../fonts/#{$family}/#{$name}.eot');
-        src:url('../fonts/#{$family}/#{$name}.eot?#iefix') format('embedded-opentype'),
-        url('../fonts/#{$family}/#{$name}.woff') format('woff'),
-        url('../fonts/#{$family}/#{$name}.ttf') format('truetype'),
-        url('../fonts/#{$family}/#{$name}.svg#icon') format('svg');
-        font-weight: $weight;
-        font-style: $style;
-    }
-}
 
 /*
  * Background Repeat + Position
  */
 
-@mixin bg-option($repeat: no-repeat, $position: center)
-{
+@mixin bg-option($repeat: no-repeat, $position: center) {
     background-repeat: $repeat;
     background-position: $position;
 }
+
 
 /*
  * CSS Animations based on animate.css
  */
 
-@mixin animated($name, $duration)
-{
+@mixin animated($name, $duration) {
     -webkit-animation-name: $name;
     animation-name: $name;
     -webkit-animation-duration: $duration;
@@ -47,35 +30,38 @@
     animation-fill-mode: both;
 }
 
+
 /*
  * CSS Transform - Scale and Rotate
  */
-@mixin scale-rotate($scale, $rotate)
-{
+
+@mixin scale-rotate($scale, $rotate) {
     -webkit-transform: scale($scale) rotate($rotate);
     -ms-transform: scale($scale) rotate($rotate);
     -o-transform: scale($scale) rotate($rotate);
     transform: scale($scale) rotate($rotate);
 }
 
+
 /*
  * User Select
  */
-@mixin user-select($val)
-{
-    -webkit-touch-callout:  $val;
-    -webkit-user-select:    $val;
-    -khtml-user-select:     $val;
-    -moz-user-select:       $val;
-    -ms-user-select:        $val;
-    user-select:            $val;
+
+@mixin user-select($val) {
+    -webkit-touch-callout: $val;
+    -webkit-user-select: $val;
+    -khtml-user-select: $val;
+    -moz-user-select: $val;
+    -ms-user-select: $val;
+    user-select: $val;
 }
+
 
 /*
  * Background Image Cover
  */
-@mixin bg-cover($image)
-{
+
+@mixin bg-cover($image) {
     background-image: url($image);
     background-repeat: no-repeat;
     -webkit-background-size: cover;
@@ -85,8 +71,7 @@
     background-position: center;
 }
 
-@mixin bg-cover-inline()
-{
+@mixin bg-cover-inline() {
     background-repeat: no-repeat;
     -webkit-background-size: cover;
     -moz-background-size: cover;
@@ -95,22 +80,23 @@
     background-position: center;
 }
 
+
 /*
  * Tab Focus
  */
-@mixin tab-focus()
-{
+
+@mixin tab-focus() {
     outline: none !important;
 }
+
 
 /*
  * Pop-in Hover effects
  */
-@mixin hover-pop($background: #{"rgba(0,0,0,0.5)"}, $radius: 0, $duration: 250ms, $zindex: 0)
-{
+
+@mixin hover-pop($background: #{"rgba(0,0,0,0.5)"}, $radius: 0, $duration: 250ms, $zindex: 0) {
     @media (min-width: $screen-sm-min) {
         position: relative;
-
         &:before {
             left: 0;
             top: 0;
@@ -118,7 +104,7 @@
             position: absolute;
             width: 100%;
             height: 100%;
-            @include scale3d(0,0,0);
+            @include scale3d(0, 0, 0);
             @include transition(all);
             @include transition-duration($duration);
             @include backface-visibility(hidden);
@@ -127,24 +113,55 @@
             border-radius: $radius;
             @include opacity(0);
         }
-
         &:hover:before,
         &.open:before {
-            @include scale3d(1,1,1);
+            @include scale3d(1, 1, 1);
             @include opacity(1);
         }
     }
 }
 
+@mixin background-image($image: 'http://lorempixel.com/600/300', $opacity: 0.5, $size: cover) {
+    &:before {
+        background-image: url($image);
+        position: absolute;
+        z-index: -2;
+        background-size: $size;
+        content: '';
+        width: 100%;
+        height: 100%;
+        left: 0;
+        top: 0;
+        background-position: 50% 50%;
+        opacity: $opacity;
+    }
+}
+
+@mixin background-gradient() {
+    &:after {
+        content: '';
+        background: linear-gradient( to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.7) 100%);
+        width: 100%;
+        height: 50%;
+        opacity: 0.7;
+        position: absolute;
+        top: 50%;
+        left: 0;
+        z-index: -1;
+        transition-property: top, opacity;
+        transition-duration: 0.2s;
+    }
+}
+
+
 /*
  *  Override Bootstrap Button Mixin
  */
-@mixin button-variant($color, $background, $border)
-{
+
+@mixin button-variant($color, $background, $border) {
     color: $color;
     background-color: $background;
     border-color: $border;
-
     &:hover,
     &:focus,
     &.focus,
@@ -153,22 +170,20 @@
         color: $color;
         background-color: lighten($background, 5%);
         border-color: $border;
-
         &:hover,
         &:focus,
         &.focus {
             color: $color;
-            background-color: lighten($background, 5%);;
+            background-color: lighten($background, 5%);
+            ;
             border-color: transparent
         }
     }
-
     &:active,
     &.active,
     .open > .dropdown-toggle & {
         background-image: none;
     }
-
     &.disabled,
     &[disabled],
     fieldset[disabled] & {
@@ -181,7 +196,6 @@
             border-color: $border;
         }
     }
-
     .badge {
         color: $background;
         background-color: $color;
@@ -192,6 +206,7 @@
 /*
  * Scale 3d
  */
+
 @mixin scale3d($args...) {
     -webkit-transform: scale3d($args);
     -moz-transform: scale3d($args);

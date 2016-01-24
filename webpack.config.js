@@ -3,7 +3,7 @@ var path = require('path');
 var webpack = require('webpack')
 var autoprefixer = require('autoprefixer');
 var precss       = require('precss');
-var ExtractTextPlugin = require('extract-text-webpack-plugin');
+//var ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
     entry: {
@@ -38,10 +38,10 @@ module.exports = {
                     cacheDirectory: true,
                     plugins: ['transform-runtime']
                 },
-                exclude: /node_modules/,
+                exclude: /(node_modules|angular-components)/,
             },
-            { test: /\.scss$/, loader: ExtractTextPlugin.extract('style', 'css?sourceMap!postcss!sass?sourceMap') },
-            { test: /\.css$/, loader: ExtractTextPlugin.extract('style', 'css') },
+            { test: /\.scss$/, loaders: ['style','css?sourceMap','sass?sourceMap'] },
+            { test: /\.css$/, loaders: ['style', 'css'] },
             { test: /\.(ttf|eot|svg|woff(2)?)(\?[\s\S]+)?$/, loader: 'url' }
         ]
     },
@@ -57,7 +57,7 @@ module.exports = {
             jQuery: 'jquery',
             'window.jQuery': 'jquery'
         }),
-        new ExtractTextPlugin("[name].css", { allChunks: true }),
+        //new ExtractTextPlugin("[name].css", { allChunks: true }),
         new webpack.optimize.CommonsChunkPlugin('vendors', '[name].js')
     ]
 };
