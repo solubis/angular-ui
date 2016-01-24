@@ -1,0 +1,291 @@
+@import "../../styles/core.scss";
+@mixin shrink() {
+    height: 0;
+    padding: 0;
+    margin: 0;
+    border: 0;
+}
+
+$card-header-height: 100px;
+@mixin focus-shadow() {
+    box-shadow: 0 0 8px rgba(0, 0, 0, .18), 0 8px 16px rgba(0, 0, 0, .36);
+}
+
+@mixin card-shadow() {
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+}
+
+.card {
+    @include card-shadow;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    background: #fff;
+    margin-bottom: 30px;
+}
+
+.card-header {
+    padding: $margin-l;
+    z-index: 1;
+    h2 {
+        margin: 0;
+        line-height: 100%;
+        color: $brand-primary;
+        font-size: 2em;
+        font-weight: 200;
+        z-index: 10;
+        small {
+            display: block;
+            margin-top: $margin-s;
+            color: #AEAEAE;
+            line-height: 160%;
+        }
+    }
+    &[class*="bgm-"] {
+        h2,
+        h2 small {
+            color: $m-white;
+        }
+    }
+    .badge {
+        text-transform: uppercase;
+        transition: 0.5s all;
+        opacity: 1;
+        position: relative;
+    }
+    .actions {
+        position: absolute;
+        right: $margin-m;
+        z-index: 1;
+        top: $margin-l;
+    }
+    .btn-float {
+        right: 25px;
+        bottom: -23px;
+        z-index: 1;
+    }
+}
+
+.card-body {
+    padding: 18px;
+}
+
+.card-footer {
+    border-top: 1px solid rgba(0, 0, 0, .1);
+    padding: 8px;
+    height: 4em;
+}
+
+@mixin animated-card-transition() {
+    transition: all .3s cubic-bezier(.3, 0, 0, 1.3);
+}
+
+.card.card-animated {
+    overflow: hidden;
+    justify-content: flex-end;
+    @include background-image;
+    @include animated-card-transition;
+    &:before {
+        border-radius: 50%;
+        opacity: 1;
+        height: 400px;
+        width: 150%;
+        transform: translate(-17%, -75%);
+        @include animated-card-transition;
+    }
+    .card-header {
+        @include animated-card-transition;
+        margin: 11em 0 0 0;
+        padding: 0;
+        background: transparent;
+        .badge {
+            margin: $margin-l;
+        }
+        h2 {
+            text-align: center;
+            width: 100%;
+        }
+    }
+    .card-body {
+        color: rgba(0, 0, 0, .6);
+        font-size: 100%;
+        font-weight: normal;
+        text-align: center;
+        padding-top: 0;
+        margin-top: 0;
+        z-index: 10;
+        overflow: hidden;
+        p {
+            @include shrink;
+            overflow: hidden;
+        }
+    }
+    .card-footer {
+        display: none;
+    }
+    &:hover {
+        justify-content: flex-start;
+        &:before {
+            border-radius: 0;
+            transform: translate(-17%, -60%);
+        }
+        .card-body {
+            margin: $margin-l;
+            padding: $margin-l;
+            height: initial;
+            p {
+                height: initial;
+            }
+        }
+        .card-header {
+            margin: 2em 0;
+            height: 6em;
+            padding: 0;
+            h2 {
+                padding: $margin-s 0;
+                background: $m-blue;
+                color: white;
+            }
+        }
+        .card-footer {
+            display: inherit;
+        }
+    }
+}
+
+.card.card-dynamic {
+    overflow: hidden;
+    height: 412px;
+    button.btn-float {
+        right: 20px;
+        bottom: 20px;
+        transition: all 500ms cubic-bezier(.3, 0, 0, 1.3);
+    }
+    .zmdi-close {
+        display: none;
+    }
+    .card-header {
+        @include background-image;
+        @include background-gradient;
+        bottom: 0;
+        height: 100%;
+        transition: height 280ms cubic-bezier(.3, 0, 0, 1.3);
+        margin-bottom: 0;
+        background-color: transparent;
+        h2 {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+        }
+        small {
+            padding: 0 10px;
+            text-transform: uppercase;
+            background-color: transparentize($color: $gray-darkest, $amount: 0.5);
+            color: $m-white;
+        }
+    }
+    .card-body {
+        opacity: 1;
+        height: calc(100% - $card-header-height);
+        transition: all 0.5s;
+        overflow: scroll;
+    }
+    &.expanded {
+        .card-header {
+            height: $card-header-height;
+        }
+        .card-body {
+            opacity: 1;
+        }
+        .badge {
+            transform: translateY(-100px);
+            opacity: 0;
+        }
+        .btn-float {
+            bottom: -25px;
+        }
+    }
+}
+
+.card.card-exploading {
+    overflow: hidden;
+    position: relative;
+    height: 200px;
+    transition: height .3s cubic-bezier(.3, 0, 0, 1.3);
+    h2 {
+        position: absolute;
+    }
+    small {
+        padding: 0 10px;
+        text-transform: uppercase;
+        background-color: transparentize($color: $gray-darkest, $amount: 0.5);
+        color: $m-white;
+    }
+    .card-header {
+        @include background-image('http://lorempixel.com/600/300', 1, auto);
+        height: 100%;
+        background-color: transparent;
+    }
+    .card-body {
+        color: white;
+        opacity: 0;
+        height: 0;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        transition: all 0.35s ease-out;
+    }
+    .btn-float {
+        right: 20px;
+        top: 20px;
+        transition: all 300ms ease-out;
+        overflow: visible;
+        &:before {
+            content: "";
+            position: absolute;
+            background: $m-blue;
+            z-index: -1;
+            top: 0;
+            right: 0;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            transform: scale(1);
+            transition: transform 0.35s ease-out;
+        }
+    }
+    &.expanded {
+        height: 400px;
+        .card-body {
+            color: white;
+            background: transparent;
+            opacity: 1;
+            height: 100%;
+            display: initial;
+            z-index: 1;
+        }
+        .btn-float {
+            &:before {
+                transform: scale(20);
+                @media (max-width: 765px) {
+                    transform: scale(35);
+                }
+            }
+            .zmdi.zmdi-more:before {
+                content: '\f136';
+                animation: rotation 500ms;
+            }
+        }
+    }
+}
+
+@keyframes rotation {
+    from {
+        opacity: 0;
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+        opacity: 1;
+    }
+}
