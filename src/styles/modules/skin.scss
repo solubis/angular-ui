@@ -102,15 +102,13 @@
 {
     background-color: $color;
 
-    //.ss-icon { color: $color; }
-
     .ha-menu {
         @media (max-width: $screen-xs-max) {
             background: $color;
         }
     }
 
-    .tmn-counts {
+    .tmn-counts:not(.shadow) {
         border-color: $color !important;
     }
 }

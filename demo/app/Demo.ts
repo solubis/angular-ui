@@ -137,7 +137,7 @@ angular.module('demoControllers', [])
     //  CALENDAR
     // =================================================
 
-    .controller('calendarCtrl', function($modal) {
+    .controller('calendarCtrl', function($uibModal) {
 
         // Create and add Action button with dropdown in Calendar header.
         this.month = 'month';
@@ -169,7 +169,7 @@ angular.module('demoControllers', [])
 
         // Open new event modal on selecting a day
         this.onSelect = function(argStart, argEnd) {
-            $modal.open({
+            $uibModal.open({
                 templateUrl: 'addEvent.html',
                 controller: 'addeventCtrl',
                 backdrop: 'static',
@@ -185,7 +185,7 @@ angular.module('demoControllers', [])
     })
 
     // Add event Controller (Modal Instance)
-    .controller('addeventCtrl', function($scope, $modalInstance, calendarData) {
+    .controller('addeventCtrl', function($scope, $uibModalInstance, calendarData) {
 
         // Calendar Event Data
         $scope.calendarData = {
@@ -232,13 +232,13 @@ angular.module('demoControllers', [])
 
                 $scope.activeState = -1;
                 $scope.calendarData.eventName = '';
-                $modalInstance.close();
+                $uibModalInstance.close();
             }
         };
 
         // Dismiss
         $scope.eventDismiss = function() {
-            $modalInstance.dismiss();
+            $uibModalInstance.dismiss();
         };
     })
 
@@ -545,19 +545,19 @@ angular.module('demoControllers', [])
 
     })
 
-    //  Please note that $modalInstance represents a modal window (instance) dependency.
-    //  It is not the same as the $modal service used above.
+    //  Please note that $uibModalInstance represents a modal window (instance) dependency.
+    //  It is not the same as the $uibModal service used above.
 
-    .controller('ModalInstanceCtrl', function($scope, $modalInstance, content) {
+    .controller('ModalInstanceCtrl', function($scope, $uibModalInstance, content) {
 
         $scope.modalContent = content;
 
         $scope.ok = function() {
-            $modalInstance.close();
+            $uibModalInstance.close();
         };
 
         $scope.cancel = function() {
-            $modalInstance.dismiss('cancel');
+            $uibModalInstance.dismiss('cancel');
         };
     })
 

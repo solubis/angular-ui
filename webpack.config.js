@@ -3,11 +3,11 @@ var path = require('path');
 var webpack = require('webpack')
 var autoprefixer = require('autoprefixer');
 var precss       = require('precss');
-//var ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
     entry: {
         demo: ['./demo/index.ts', 'webpack-dev-server/client?http://localhost:3000'],
+        page: ['./page/index.ts', 'webpack-dev-server/client?http://localhost:3000'],
         components: ['./src/components'],
         core: ['./src/core'],
         vendors: ['./src/vendors.js'],
@@ -49,7 +49,7 @@ module.exports = {
         return [autoprefixer, precss];
     },
     devServer: {
-        contentBase: './demo'
+        contentBase: './page'
     },
     plugins: [
         new webpack.ProvidePlugin({
@@ -57,7 +57,6 @@ module.exports = {
             jQuery: 'jquery',
             'window.jQuery': 'jquery'
         }),
-        //new ExtractTextPlugin("[name].css", { allChunks: true }),
         new webpack.optimize.CommonsChunkPlugin('vendors', '[name].js')
     ]
 };

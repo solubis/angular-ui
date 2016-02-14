@@ -2,17 +2,16 @@
  * Common header classes & IDs
  * Do not remove this
  */
+
 .header-inner {
     list-style: none;
     padding: 17px 0;
     margin-bottom: 0;
     position: relative;
-
     & > li {
         &:not(.pull-right) {
             float: left;
         }
-
         &:not(:last-child) {
             margin-right: -2px;
         }
@@ -28,15 +27,13 @@
     }
 }
 
-#menu-trigger  {
+#menu-trigger {
     width: 65px;
     height: 35px;
     cursor: pointer;
-
     .line-wrap .line {
         background-color: #fff;
     }
-
     &:before {
         content: "";
         position: absolute;
@@ -51,7 +48,6 @@
         @include scale(0);
         z-index: 0;
     }
-
     &.open {
         &:before {
             @include scale(1);
@@ -60,12 +56,9 @@
 }
 
 $top-menu-button-size: 40px;
-
 .top-menu {
-
     list-style: none;
     padding: 0;
-
     & > li {
         display: inline-block;
         position: relative;
@@ -73,23 +66,19 @@ $top-menu-button-size: 40px;
         vertical-align: top;
         min-width: $top-menu-button-size;
         min-height: $top-menu-button-size;
-
         .dropdown-menu-lg {
             padding: 0;
-
             .lv-body {
                 min-height: 295px;
                 overflow-x: hidden;
             }
         }
-
         &:hover {
-            &:not(#toggle-width):before{
+            &:not(#toggle-width):before {
                 @include scale(1);
             }
         }
-
-        &:not(#toggle-width):before{
+        &:not(#toggle-width):before {
             content: "";
             position: absolute;
             top: -4px;
@@ -99,24 +88,20 @@ $top-menu-button-size: 40px;
             border-radius: 50%;
             background: rgba(255, 255, 255, 0.22);
             z-index: 0;
-
             @include scale(0);
             @include transition(all);
             @include transition-duration(200ms);
         }
-
         & > a {
             color: #fff;
             display: block;
             text-align: center;
             z-index: 1;
             position: relative;
-
             & > .tm-icon {
                 font-size: 24px;
                 line-height: 36px;
             }
-
             & > .tm-label {
                 line-height: 35px;
                 white-space: nowrap;
@@ -124,10 +109,8 @@ $top-menu-button-size: 40px;
                 font-size: $font-size-base + 1;
                 text-transform: uppercase;
             }
-
             $tmn-size: 22px;
             $tmn-border: 2px;
-
             & > .tmn-counts {
                 position: absolute;
                 color: $m-white;
@@ -143,17 +126,17 @@ $top-menu-button-size: 40px;
                 line-height: $tmn-size - 2 * $tmn-border;
                 font-size: 11px;
                 background-color: $m-red;
+                &.shadow {
+                    border: 2px solid $m-red;
+                    box-shadow: 0 0 0px rgba(0, 0, 0, .14), 0px 1px 1px rgba(0, 0, 0, .68);
+                }
             }
-
-
         }
     }
-
     @media (max-width: $screen-xs-max) {
         .dropdown-menu-lg {
             width: #{"calc(100% - 28px)"} !important;
         }
-
         .dropdown-menu {
             right: 14px;
             top: 55px;
@@ -163,11 +146,9 @@ $top-menu-button-size: 40px;
 
 #notifications {
     position: relative;
-
     .lv-body {
         overflow-x: hidden;
     }
-
     &:before {
         content: "";
         position: absolute;
@@ -180,47 +161,59 @@ $top-menu-button-size: 40px;
         @include opacity(0);
         top: 42px;
     }
-
     &.empty:before {
         @include scale-rotate(1, 0deg);
         @include opacity(1);
     }
-
 }
 
+
 /* Full Screen */
-:-webkit-full-screen [data-action="fullscreen"] { display: none; }
-:-moz-full-screen [data-action="fullscreen"] { display: none; }
-:-ms-fullscreen [data-action="fullscreen"] { display: none; }
-:full-screen [data-action="fullscreen"] { display: none; }
-:fullscreen [data-action="fullscreen"] { display: none; }
+
+:-webkit-full-screen [data-action="fullscreen"] {
+    display: none;
+}
+
+:-moz-full-screen [data-action="fullscreen"] {
+    display: none;
+}
+
+:-ms-fullscreen [data-action="fullscreen"] {
+    display: none;
+}
+
+:full-screen [data-action="fullscreen"] {
+    display: none;
+}
+
+:fullscreen [data-action="fullscreen"] {
+    display: none;
+}
+
 
 /* ----------------------------- End common header classes and IDs------------------------------------- */
-
 
 
 /*
  * For header type 1 only
  * You may remove these if you opt header 2
  */
+
 #header {
     box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.3);
     height: $header-height;
     @include user-select(none);
-
     &:not(.sidebar-toggled) {
         &.header-up {
             @include translate3d(0, -70px, 0);
         }
     }
-
     position: fixed;
     z-index: 11;
     width: 100%;
     left: 0;
     top: 0;
     padding: 0 11px;
-
     .logo a {
         padding: 7px 10px;
     }
@@ -237,7 +230,6 @@ $top-menu-button-size: 40px;
     @include transition-duration(300ms);
     @include opacity(0);
     z-index: 10;
-
     input[type="text"] {
         border: 0;
         height: 40px;
@@ -248,7 +240,6 @@ $top-menu-button-size: 40px;
         background-color: darken($gray-lightest, 3%);
         width: 100%;
     }
-
     #top-search-close {
         position: absolute;
         top: 15px;
@@ -261,11 +252,9 @@ $top-menu-button-size: 40px;
         left: 15px;
         height: 40px;
         padding-top: 9px;
-
         &:hover {
             background-color: darken($gray-lightest, 8%);
         }
-
         @media (max-width: $screen-xs-max) {
             right: 7px;
         }
@@ -287,34 +276,31 @@ $top-menu-button-size: 40px;
     }
 }
 
+
 /* Full Width Layout */
+
 #toggle-width {
     @media(min-width: $screen-lg-min) {
         .toggle-switch {
             margin: 9px 30px 0 0;
-
             .ts-helper {
                 height: 11px;
                 width: 33px;
-
                 &:before {
                     width: 20px;
                     height: 20px;
                     top: -5px;
                 }
             }
-
             input:checked + .ts-helper {
                 background: rgba(0, 0, 0, 0.26);
                 &:before {
                     left: 18px;
                     background: #fff;
                 }
-
             }
         }
     }
-
     @media(max-width: $screen-lg-min) {
         display: none;
     }
@@ -325,14 +311,15 @@ $top-menu-button-size: 40px;
         #header {
             padding-left: 15px;
         }
-
         #menu-trigger {
             display: none;
         }
     }
 }
 
+
 /* For Stupid IE9 */
+
 .ie9 {
     #header:not(.sidebar-toggled) {
         &.header-up {
@@ -341,8 +328,8 @@ $top-menu-button-size: 40px;
     }
 }
 
-/* ----------------------------- End header type 1 ------------------------------------- */
 
+/* ----------------------------- End header type 1 ------------------------------------- */
 
 
 /*
@@ -355,28 +342,23 @@ $top-menu-button-size: 40px;
     position: relative;
     z-index: 10;
     margin-bottom: -70px;
-
     @media (min-width: $screen-sm-min) {
         padding: 15px 30px 0;
-
         &:before {
             content: "";
             position: absolute;
             bottom: 0;
             left: 0;
-            background: rgba(0,0,0,0.04);
+            background: rgba(0, 0, 0, 0.04);
             width: 100%;
             height: 49px;
         }
     }
-
     .search {
         margin-bottom: 25px;
-
         @media (max-width: $screen-xs-max) {
             padding: 0 20px
         }
-
         input[type="text"] {
             width: 100%;
             background: transparent;
@@ -386,24 +368,17 @@ $top-menu-button-size: 40px;
             font-size: 15px;
             font-weight: 300;
             padding: 6px 0 6px 30px;
-
             @include placeholder(#fff);
         }
-
-
-
         &:after {
             background: $m-yellow;
         }
-
         .fg-line {
             max-width: 500px;
             position: relative;
-
             &:after {
                 background: $m-yellow;
             }
-
             &:before {
                 content: '\f1c3';
                 font-family: $icon-font-name;
@@ -422,46 +397,37 @@ $top-menu-button-size: 40px;
         list-style: none;
         padding: 0;
         margin: 0;
-
         & > li {
             display: inline-block;
             vertical-align: top;
-
             @media (max-width: $screen-xs-max) {
                 display: block;
             }
-
             &:not(.active) > *:not(ul) {
-                color: rgba(255,255,255,0.6);
+                color: rgba(255, 255, 255, 0.6);
             }
-
             &.active > *:not(ul) {
                 color: #fff;
                 box-shadow: inset 0px -3px 0 0px $m-yellow;
-
                 @media (max-width: $screen-xs-max) {
                     display: block;
                 }
             }
-
             & > *:not(ul) {
                 text-transform: uppercase;
                 padding: 15px 12px;
                 display: block;
             }
-
             &.open > *:not(ul),
             & > *:not(ul):hover {
                 color: #fff;
             }
-
             .dropdown-menu {
                 margin-top: -5px;
                 min-width: 100%;
             }
         }
     }
-
     @media (max-width: $screen-xs-max) {
         width: 200px;
         position: absolute;
@@ -470,7 +436,6 @@ $top-menu-button-size: 40px;
         box-shadow: 0 0 10px;
         z-index: 10;
         padding: 0 10px;
-
         &:not(.toggled) {
             display: none;
         }
